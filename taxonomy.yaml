@@ -1,0 +1,321 @@
+# Readable Legislature — Demographic Taxonomy & Scoring Contract
+# ---------------------------------------------------------------
+# Single source of truth for:
+#   1. The impact-scoring rubric (the 0/1/2 contract)
+#   2. Every demographic dimension and its values
+#
+# The pipeline loads this file and loops over `dimensions`,
+# issuing ONE LLM call per dimension. All values in a dimension
+# are scored together in that call so the model calibrates them
+# against one another (e.g. construction vs. tech vs. healthcare).
+#
+# ID STABILITY: `id` fields are contracts. Stored scores in the
+# database reference these ids, so once a bill has been scored,
+# an id must never change. Labels, guidance, and descriptions
+# can be reworded freely at any time — they are for humans and
+# for LLM disambiguation, not for storage keys.
+
+# ===============================================================
+# Expected LLM output (per dimension call)
+# ---------------------------------------------------------------
+# A JSON object mapping each value `id` in the dimension to:
+#   { "score": <0|1|2>, "reason": "<1-3 sentences>" }
+#
+# `reason` carries real weight here: for moderate/speculative
+# scores it is the user-facing explanation of WHY a bill might
+# matter to them, so allow up to three sentences. For clearly
+# irrelevant values (score 0) a single short sentence is fine —
+# no need to spend tokens justifying a non-effect.
+#
+# NEUTRALITY: the reason must NOT say whether the effect is good
+# or bad for the group. This product reports relevance, not a
+# verdict — direction is the reader's call, informed by the bill
+# summary, never the model's.
+#
+# Example for the `housing_status` dimension:
+#   {
+#     "homeowner": { "score": 2, "reason": "Alters mortgage..." },
+#     "renter":    { "score": 1, "reason": "Indirectly shifts..." },
+#     "other":     { "score": 0, "reason": "No meaningful effect." }
+#   }
+#
+# The pipeline (not the LLM) attaches bill_id, dimension_id,
+# model/prompt version, and timestamp to the stored row.
+# ===============================================================
+
+# ===============================================================
+# Scoring contract — inject this block into every prompt
+# ===============================================================
+scoring:
+  scale:
+    - value: 0
+      label: low
+      definition: >
+        Essentially irrelevant to this group. The bill does not
+        meaningfully touch their lives.
+    - value: 1
+      label: moderate
+      definition: >
+        First-order indirect effect only. The group is affected,
+        but through a single step of consequence rather than
+        being the direct subject of the bill.
+    - value: 2
+      label: high
+      definition: >
+        Direct and immediate effect. The group is an explicit
+        subject of the bill and feels its effect firsthand.
+  rules:
+    - "Score only first-order indirect effects as moderate (1)."
+    - "Do not count second-order or further ripple effects."
+    - "Judge impact on the specific value, not the dimension."
+    - "Most values for most bills will be 0; that is expected."
+    - >
+      Keep `reason` to at most three sentences. Use the room for
+      moderate or speculative scores; keep score-0 reasons to one
+      short sentence.
+
+# ===============================================================
+# Dimensions
+# ---------------------------------------------------------------
+# `type`:
+#   binary      — two mutually exclusive values
+#   categorical — unordered set of >2 values
+#   bracket     — ordered, mutually exclusive ranges
+#
+# NEGATIVE-SPACE VALUES (e.g. non_veteran, no_disability):
+#   Included for regularity, but a bill rarely has impact on the
+#   ABSENCE of a trait. You may skip scoring these at prompt-build
+#   time to save tokens. They are tagged `score_complement: false`
+#   so the loop can decide whether to include them.
+# ===============================================================
+dimensions:
+
+  # ---- Binary / near-binary ------------------------------------
+  - id: veteran_status
+    label: "Veteran status"
+    type: binary
+    values:
+      - id: veteran
+        label: "Veteran"
+        description: >
+          Has served in the U.S. armed forces, including reserves
+          and National Guard with qualifying service.
+      - id: non_veteran
+        label: "Non-veteran"
+        score_complement: false
+
+  - id: disability_status
+    label: "Disability status"
+    type: binary
+    values:
+      - id: has_disability
+        label: "Has a disability"
+        description: >
+          Self-identified physical, mental, sensory, or cognitive
+          disability, whether or not formally adjudicated.
+      - id: no_disability
+        label: "No disability"
+        score_complement: false
+
+  - id: student_status
+    label: "Student status"
+    type: binary
+    values:
+      - id: student
+        label: "Student"
+        description: >
+          Currently enrolled in K-12, undergraduate, graduate,
+          or trade/vocational education.
+      - id: non_student
+        label: "Non-student"
+        score_complement: false
+
+  - id: caregiver_status
+    label: "Parent / caregiver status"
+    type: categorical
+    guidance: >
+      A person may match more than one value in real life
+      (e.g. a parent who also cares for an aging relative);
+      for MVP the user selects one. Score each value on its own.
+    values:
+      - id: parent_of_minor
+        label: "Parent of a minor child"
+        description: "Has at least one child under 18."
+      - id: caregiver_of_adult
+        label: "Caregiver of a dependent adult"
+        description: >
+          Provides regular unpaid care to a dependent adult,
+          such as an aging or disabled relative.
+      - id: neither
+        label: "Neither"
+        score_complement: false
+
+  - id: housing_status
+    label: "Housing status"
+    type: categorical
+    values:
+      - id: homeowner
+        label: "Homeowner"
+      - id: renter
+        label: "Renter"
+      - id: other
+        label: "Other"
+        description: >
+          Living arrangements outside owning or renting, e.g.
+          living with family, unhoused, institutional housing.
+
+  - id: citizenship_status
+    label: "Citizenship status"
+    type: categorical
+    values:
+      - id: citizen
+        label: "U.S. citizen"
+      - id: permanent_resident
+        label: "Lawful permanent resident"
+        description: "Green-card holder; not a citizen."
+      - id: other_status
+        label: "Other immigration status"
+        description: >
+          Visa holders, asylees, undocumented persons, and any
+          status other than citizen or permanent resident.
+
+  - id: marital_status
+    label: "Marital status"
+    type: categorical
+    values:
+      - id: single
+        label: "Single (never married)"
+      - id: married
+        label: "Married"
+      - id: divorced_widowed
+        label: "Divorced or widowed"
+
+  # ---- Bracketed -----------------------------------------------
+  - id: age
+    label: "Age"
+    type: bracket
+    guidance: >
+      Brackets are tuned to where federal policy pivots:
+      schooling/early adulthood, family formation, peak
+      earning, pre-retirement, and Medicare eligibility.
+    values:
+      - id: under_25
+        label: "Under 25"
+      - id: age_26_40
+        label: "26-40"
+      - id: age_41_55
+        label: "41-55"
+      - id: age_56_65
+        label: "56-65"
+      - id: age_66_plus
+        label: "66 and older"
+
+  - id: income
+    label: "Household income"
+    type: bracket
+    guidance: >
+      Coarse brackets roughly aligned with federal tax tiers.
+      Treat as annual household income.
+    values:
+      - id: under_30k
+        label: "Under $30k"
+      - id: income_30k_60k
+        label: "$30k-$60k"
+      - id: income_60k_120k
+        label: "$60k-$120k"
+      - id: income_120k_250k
+        label: "$120k-$250k"
+      - id: income_250k_plus
+        label: "$250k and above"
+
+  - id: occupation
+    label: "Occupation"
+    type: categorical
+    guidance: >
+      Score the occupation a bill targets through labor,
+      licensing, safety, funding, or industry-specific rules.
+      Buckets are adapted from BLS major groups.
+    values:
+      - id: education
+        label: "Education"
+        description: "Teachers, faculty, school staff."
+      - id: healthcare
+        label: "Healthcare"
+        description: >
+          Clinical and allied health workers: doctors, nurses,
+          aides, technicians, pharmacists.
+      - id: construction_trades
+        label: "Construction & trades"
+        description: >
+          Skilled and manual trades; on-site building work.
+      - id: agriculture
+        label: "Agriculture"
+        description: "Farming, ranching, fishing, forestry."
+      - id: transportation_logistics
+        label: "Transportation & logistics"
+        description: >
+          Drivers, pilots, warehouse and supply-chain workers.
+      - id: public_sector_first_responders
+        label: "Public sector & first responders"
+        description: >
+          Government employees, police, fire, EMS, military.
+      - id: professional_office
+        label: "Professional & office"
+        description: >
+          White-collar roles: finance, law, admin, management.
+      - id: retail_service
+        label: "Retail & service"
+        description: >
+          Retail, hospitality, food service, personal services.
+      - id: technology
+        label: "Technology"
+        description: "Software, IT, hardware, and related roles."
+      - id: other
+        label: "Other"
+        description: >
+          Occupations not captured above. Track selection rate;
+          frequent use is a signal to add a bucket.
+
+  # ---- Identity ------------------------------------------------
+  - id: gender
+    label: "Gender"
+    type: categorical
+    values:
+      - id: male
+        label: "Male"
+      - id: female
+        label: "Female"
+      - id: nonbinary_other
+        label: "Nonbinary or other"
+
+  - id: sexual_orientation
+    label: "Sexual orientation"
+    type: binary
+    values:
+      - id: straight
+        label: "Straight"
+      - id: lgbtq
+        label: "LGBTQ+"
+        description: >
+          Lesbian, gay, bisexual, transgender, queer, and other
+          sexual or gender minority identities. May be split into
+          finer values later if bills differentiate.
+
+  - id: religion
+    label: "Religion"
+    type: categorical
+    values:
+      - id: christian
+        label: "Christian"
+      - id: jewish
+        label: "Jewish"
+      - id: muslim
+        label: "Muslim"
+      - id: hindu
+        label: "Hindu"
+      - id: buddhist
+        label: "Buddhist"
+      - id: other_faith
+        label: "Other faith"
+      - id: none
+        label: "No religious affiliation"
