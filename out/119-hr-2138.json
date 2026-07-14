@@ -1,0 +1,667 @@
+{
+  "bill_id": "119-hr-2138",
+  "bill": {
+    "congress": 119,
+    "type": "HR",
+    "number": 2138,
+    "title": "Veterans’ Compensation Cost-of-Living Adjustment Act of 2025",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/2138",
+    "text_version_type": "Introduced in House",
+    "text_source_url": "https://www.congress.gov/119/bills/hr2138/BILLS-119hr2138ih.htm"
+  },
+  "fetched_at": "2026-07-07T04:07:04Z",
+  "model": "claude-opus-4-8",
+  "samples": 3,
+  "scores": {
+    "veteran_status": {
+      "veteran": {
+        "score": 2,
+        "reason": "The bill directly increases disability compensation rates for veterans with service-connected disabilities, making them explicit and immediate subjects.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      }
+    },
+    "disability_status": {
+      "has_disability": {
+        "score": 2,
+        "reason": "The bill directly increases disability compensation rates for veterans with service-connected disabilities, making people with disabilities an explicit and immediate subject.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      }
+    },
+    "student_status": {
+      "student": {
+        "score": 0,
+        "reason": "This bill adjusts veterans' disability and survivor compensation rates and has no bearing on student status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_loan_status": {
+      "has_student_loans": {
+        "score": 0,
+        "reason": "This bill adjusts veterans' disability and survivor compensation rates and has nothing to do with student loans.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "caregiver_status": {
+      "parent_of_minor": {
+        "score": 1,
+        "reason": "The bill increases additional compensation for dependents and dependency and indemnity compensation to children, so veteran or survivor households with minor children receive amounts that vary with having dependent children.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "caregiver_of_adult": {
+        "score": 0,
+        "reason": "The bill adjusts compensation rates for veterans and survivors and does not target caregivers of dependent adults.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "housing_status": {
+      "homeowner": {
+        "score": 0,
+        "reason": "Veterans' compensation COLA increase applies identically regardless of housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "renter": {
+        "score": 0,
+        "reason": "The benefit adjustment does not vary by whether a recipient rents.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "Housing arrangement has no bearing on eligibility or effect of this compensation increase.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "citizenship_status": {
+      "citizen": {
+        "score": 0,
+        "reason": "Veterans' benefits eligibility does not turn on citizenship status; the COLA increase applies identically regardless of this trait.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "permanent_resident": {
+        "score": 0,
+        "reason": "Non-citizen veterans and survivors can qualify for these benefits; the bill's effect does not differ based on citizenship status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_status": {
+        "score": 0,
+        "reason": "The bill's effect does not vary by immigration status; eligibility is based on veteran/survivor status, not citizenship.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "marital_status": {
+      "single": {
+        "score": 0,
+        "reason": "Disabled veterans receive base compensation regardless of marital status; being never-married does not create a distinct trait-dependent effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "married": {
+        "score": 2,
+        "reason": "The bill increases additional compensation for dependents under section 1115(1), which includes a spouse, so married veterans are directly and firsthand affected by the marital-status-dependent add-on.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "divorced": {
+        "score": 0,
+        "reason": "DIC and dependent compensation attach to current spouses and survivors, not divorced spouses, so divorced status is essentially irrelevant here.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "widowed": {
+        "score": 2,
+        "reason": "The bill directly increases dependency and indemnity compensation to surviving spouses under section 1311, making widowed survivors an explicit subject of the bill.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      }
+    },
+    "age": {
+      "under_18": {
+        "score": 1,
+        "reason": "The bill explicitly adjusts dependency and indemnity compensation payable to surviving children (sections 1313(a) and 1314), a benefit tied specifically to minor children, so this age group is a direct subject of part of the bill.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 2,
+          "2": 1
+        }
+      },
+      "age_18_25": {
+        "score": 1,
+        "reason": "Children's DIC can extend to student dependents up to age 23, so some in this bracket are directly affected by the rate increase, though most young adults are not addressed.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "age_26_49": {
+        "score": 0,
+        "reason": "Veterans and survivors of this age are affected, but the compensation increase applies identically regardless of age.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_50_64": {
+        "score": 0,
+        "reason": "The adjustment applies to veterans and survivors identically regardless of age.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_65_plus": {
+        "score": 0,
+        "reason": "Although many veterans are elderly, the rate increase applies identically across ages, so age itself does not change the effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "income": {
+      "under_30k": {
+        "score": 0,
+        "reason": "VA disability and DIC compensation are not means-tested; the COLA increase applies identically regardless of household income.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      "income_30k_60k": {
+        "score": 0,
+        "reason": "Benefit increase does not vary by income level.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      "income_60k_120k": {
+        "score": 0,
+        "reason": "Benefit increase does not vary by income level.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_120k_250k": {
+        "score": 0,
+        "reason": "Benefit increase does not vary by income level.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_250k_plus": {
+        "score": 0,
+        "reason": "Benefit increase does not vary by income level.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "occupation": {
+      "education": {
+        "score": 0,
+        "reason": "Not related to teaching or school staff.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "healthcare": {
+        "score": 0,
+        "reason": "Does not target clinical or allied health workers.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "construction_trades": {
+        "score": 0,
+        "reason": "No connection to trades work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "manufacturing": {
+        "score": 0,
+        "reason": "Not relevant to industrial or production work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "agriculture": {
+        "score": 0,
+        "reason": "No connection to farming or fishing.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "transportation_logistics": {
+        "score": 0,
+        "reason": "Not relevant to drivers or logistics work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "public_sector_first_responders": {
+        "score": 1,
+        "reason": "The bill benefits veterans whose qualifying trait is prior military service, which falls under this bucket; however, the compensation depends on veteran/disability status rather than current occupation, so the tie is indirect.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "professional_office": {
+        "score": 0,
+        "reason": "Does not target white-collar office roles.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retail_service": {
+        "score": 0,
+        "reason": "No connection to retail or service work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "technology": {
+        "score": 0,
+        "reason": "Not relevant to tech occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No distinct occupational group beyond veterans is targeted.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "employment_status": {
+      "employee": {
+        "score": 0,
+        "reason": "The bill adjusts veterans' compensation rates and applies regardless of employment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "self_employed_owner": {
+        "score": 0,
+        "reason": "Not relevant to self-employment; benefits flow to veterans irrespective of work relationship.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "unemployed": {
+        "score": 0,
+        "reason": "The compensation increase does not depend on whether a recipient is seeking work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retired": {
+        "score": 0,
+        "reason": "Benefits are tied to veteran/survivor status, not retirement; effect identical across statuses.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "not_in_labor_force": {
+        "score": 0,
+        "reason": "Though some disabled veterans may be unable to work, the bill's effect derives from veteran status, not labor-force position.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "health_coverage": {
+      "employer_plan": {
+        "score": 0,
+        "reason": "Bill adjusts cash disability/survivor compensation and does not affect employer health plans.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicare": {
+        "score": 0,
+        "reason": "No connection to Medicare coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicaid": {
+        "score": 0,
+        "reason": "No connection to Medicaid/CHIP.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "marketplace_individual": {
+        "score": 0,
+        "reason": "No connection to ACA marketplace or individual plans.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "va_tricare": {
+        "score": 1,
+        "reason": "The bill's subjects are disabled veterans and their survivors, who heavily rely on VA/TRICARE coverage, though the adjustment is cash compensation rather than a change to health coverage itself.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      },
+      "uninsured": {
+        "score": 0,
+        "reason": "No effect on insurance status; the bill only changes compensation payment rates.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "gender": {
+      "male": {
+        "score": 0,
+        "reason": "The COLA adjustment applies to veterans and survivors regardless of gender; veteran male overrepresentation is not trait-dependence.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "female": {
+        "score": 0,
+        "reason": "Benefits apply identically regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "nonbinary_other": {
+        "score": 0,
+        "reason": "Benefits apply identically regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "lgbtq_identity": {
+      "lgbtq": {
+        "score": 0,
+        "reason": "This bill adjusts veterans' disability and survivor compensation rates and has no differential effect based on LGBTQ+ identity.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "religion": {
+      "christian": {
+        "score": 0,
+        "reason": "Veterans' COLA adjustment applies regardless of religion.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "jewish": {
+        "score": 0,
+        "reason": "No religious dimension to this benefits bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "muslim": {
+        "score": 0,
+        "reason": "No religious dimension to this benefits bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "hindu": {
+        "score": 0,
+        "reason": "No religious dimension to this benefits bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "buddhist": {
+        "score": 0,
+        "reason": "No religious dimension to this benefits bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_faith": {
+        "score": 0,
+        "reason": "No religious dimension to this benefits bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "none": {
+        "score": 0,
+        "reason": "No religious dimension to this benefits bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    }
+  },
+  "target_groups": [
+    {
+      "conditions": [
+        {
+          "dimension": "veteran_status",
+          "value": "veteran"
+        },
+        {
+          "dimension": "disability_status",
+          "value": "has_disability"
+        }
+      ],
+      "other_criteria": [
+        "service-connected disability",
+        "receives VA disability compensation"
+      ],
+      "reason": "The bill directly increases disability compensation rates for veterans with service-connected disabilities.",
+      "agreement": 1.0
+    },
+    {
+      "conditions": [],
+      "other_criteria": [
+        "surviving spouse of a deceased disabled veteran",
+        "receives dependency and indemnity compensation"
+      ],
+      "reason": "The bill increases dependency and indemnity compensation paid to surviving spouses of certain disabled veterans.",
+      "agreement": 0.67
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "marital_status",
+          "value": "widowed"
+        }
+      ],
+      "other_criteria": [
+        "surviving spouse of certain deceased disabled veteran",
+        "receives dependency and indemnity compensation"
+      ],
+      "reason": "The bill increases dependency and indemnity compensation payable to surviving spouses of certain disabled veterans.",
+      "agreement": 0.67
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "age",
+          "value": "under_18"
+        }
+      ],
+      "other_criteria": [
+        "child/survivor of certain deceased disabled veteran",
+        "receives dependency and indemnity compensation"
+      ],
+      "reason": "The bill increases dependency and indemnity compensation payable to surviving children of certain disabled veterans.",
+      "agreement": 0.33
+    }
+  ],
+  "validation": {
+    "veteran_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "disability_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_loan_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "caregiver_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "housing_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "citizenship_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "marital_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "age": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "income": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "occupation": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "employment_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "health_coverage": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "gender": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "lgbtq_identity": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "religion": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "target_groups": {
+      "unknown_ids": []
+    }
+  }
+}

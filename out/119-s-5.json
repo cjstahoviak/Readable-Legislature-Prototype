@@ -1,0 +1,622 @@
+{
+  "bill_id": "119-s-5",
+  "bill": {
+    "congress": 119,
+    "type": "S",
+    "number": 5,
+    "title": "Laken Riley Act",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-bill/5",
+    "text_version_type": "Public Law",
+    "text_source_url": "https://www.congress.gov/119/plaws/publ1/PLAW-119publ1.htm"
+  },
+  "fetched_at": "2026-07-07T04:09:15Z",
+  "model": "claude-opus-4-8",
+  "samples": 3,
+  "scores": {
+    "veteran_status": {
+      "veteran": {
+        "score": 0,
+        "reason": "This immigration detention bill applies to aliens and states; veteran status is irrelevant to its effects.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "disability_status": {
+      "has_disability": {
+        "score": 0,
+        "reason": "The bill concerns detention and removal of aliens charged with certain crimes; it has no differential effect based on disability status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_status": {
+      "student": {
+        "score": 0,
+        "reason": "This immigration detention bill has no differential effect based on student enrollment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_loan_status": {
+      "has_student_loans": {
+        "score": 0,
+        "reason": "This immigration detention bill has no relevance to federal student loan borrowers.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "caregiver_status": {
+      "parent_of_minor": {
+        "score": 0,
+        "reason": "This immigration detention bill applies regardless of parental status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "caregiver_of_adult": {
+        "score": 0,
+        "reason": "The bill has no bearing on caregivers of dependent adults.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "housing_status": {
+      "homeowner": {
+        "score": 0,
+        "reason": "This immigration detention bill has no differential effect based on homeownership.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "renter": {
+        "score": 0,
+        "reason": "The bill's effects do not vary by rental housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "Immigration enforcement effects here are unrelated to living arrangements.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "citizenship_status": {
+      "citizen": {
+        "score": 0,
+        "reason": "The bill targets inadmissible aliens for detention and removal; citizens are not subject to these immigration enforcement provisions.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "permanent_resident": {
+        "score": 0,
+        "reason": "The bill applies to aliens inadmissible under specific INA provisions relating to unlawful entry or fraud, not to lawful permanent residents as such.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_status": {
+        "score": 2,
+        "reason": "The bill directly subjects aliens who are inadmissible and charged with, arrested for, or convicted of theft-related offenses to mandatory detention and expedited removal. Undocumented persons and other non-citizens without lawful status are the explicit subjects of these enforcement provisions.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      }
+    },
+    "marital_status": {
+      "single": {
+        "score": 0,
+        "reason": "This immigration detention bill applies regardless of marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "married": {
+        "score": 0,
+        "reason": "The bill's effects do not vary by marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "divorced": {
+        "score": 0,
+        "reason": "No survivor or divorced-spouse provisions are implicated by this immigration enforcement bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "widowed": {
+        "score": 0,
+        "reason": "No provisions attach to widowhood in this bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "age": {
+      "under_18": {
+        "score": 0,
+        "reason": "Immigration detention rules apply regardless of age; no child-specific provisions.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_18_25": {
+        "score": 0,
+        "reason": "The Act's effect on aliens charged with theft does not vary by age.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_26_49": {
+        "score": 0,
+        "reason": "Detention and enforcement provisions apply identically across adult age groups.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_50_64": {
+        "score": 0,
+        "reason": "No age-dependent effect in the bill's immigration enforcement provisions.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_65_plus": {
+        "score": 0,
+        "reason": "The bill's effects do not differ based on age.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "income": {
+      "under_30k": {
+        "score": 0,
+        "reason": "The bill concerns detention of certain aliens and state enforcement authority; its effect does not vary by household income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_30k_60k": {
+        "score": 0,
+        "reason": "No income-dependent effect; the bill targets immigration detention regardless of income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_60k_120k": {
+        "score": 0,
+        "reason": "No income-dependent effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_120k_250k": {
+        "score": 0,
+        "reason": "No income-dependent effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_250k_plus": {
+        "score": 0,
+        "reason": "No income-dependent effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "occupation": {
+      "education": {
+        "score": 0,
+        "reason": "No relevance to teachers or school staff.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "healthcare": {
+        "score": 0,
+        "reason": "No relevance to clinical or allied health workers.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "construction_trades": {
+        "score": 0,
+        "reason": "Immigration detention law does not target construction trades.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "manufacturing": {
+        "score": 0,
+        "reason": "No industry-specific effect on manufacturing work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "agriculture": {
+        "score": 0,
+        "reason": "No agriculture-specific provisions.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "transportation_logistics": {
+        "score": 0,
+        "reason": "No relevance to transportation or logistics work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "public_sector_first_responders": {
+        "score": 1,
+        "reason": "The bill directs DHS and law enforcement to detain and take custody of certain aliens, and references assault of law enforcement officers, directly bearing on the duties of immigration enforcement officers and police. State attorneys general are given standing to sue, engaging government legal officials.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "professional_office": {
+        "score": 0,
+        "reason": "No occupation-specific effect on office or legal professions generally.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retail_service": {
+        "score": 0,
+        "reason": "No industry-specific effect on retail or service work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "technology": {
+        "score": 0,
+        "reason": "No relevance to technology occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No occupation-specific effect on other fields.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "employment_status": {
+      "employee": {
+        "score": 0,
+        "reason": "Immigration detention bill has no effect that varies by employment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "self_employed_owner": {
+        "score": 0,
+        "reason": "No relevance to self-employment or business ownership.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "unemployed": {
+        "score": 0,
+        "reason": "No relevance to unemployment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retired": {
+        "score": 0,
+        "reason": "No relevance to retirement status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "not_in_labor_force": {
+        "score": 0,
+        "reason": "No relevance to those out of the labor force.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "health_coverage": {
+      "employer_plan": {
+        "score": 0,
+        "reason": "This immigration detention bill has no bearing on health insurance source.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicare": {
+        "score": 0,
+        "reason": "No connection to Medicare coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicaid": {
+        "score": 0,
+        "reason": "No connection to Medicaid/CHIP.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "marketplace_individual": {
+        "score": 0,
+        "reason": "No connection to ACA marketplace coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "va_tricare": {
+        "score": 0,
+        "reason": "No connection to VA/TRICARE coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "uninsured": {
+        "score": 0,
+        "reason": "The bill concerns detention of certain aliens and does not affect health coverage status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "gender": {
+      "male": {
+        "score": 0,
+        "reason": "The bill concerns detention of aliens charged with certain crimes and applies regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "female": {
+        "score": 0,
+        "reason": "The bill's effects do not vary by gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "nonbinary_other": {
+        "score": 0,
+        "reason": "The bill's effects do not vary by gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "lgbtq_identity": {
+      "lgbtq": {
+        "score": 0,
+        "reason": "This immigration detention bill applies regardless of sexual orientation or gender identity.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "religion": {
+      "christian": {
+        "score": 0,
+        "reason": "Immigration detention bill with no religious dimension; effect is identical across faiths.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "jewish": {
+        "score": 0,
+        "reason": "No religious targeting or differential effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "muslim": {
+        "score": 0,
+        "reason": "No religious targeting or differential effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "hindu": {
+        "score": 0,
+        "reason": "No religious targeting or differential effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "buddhist": {
+        "score": 0,
+        "reason": "No religious targeting or differential effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_faith": {
+        "score": 0,
+        "reason": "No religious targeting or differential effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "none": {
+        "score": 0,
+        "reason": "No religious targeting or differential effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    }
+  },
+  "target_groups": [
+    {
+      "conditions": [
+        {
+          "dimension": "citizenship_status",
+          "value": "other_status"
+        }
+      ],
+      "other_criteria": [
+        "inadmissible aliens under INA 212(a)(6)(A),(6)(C), or (7)",
+        "charged with, arrested for, convicted of, or admitting burglary, theft, larceny, shoplifting, assault of a law enforcement officer, or a crime causing death or serious bodily injury"
+      ],
+      "reason": "The bill mandates that DHS detain and issue detainers for inadmissible non-citizens who are charged with or commit the specified offenses, making them the direct subject.",
+      "agreement": 1.0
+    }
+  ],
+  "validation": {
+    "veteran_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "disability_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_loan_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "caregiver_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "housing_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "citizenship_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "marital_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "age": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "income": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "occupation": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "employment_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "health_coverage": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "gender": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "lgbtq_identity": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "religion": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "target_groups": {
+      "unknown_ids": []
+    }
+  }
+}

@@ -1,0 +1,666 @@
+{
+  "bill_id": "119-hr-22",
+  "bill": {
+    "congress": 119,
+    "type": "HR",
+    "number": 22,
+    "title": "SAVE Act",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/22",
+    "text_version_type": "Engrossed in House",
+    "text_source_url": "https://www.congress.gov/119/bills/hr22/BILLS-119hr22eh.htm"
+  },
+  "fetched_at": "2026-07-07T04:11:00Z",
+  "model": "claude-opus-4-8",
+  "samples": 3,
+  "scores": {
+    "veteran_status": {
+      "veteran": {
+        "score": 1,
+        "reason": "The bill's list of acceptable documentary proof of citizenship specifically includes a U.S. military identification card together with a military service record showing U.S. birthplace, a document option uniquely available to those with military service. This creates a trait-specific pathway for veterans that differs from the general population's registration process.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      }
+    },
+    "disability_status": {
+      "has_disability": {
+        "score": 1,
+        "reason": "The bill's citizenship-proof requirements apply to all voters equally, but it explicitly directs states to ensure reasonable accommodations so individuals with disabilities can present documentary proof, giving them a distinct first-order interaction with the process.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      }
+    },
+    "student_status": {
+      "student": {
+        "score": 0,
+        "reason": "The bill's proof-of-citizenship registration requirement applies uniformly to all voter registration applicants regardless of student status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_loan_status": {
+      "has_student_loans": {
+        "score": 0,
+        "reason": "This bill concerns proof of citizenship for voter registration and has no bearing on student loan borrowers.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "caregiver_status": {
+      "parent_of_minor": {
+        "score": 0,
+        "reason": "The bill concerns voter registration citizenship proof requirements and does not affect people differently based on parenting minor children.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "caregiver_of_adult": {
+        "score": 0,
+        "reason": "The bill's voter registration requirements do not vary based on whether someone cares for a dependent adult.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "housing_status": {
+      "homeowner": {
+        "score": 0,
+        "reason": "This voter registration citizenship bill applies identically regardless of housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "renter": {
+        "score": 0,
+        "reason": "The bill's requirements do not vary by housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "Voter registration proof requirements apply the same regardless of living arrangement.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "citizenship_status": {
+      "citizen": {
+        "score": 2,
+        "reason": "Citizens are the direct subject: to register to vote in federal elections they must now present documentary proof of U.S. citizenship, a firsthand new burden on every registering citizen.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "permanent_resident": {
+        "score": 2,
+        "reason": "As noncitizens, lawful permanent residents are explicit subjects of the bill's screening: they cannot register, are subject to citizenship-verification checks against databases, and face removal from rolls if registered.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "other_status": {
+        "score": 2,
+        "reason": "Visa holders, asylees, and undocumented persons are explicit subjects targeted by the bill, including verification, exclusion from registration, and referral of unlawfully registered aliens for removal proceedings.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      }
+    },
+    "marital_status": {
+      "single": {
+        "score": 0,
+        "reason": "Never-married applicants are unlikely to face birth-certificate name mismatches, and the bill's registration rules do not otherwise turn on marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "married": {
+        "score": 1,
+        "reason": "Applicants who changed their surname upon marriage may have a birth certificate that no longer matches their current name, triggering the bill's discrepancy-resolution process; this effect flows specifically from a marriage-based name change.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "divorced": {
+        "score": 1,
+        "reason": "Those who changed or reverted their name through divorce may encounter name mismatches between their birth certificate and current identification, invoking the bill's documentary-discrepancy procedures.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "widowed": {
+        "score": 1,
+        "reason": "Widowed applicants who took or retained a spouse's name may face birth-certificate name discrepancies under the proof-of-citizenship requirement, an effect tied to marriage-related name change.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      }
+    },
+    "age": {
+      "under_18": {
+        "score": 0,
+        "reason": "Voter registration for federal elections generally requires being 18, so minors are essentially unaffected by these registration proof requirements.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_18_25": {
+        "score": 1,
+        "reason": "This bracket includes people newly aging into voting eligibility who must register for the first time and thus directly encounter the new documentary-proof-of-citizenship requirement, an age-linked first-time event.",
+        "agreement": 0.33,
+        "votes": {
+          "0": 1,
+          "1": 1,
+          "2": 1
+        }
+      },
+      "age_26_49": {
+        "score": 0,
+        "reason": "The proof-of-citizenship registration requirement applies identically to all adult registrants regardless of this age bracket.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "2": 1
+        }
+      },
+      "age_50_64": {
+        "score": 0,
+        "reason": "The requirement applies uniformly to adult registrants and does not vary because of this age range.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "2": 1
+        }
+      },
+      "age_65_plus": {
+        "score": 0,
+        "reason": "The requirement applies uniformly to adult registrants and does not vary because of this age range.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "2": 1
+        }
+      }
+    },
+    "income": {
+      "under_30k": {
+        "score": 1,
+        "reason": "The bill requires all registrants to present documentary proof of citizenship; obtaining acceptable documents (passports, certified birth certificates) carries fixed fees that impose a relatively heavier financial burden on the lowest-income households.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "income_30k_60k": {
+        "score": 0,
+        "reason": "The registration requirement applies identically regardless of income at this level.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      "income_60k_120k": {
+        "score": 0,
+        "reason": "The requirement applies identically regardless of income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_120k_250k": {
+        "score": 0,
+        "reason": "The requirement applies identically regardless of income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_250k_plus": {
+        "score": 0,
+        "reason": "The requirement applies identically regardless of income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "occupation": {
+      "education": {
+        "score": 0,
+        "reason": "The bill governs voter registration citizenship requirements and does not touch teachers or school work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "healthcare": {
+        "score": 0,
+        "reason": "No effect on clinical or allied health work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "construction_trades": {
+        "score": 0,
+        "reason": "No relationship to building trades.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "manufacturing": {
+        "score": 0,
+        "reason": "No relationship to industrial or production work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "agriculture": {
+        "score": 0,
+        "reason": "No relationship to farming or related work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "transportation_logistics": {
+        "score": 0,
+        "reason": "No relationship to drivers or logistics work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "public_sector_first_responders": {
+        "score": 2,
+        "reason": "The bill imposes direct new duties on state and local election officials and federal agency employees (DHS, SSA), including verification, notification, and information-sharing obligations, and creates criminal penalties and a private right of action against election officials who register applicants without citizenship proof.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "professional_office": {
+        "score": 0,
+        "reason": "No occupation-specific effect on white-collar or office roles.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retail_service": {
+        "score": 0,
+        "reason": "No relationship to retail or service work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "technology": {
+        "score": 0,
+        "reason": "No occupation-specific effect on tech workers despite database provisions.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No distinct occupational group otherwise targeted.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "employment_status": {
+      "employee": {
+        "score": 0,
+        "reason": "Voter registration citizenship requirements apply regardless of employment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "self_employed_owner": {
+        "score": 0,
+        "reason": "The bill's effect does not vary by employment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "unemployed": {
+        "score": 0,
+        "reason": "No effect differs based on being unemployed.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retired": {
+        "score": 0,
+        "reason": "Registration requirements are identical regardless of retirement status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "not_in_labor_force": {
+        "score": 0,
+        "reason": "The bill affects voter registration uniformly across labor force participation.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "health_coverage": {
+      "employer_plan": {
+        "score": 0,
+        "reason": "This voter registration bill has no connection to health coverage source.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicare": {
+        "score": 0,
+        "reason": "Bill concerns voter registration citizenship requirements, unrelated to Medicare.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicaid": {
+        "score": 0,
+        "reason": "No relevance to Medicaid enrollment or coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "marketplace_individual": {
+        "score": 0,
+        "reason": "Bill does not touch ACA or individual health plans.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "va_tricare": {
+        "score": 0,
+        "reason": "No relevance to military or veterans health coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "uninsured": {
+        "score": 0,
+        "reason": "Bill is about voter registration, unrelated to insurance status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "gender": {
+      "male": {
+        "score": 0,
+        "reason": "The documentary-proof-of-citizenship requirements apply identically to male applicants; no effect differs by being male.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "female": {
+        "score": 1,
+        "reason": "Because women disproportionately change surnames upon marriage, their current legal name may not match the name on a birth certificate, creating a documentation discrepancy under the proof-of-citizenship process. This is a first-order effect that varies with this trait due to naming conventions.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      },
+      "nonbinary_other": {
+        "score": 0,
+        "reason": "The voter registration requirements do not vary by gender identity.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "1": 1
+        }
+      }
+    },
+    "lgbtq_identity": {
+      "lgbtq": {
+        "score": 0,
+        "reason": "This bill concerns documentary proof of citizenship for federal voter registration and does not address sexual orientation or gender identity; any effect applies identically regardless of LGBTQ+ status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "religion": {
+      "christian": {
+        "score": 0,
+        "reason": "Voter citizenship requirements apply identically regardless of religion.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "jewish": {
+        "score": 0,
+        "reason": "No religion-specific effect from this voter registration bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "muslim": {
+        "score": 0,
+        "reason": "No religion-specific effect from this voter registration bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "hindu": {
+        "score": 0,
+        "reason": "No religion-specific effect from this voter registration bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "buddhist": {
+        "score": 0,
+        "reason": "No religion-specific effect from this voter registration bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_faith": {
+        "score": 0,
+        "reason": "No religion-specific effect from this voter registration bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "none": {
+        "score": 0,
+        "reason": "No religion-specific effect from this voter registration bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    }
+  },
+  "target_groups": [
+    {
+      "conditions": [
+        {
+          "dimension": "citizenship_status",
+          "value": "citizen"
+        }
+      ],
+      "other_criteria": [
+        "applicants seeking to register to vote in federal elections"
+      ],
+      "reason": "The bill requires every applicant to present documentary proof of U.S. citizenship to register to vote in federal elections.",
+      "agreement": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "citizenship_status",
+          "value": "permanent_resident"
+        }
+      ],
+      "other_criteria": [],
+      "reason": "Non-citizens cannot register and may be identified, removed from rolls, and referred for removal-proceeding investigation.",
+      "agreement": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "citizenship_status",
+          "value": "other_status"
+        }
+      ],
+      "other_criteria": [
+        "noncitizens including aliens"
+      ],
+      "reason": "Non-citizens are barred from registration and subject to identification, removal from voter rolls, and investigation for removal proceedings.",
+      "agreement": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "disability_status",
+          "value": "has_disability"
+        }
+      ],
+      "other_criteria": [
+        "submits mail voter registration form"
+      ],
+      "reason": "The bill requires states to make reasonable accommodations for individuals with disabilities to present documentary proof of citizenship.",
+      "agreement": 1.0
+    }
+  ],
+  "validation": {
+    "veteran_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "disability_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_loan_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "caregiver_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "housing_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "citizenship_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "marital_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "age": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "income": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "occupation": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "employment_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "health_coverage": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "gender": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "lgbtq_identity": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "religion": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "target_groups": {
+      "unknown_ids": []
+    }
+  }
+}

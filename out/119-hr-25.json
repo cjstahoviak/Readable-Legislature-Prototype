@@ -1,0 +1,727 @@
+{
+  "bill_id": "119-hr-25",
+  "bill": {
+    "congress": 119,
+    "type": "HR",
+    "number": 25,
+    "title": "FairTax Act of 2025",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/25",
+    "text_version_type": "Introduced in House",
+    "text_source_url": "https://www.congress.gov/119/bills/hr25/BILLS-119hr25ih.htm"
+  },
+  "fetched_at": "2026-07-07T04:16:59Z",
+  "model": "claude-opus-4-8",
+  "samples": 3,
+  "scores": {
+    "veteran_status": {
+      "veteran": {
+        "score": 0,
+        "reason": "This bill replaces the federal tax system with a national sales tax and affects all taxpayers identically; veterans are not treated differently and their status is irrelevant.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "disability_status": {
+      "has_disability": {
+        "score": 0,
+        "reason": "This is a broad tax overhaul replacing income/payroll taxes with a national sales tax; it applies uniformly regardless of disability status. The bill does not treat people with disabilities differently from others.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "1": 1
+        }
+      }
+    },
+    "student_status": {
+      "student": {
+        "score": 1,
+        "reason": "The bill defines 'education and training' (including postsecondary tuition and job-related training) as intermediate services not subject to the new national sales tax, so students' tuition and training costs are affected by this specific carve-out. This is a first-order effect tied to their student status, though students are not the bill's explicit primary subject.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 2,
+          "2": 1
+        }
+      }
+    },
+    "student_loan_status": {
+      "has_student_loans": {
+        "score": 0,
+        "reason": "The bill replaces the income tax system with a national sales tax and does not address student loans, their repayment, interest, or forgiveness; borrowers are not treated differently based on holding student loans.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "caregiver_status": {
+      "parent_of_minor": {
+        "score": 1,
+        "reason": "This broad tax overhaul provides a monthly family consumption allowance whose amount scales with qualified family size, and minor children (lineal descendants, adopted children, and children under guardianship sharing a residence) are counted as family members. Thus having a minor child directly increases the rebate a household receives, a first-order effect tied to the trait.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 2,
+          "2": 1
+        }
+      },
+      "caregiver_of_adult": {
+        "score": 1,
+        "reason": "A dependent adult relative (e.g., a lineal ancestor) sharing a common residence would be counted in the qualified family for rebate purposes, so caring for such an adult in the household affects the family consumption allowance. However, the caregiving relationship itself is not the explicit trigger—household residence and family relationship are—making the effect first-order but indirect.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      }
+    },
+    "housing_status": {
+      "homeowner": {
+        "score": 1,
+        "reason": "The national sales tax applies to purchases of new homes while excluding used property, so buying newly built housing would incur the 23% tax; existing homeowners' ongoing occupancy is untaxed, making the effect a first-order consequence tied to home purchases.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "renter": {
+        "score": 2,
+        "reason": "The bill explicitly defines taxable property to include leaseholds and rents, so residential rent would be directly subject to the national sales tax, an immediate firsthand effect on renters.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "other": {
+        "score": 1,
+        "reason": "Those living with family, unhoused, or in institutional settings generally would not pay a housing-consumption tax on rent or new-home purchases, so the housing-related tax treatment differs for this group as a first-order effect.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      }
+    },
+    "citizenship_status": {
+      "citizen": {
+        "score": 2,
+        "reason": "The bill replaces income/payroll taxes with a national sales tax paid by all consumers, and the Family Consumption Allowance rebate explicitly requires listed members to be lawful residents with a bona fide SSN—criteria citizens satisfy. Citizenship status is an explicit condition determining rebate eligibility, making the effect direct and trait-dependent.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "permanent_resident": {
+        "score": 2,
+        "reason": "Permanent residents are 'lawful residents of the United States' with SSNs, so they are directly subject to the sales tax and eligible for the family consumption rebate under the bill's explicit residency certification requirements.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "other_status": {
+        "score": 2,
+        "reason": "The rebate registration requires certifying all counted family members are lawful residents with bona fide SSNs, so undocumented persons and some other-status individuals are excluded from the rebate while still paying the sales tax—an explicit, trait-dependent distinction.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      }
+    },
+    "marital_status": {
+      "single": {
+        "score": 1,
+        "reason": "The bill's family consumption allowance rebate is available to all filers, but the amount is boosted only for families that include a married couple via the 'annual marriage penalty elimination amount.' Single (unmarried) filers receive the baseline rebate without that add-on, a differential tied to marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "married": {
+        "score": 2,
+        "reason": "Married couples are an explicit subject: Section 303 grants an 'annual marriage penalty elimination amount' that increases the monthly poverty-level rebate specifically for families including a married couple, and spouse status directly shapes qualified-family composition and registration.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "divorced": {
+        "score": 2,
+        "reason": "Section 302(c)(2) contains an explicit rule for children of divorced or separated parents, assigning the child to the custodial parent's qualified family for rebate purposes, directly affecting divorced individuals' rebate calculations.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 1,
+          "2": 2
+        }
+      },
+      "widowed": {
+        "score": 0,
+        "reason": "The bill contains no provision specific to widowhood; a widowed person is treated like any other single-member household.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "1": 1
+        }
+      }
+    },
+    "age": {
+      "under_18": {
+        "score": 0,
+        "reason": "Minors are counted only as members of a qualified family for the consumption-allowance rebate; the tax overhaul does not affect them distinctly based on being under 18.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_18_25": {
+        "score": 0,
+        "reason": "As workers and consumers they are affected by the income/payroll tax repeal and sales tax, but the effect does not differ specifically because of this age.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_26_49": {
+        "score": 0,
+        "reason": "Affected as taxpayers and consumers like all adults, with no effect that varies distinctly by this age bracket.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_50_64": {
+        "score": 0,
+        "reason": "Affected as workers/consumers under the tax overhaul, but the bill produces no age-specific effect for this pre-retirement bracket.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_65_plus": {
+        "score": 1,
+        "reason": "The bill includes an explicit sales-tax-inclusive Social Security benefits indexation (Sec. 303) and shifts Social Security/Medicare from payroll-tax to general-revenue funding, and a consumption tax bears differently on retirees spending down savings, creating an age-linked first-order effect.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      }
+    },
+    "income": {
+      "under_30k": {
+        "score": 2,
+        "reason": "The bill repeals income and payroll taxes and imposes a national sales tax plus a family consumption allowance (rebate) tied to the poverty level, directly and firsthand affecting low-income households' overall tax burden. The rebate mechanism is especially consequential at this income level, where consumption is a large share of income.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "income_30k_60k": {
+        "score": 2,
+        "reason": "Households in this bracket are directly subject to the new sales tax and eligible for the poverty-level rebate, with elimination of payroll and income taxes altering their firsthand tax situation. The net effect differs from other brackets based on consumption-to-income ratios.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "income_60k_120k": {
+        "score": 2,
+        "reason": "This group is an explicit subject of the bill, directly facing the shift from income/payroll taxation to consumption taxation with the fixed rebate. The change in tax liability is immediate and its magnitude varies by income level.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "income_120k_250k": {
+        "score": 2,
+        "reason": "Higher-income households are directly affected by repeal of the income tax and the new sales tax, with the flat rebate representing a smaller share of their consumption. The firsthand tax burden shift differs distinctly at this bracket.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "income_250k_plus": {
+        "score": 2,
+        "reason": "The bill directly repeals income, estate, and gift taxes—provisions especially salient at the highest incomes—and substitutes a consumption tax, immediately restructuring this group's tax obligations. The effect differs markedly from lower brackets given estate tax repeal and consumption patterns.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      }
+    },
+    "occupation": {
+      "education": {
+        "score": 1,
+        "reason": "The bill specifically carves out education and training tuition, treating it as an untaxed business-type input rather than taxed final consumption, distinguishing the education sector's treatment from other services.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      },
+      "healthcare": {
+        "score": 0,
+        "reason": "Health services and insurance are treated under the general sales-tax rules like any other service, with no distinct occupation-specific effect on healthcare workers.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "construction_trades": {
+        "score": 0,
+        "reason": "Trades face only the same generic seller collection obligations as other businesses, with no distinct effect tied to the occupation.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "manufacturing": {
+        "score": 0,
+        "reason": "Business/intermediate purchases are exempt and manufacturers face generic seller rules; no occupation-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "agriculture": {
+        "score": 0,
+        "reason": "Findings mention family farms and estate taxes, but the effect on farmers mirrors that of any business owner rather than being agriculture-trait-dependent.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      "transportation_logistics": {
+        "score": 0,
+        "reason": "Transportation services get specific destination-sourcing rules but the seller obligation is generic; no distinct occupational impact.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      "public_sector_first_responders": {
+        "score": 1,
+        "reason": "The bill makes state governments the primary administrators/collectors of the national sales tax and treats governments as taxable employers, directly affecting state revenue-agency and government workers.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      },
+      "professional_office": {
+        "score": 1,
+        "reason": "Abolishing the IRS and repealing the income, payroll, and estate taxes directly transforms the work of tax accountants, preparers, and tax attorneys within this white-collar category, and professional services become taxable.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "retail_service": {
+        "score": 2,
+        "reason": "The bill makes sellers of goods and services the front-line collectors and remitters of the national sales tax (with an administration credit), directly imposing new operational duties on retail, hospitality, food, and personal-service businesses selling to final consumers.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 1,
+          "2": 2
+        }
+      },
+      "technology": {
+        "score": 0,
+        "reason": "Tech firms face only generic seller/business tax treatment with no occupation-specific provisions.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No distinct effect on occupations outside the listed categories beyond the economy-wide consumer/worker impact.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "employment_status": {
+      "employee": {
+        "score": 2,
+        "reason": "The bill repeals the income tax and payroll (FICA) withholding that directly govern employees' wages and take-home pay, and defines rules for wages paid by taxable employers. Employees are explicit, direct subjects of the repealed withholding regime and the new consumption-based system.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "self_employed_owner": {
+        "score": 2,
+        "reason": "Self-employment taxes are explicitly repealed, and business owners/sellers are made directly responsible for collecting and remitting the national sales tax, with business-purchase exemptions, administration credits, and estate/gift tax repeal for family businesses. They are direct subjects of multiple provisions firsthand.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "unemployed": {
+        "score": 1,
+        "reason": "With no earned income, the unemployed do not directly benefit from income/payroll tax repeal but are affected by the shift to a consumption tax and the universal family consumption allowance rebate. The differential effect flows through their lack of taxable earnings, a first-order distinction.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      },
+      "retired": {
+        "score": 1,
+        "reason": "Retirees living on savings and retirement income face a first-order shift as consumption they fund is taxed while their income is no longer taxed, and the bill includes a sales-tax-inclusive Social Security benefits indexation provision affecting them. This is a direct but indirect-consequence effect.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 2,
+          "2": 1
+        }
+      },
+      "not_in_labor_force": {
+        "score": 1,
+        "reason": "Homemakers, students, and others without earned income are affected differently by the move from income taxation to a universal consumption tax and rebate, since they have no wages being relieved but still pay tax on spending. This is a first-order differential tied to lacking earned income.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      }
+    },
+    "health_coverage": {
+      "employer_plan": {
+        "score": 1,
+        "reason": "Repealing the income tax (Subtitle A) eliminates the longstanding tax exclusion for employer-sponsored health insurance, and under the sales tax employer benefits provided by a trade/business are not taxable services; this changes the relative tax treatment of employer coverage as a first-order effect.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "medicare": {
+        "score": 1,
+        "reason": "The bill repeals the Medicare hospital insurance payroll tax (Subtitle C) and reconstitutes its financing through a 'hospital insurance rate' component of the national sales tax, a first-order change to how Medicare is funded.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      },
+      "medicaid": {
+        "score": 0,
+        "reason": "Medicaid/CHIP financing and eligibility are not addressed by this tax-restructuring bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "marketplace_individual": {
+        "score": 1,
+        "reason": "ACA premium tax credits and related subsidies operate through the income tax code (Subtitle A), which this bill repeals, a first-order effect specific to those relying on marketplace/individual subsidies.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "va_tricare": {
+        "score": 0,
+        "reason": "VA/TRICARE coverage is government-provided and not addressed by the bill's tax changes.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "uninsured": {
+        "score": 0,
+        "reason": "The sales tax on goods and services applies uniformly regardless of insurance status, so being uninsured is not a distinguishing trait here.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "1": 1
+        }
+      }
+    },
+    "gender": {
+      "male": {
+        "score": 0,
+        "reason": "This tax overhaul applies uniformly regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "female": {
+        "score": 0,
+        "reason": "This tax overhaul applies uniformly regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "nonbinary_other": {
+        "score": 0,
+        "reason": "This tax overhaul applies uniformly regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "lgbtq_identity": {
+      "lgbtq": {
+        "score": 0,
+        "reason": "This bill replaces the income tax system with a national sales tax and affects all taxpayers regardless of sexual orientation or gender identity.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "religion": {
+      "christian": {
+        "score": 0,
+        "reason": "This tax overhaul bill affects taxpayers regardless of religious affiliation; no differential effect based on religion.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "jewish": {
+        "score": 0,
+        "reason": "No religion-specific provisions; the tax changes apply uniformly regardless of faith.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "muslim": {
+        "score": 0,
+        "reason": "No religion-specific provisions; the tax changes apply uniformly regardless of faith.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "hindu": {
+        "score": 0,
+        "reason": "No religion-specific provisions; the tax changes apply uniformly regardless of faith.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "buddhist": {
+        "score": 0,
+        "reason": "No religion-specific provisions; the tax changes apply uniformly regardless of faith.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_faith": {
+        "score": 0,
+        "reason": "No religion-specific provisions; the tax changes apply uniformly regardless of faith.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "none": {
+        "score": 0,
+        "reason": "No religion-specific provisions; the tax changes apply uniformly regardless of faith.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    }
+  },
+  "target_groups": [
+    {
+      "conditions": [],
+      "other_criteria": [],
+      "reason": "The bill repeals the federal income, payroll, estate, and gift taxes and imposes a national sales tax on consumption of goods and services, directly affecting essentially all consumers and taxpayers.",
+      "agreement": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "employment_status",
+          "value": "self_employed_owner"
+        }
+      ],
+      "other_criteria": [
+        "sellers/businesses that collect and remit the national sales tax"
+      ],
+      "reason": "Business owners and sellers are made explicitly responsible for collecting and remitting the sales tax and are eligible for administration and other credits.",
+      "agreement": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "employment_status",
+          "value": "retired"
+        }
+      ],
+      "other_criteria": [
+        "Social Security benefit recipients"
+      ],
+      "reason": "The bill provides for sales-tax-inclusive indexation of Social Security benefits and changes funding of the Social Security Trust Funds.",
+      "agreement": 0.67
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "citizenship_status",
+          "value": "citizen"
+        }
+      ],
+      "other_criteria": [
+        "registered qualified family, lawful resident with a Social Security number"
+      ],
+      "reason": "The family consumption allowance provides monthly rebates only to qualified families whose members are lawful residents with Social Security numbers.",
+      "agreement": 0.33
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "citizenship_status",
+          "value": "permanent_resident"
+        }
+      ],
+      "other_criteria": [
+        "registered qualified family, lawful resident with a Social Security number"
+      ],
+      "reason": "Lawful permanent residents with Social Security numbers may be counted in a qualified family eligible for the monthly rebate.",
+      "agreement": 0.33
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "citizenship_status",
+          "value": "other_status"
+        }
+      ],
+      "other_criteria": [
+        "not a lawful resident with a Social Security number"
+      ],
+      "reason": "Individuals who are not lawful residents cannot be counted as family members for the consumption allowance rebate.",
+      "agreement": 0.33
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "marital_status",
+          "value": "married"
+        }
+      ],
+      "other_criteria": [
+        "married couple in a qualified family"
+      ],
+      "reason": "The monthly poverty level used to calculate the rebate includes a marriage penalty elimination amount for families that include a married couple.",
+      "agreement": 0.33
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "citizenship_status",
+          "value": "citizen"
+        },
+        {
+          "dimension": "citizenship_status",
+          "value": "permanent_resident"
+        }
+      ],
+      "other_criteria": [
+        "lawful residents of the United States with valid Social Security numbers",
+        "registered qualified family members not incarcerated"
+      ],
+      "reason": "The monthly family consumption allowance (sales tax rebate) is available only to registered qualified families whose members are lawful U.S. residents with Social Security numbers, making residency/citizenship status a direct eligibility condition.",
+      "agreement": 0.33
+    }
+  ],
+  "validation": {
+    "veteran_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "disability_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_loan_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "caregiver_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "housing_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "citizenship_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "marital_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "age": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "income": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "occupation": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "employment_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "health_coverage": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "gender": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "lgbtq_identity": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "religion": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "target_groups": {
+      "unknown_ids": []
+    }
+  }
+}

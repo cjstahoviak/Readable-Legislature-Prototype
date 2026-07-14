@@ -1,0 +1,645 @@
+{
+  "bill_id": "119-s-146",
+  "bill": {
+    "congress": 119,
+    "type": "S",
+    "number": 146,
+    "title": "TAKE IT DOWN Act",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-bill/146",
+    "text_version_type": "Public Law",
+    "text_source_url": "https://www.congress.gov/119/plaws/publ12/PLAW-119publ12.htm"
+  },
+  "fetched_at": "2026-07-07T04:13:15Z",
+  "model": "claude-opus-4-8",
+  "samples": 3,
+  "scores": {
+    "veteran_status": {
+      "veteran": {
+        "score": 0,
+        "reason": "This bill addresses nonconsensual intimate visual depictions and applies to the general public regardless of veteran status; it has no distinct effect on veterans.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "disability_status": {
+      "has_disability": {
+        "score": 0,
+        "reason": "The bill addresses nonconsensual intimate visual depictions and applies identically regardless of disability status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_status": {
+      "student": {
+        "score": 0,
+        "reason": "This bill addresses nonconsensual intimate visual depictions and platform takedown obligations; it applies to individuals regardless of student status, with no trait-specific effect on enrolled students.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_loan_status": {
+      "has_student_loans": {
+        "score": 0,
+        "reason": "This bill concerns nonconsensual intimate visual depictions and platform takedown obligations; it has no bearing on student loan status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "caregiver_status": {
+      "parent_of_minor": {
+        "score": 1,
+        "reason": "The bill contains specific provisions criminalizing nonconsensual intimate depictions and digital forgeries of minors and establishes a takedown process that an authorized person may use on a minor's behalf. Parents of minor children are first-order affected because they would typically act to invoke these protections and removal requests for their children.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "caregiver_of_adult": {
+        "score": 1,
+        "reason": "The removal and notification process allows an authorized person to act on behalf of an identifiable individual, so caregivers may invoke it for a dependent adult who cannot self-advocate. This is a first-order indirect relevance, though the bill's adult protections apply the same regardless of caregiver status.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      }
+    },
+    "housing_status": {
+      "homeowner": {
+        "score": 0,
+        "reason": "The bill concerns nonconsensual intimate imagery and platform takedown obligations, unrelated to housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "renter": {
+        "score": 0,
+        "reason": "No connection to renting or housing arrangements.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No connection to living arrangements.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "citizenship_status": {
+      "citizen": {
+        "score": 0,
+        "reason": "The bill protects individuals from nonconsensual intimate depictions regardless of citizenship status; the effect is identical across all statuses.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "permanent_resident": {
+        "score": 0,
+        "reason": "The protections and prohibitions apply the same way regardless of immigration status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_status": {
+        "score": 0,
+        "reason": "The bill's effect does not vary based on immigration status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "marital_status": {
+      "single": {
+        "score": 0,
+        "reason": "The bill addresses nonconsensual intimate imagery and applies regardless of marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "married": {
+        "score": 0,
+        "reason": "Effect is identical across marital statuses; marriage is irrelevant.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "divorced": {
+        "score": 0,
+        "reason": "No divorce-specific provisions; effect does not vary by marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "widowed": {
+        "score": 0,
+        "reason": "No widowhood-related provisions; effect is identical regardless of marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "age": {
+      "under_18": {
+        "score": 2,
+        "reason": "The bill contains distinct provisions for minors, defining 'minor' as under 18 and imposing different intent standards and enhanced criminal penalties (3 years vs. 2 for adult offenses; 30 vs. 18 months for threats) when depictions involve minors, making minors an explicit subject with trait-specific treatment.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "age_18_25": {
+        "score": 0,
+        "reason": "Adults are covered as 'not a minor,' and the bill treats all adult age groups identically.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_26_49": {
+        "score": 0,
+        "reason": "Adults are covered as 'not a minor,' and the bill treats all adult age groups identically.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_50_64": {
+        "score": 0,
+        "reason": "Adults are covered as 'not a minor,' and the bill treats all adult age groups identically.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_65_plus": {
+        "score": 0,
+        "reason": "Adults are covered as 'not a minor,' and the bill treats all adult age groups identically.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "income": {
+      "under_30k": {
+        "score": 0,
+        "reason": "The bill criminalizes nonconsensual intimate imagery and mandates platform takedowns, applying to all individuals regardless of income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_30k_60k": {
+        "score": 0,
+        "reason": "Protections and prohibitions apply uniformly across income levels.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_60k_120k": {
+        "score": 0,
+        "reason": "No income-dependent effect; the law applies equally regardless of household income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_120k_250k": {
+        "score": 0,
+        "reason": "The bill's effect does not vary by income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_250k_plus": {
+        "score": 0,
+        "reason": "No differential effect based on income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "occupation": {
+      "education": {
+        "score": 0,
+        "reason": "The bill does not touch teaching or school work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "healthcare": {
+        "score": 0,
+        "reason": "A narrow medical-purpose disclosure exception exists, but the bill does not meaningfully govern clinical work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "construction_trades": {
+        "score": 0,
+        "reason": "No relevance to building trades.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "manufacturing": {
+        "score": 0,
+        "reason": "No relevance to industrial production work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "agriculture": {
+        "score": 0,
+        "reason": "No relevance to farming or related work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "transportation_logistics": {
+        "score": 0,
+        "reason": "No relevance to transport or logistics work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "public_sector_first_responders": {
+        "score": 0,
+        "reason": "Law enforcement activities are carved out as exceptions, but the bill does not impose duties or effects on their occupation itself.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      "professional_office": {
+        "score": 0,
+        "reason": "Only incidental exceptions for legal filings; no direct effect on office work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retail_service": {
+        "score": 0,
+        "reason": "No relevance to retail or service work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "technology": {
+        "score": 2,
+        "reason": "Covered online platforms and interactive computer services must build notice-and-removal systems, meet a 48-hour takedown deadline, and face FTC enforcement, directly imposing obligations on software, IT, and platform workers.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No distinct occupational group beyond those listed is directly targeted.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "employment_status": {
+      "employee": {
+        "score": 0,
+        "reason": "The bill targets criminal disclosure of intimate imagery and platform takedown duties; its effects do not vary by employment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "self_employed_owner": {
+        "score": 0,
+        "reason": "Obligations fall on covered platforms as entities, not on self-employed status generally, so the trait is not determinative.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "unemployed": {
+        "score": 0,
+        "reason": "Irrelevant to work status; the bill concerns intimate visual depictions and platform obligations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retired": {
+        "score": 0,
+        "reason": "No connection to retirement or work status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "not_in_labor_force": {
+        "score": 0,
+        "reason": "No connection to labor-force status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "health_coverage": {
+      "employer_plan": {
+        "score": 0,
+        "reason": "This bill concerns nonconsensual intimate imagery and platform takedown obligations; health coverage is irrelevant.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicare": {
+        "score": 0,
+        "reason": "No connection to health insurance of any kind.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicaid": {
+        "score": 0,
+        "reason": "No connection to health insurance of any kind.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "marketplace_individual": {
+        "score": 0,
+        "reason": "No connection to health insurance of any kind.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "va_tricare": {
+        "score": 0,
+        "reason": "No connection to health insurance of any kind.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "uninsured": {
+        "score": 0,
+        "reason": "No connection to health insurance of any kind.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "gender": {
+      "male": {
+        "score": 0,
+        "reason": "The protections apply identically to any identifiable individual regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "female": {
+        "score": 0,
+        "reason": "Although victims of nonconsensual intimate imagery skew female, the bill's legal effect is identical across genders, so overrepresentation alone does not raise the score.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "nonbinary_other": {
+        "score": 0,
+        "reason": "The bill's provisions apply the same regardless of gender identity.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "lgbtq_identity": {
+      "lgbtq": {
+        "score": 0,
+        "reason": "This bill addresses nonconsensual intimate visual depictions and deepfakes applying to all individuals regardless of sexual orientation or gender identity, with no differential effect on LGBTQ+ people.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "religion": {
+      "christian": {
+        "score": 0,
+        "reason": "The bill addresses nonconsensual intimate imagery online and applies regardless of religion.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "jewish": {
+        "score": 0,
+        "reason": "No religion-specific effect; applies uniformly.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "muslim": {
+        "score": 0,
+        "reason": "No religion-specific effect; applies uniformly.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "hindu": {
+        "score": 0,
+        "reason": "No religion-specific effect; applies uniformly.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "buddhist": {
+        "score": 0,
+        "reason": "No religion-specific effect; applies uniformly.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_faith": {
+        "score": 0,
+        "reason": "No religion-specific effect; applies uniformly.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "none": {
+        "score": 0,
+        "reason": "No religion-specific effect; applies uniformly.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    }
+  },
+  "target_groups": [
+    {
+      "conditions": [],
+      "other_criteria": [
+        "individuals depicted in intimate visual depictions (potential victims)",
+        "persons who publish such depictions (potential offenders)"
+      ],
+      "reason": "The bill criminalizes nonconsensual publication of intimate depictions of any identifiable individual and creates removal rights, applying broadly to the general public as both potential victims and offenders.",
+      "agreement": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "age",
+          "value": "under_18"
+        }
+      ],
+      "other_criteria": [
+        "depicted as an identifiable minor in an intimate visual depiction or digital forgery"
+      ],
+      "reason": "The bill contains distinct offense standards and heightened penalties for intimate depictions involving minors.",
+      "agreement": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "occupation",
+          "value": "technology"
+        }
+      ],
+      "other_criteria": [
+        "operators of covered online platforms hosting user-generated content"
+      ],
+      "reason": "Covered platforms must establish notice-and-removal processes and face FTC enforcement for noncompliance.",
+      "agreement": 0.33
+    }
+  ],
+  "validation": {
+    "veteran_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "disability_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_loan_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "caregiver_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "housing_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "citizenship_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "marital_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "age": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "income": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "occupation": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "employment_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "health_coverage": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "gender": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "lgbtq_identity": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "religion": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "target_groups": {
+      "unknown_ids": []
+    }
+  }
+}

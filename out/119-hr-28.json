@@ -1,0 +1,675 @@
+{
+  "bill_id": "119-hr-28",
+  "bill": {
+    "congress": 119,
+    "type": "HR",
+    "number": 28,
+    "title": "Protection of Women and Girls in Sports Act of 2025",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/28",
+    "text_version_type": "Engrossed in House",
+    "text_source_url": "https://www.congress.gov/119/bills/hr28/BILLS-119hr28eh.htm"
+  },
+  "fetched_at": "2026-07-07T04:12:03Z",
+  "model": "claude-opus-4-8",
+  "samples": 3,
+  "scores": {
+    "veteran_status": {
+      "veteran": {
+        "score": 0,
+        "reason": "This bill concerns sex definitions for Title IX athletics in federally funded education programs and has no distinct effect on veterans.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "disability_status": {
+      "has_disability": {
+        "score": 0,
+        "reason": "The bill concerns sex-based eligibility in athletics and has no differential effect based on disability status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_status": {
+      "student": {
+        "score": 2,
+        "reason": "The bill directly regulates athletic programs at federally funded educational institutions, including colleges and universities, so enrolled students participating in or seeking to participate in sex-designated sports are direct subjects of its provisions.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      }
+    },
+    "student_loan_status": {
+      "has_student_loans": {
+        "score": 0,
+        "reason": "This bill concerns sex-based eligibility in athletics under Title IX and has nothing to do with student loan debt.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "caregiver_status": {
+      "parent_of_minor": {
+        "score": 1,
+        "reason": "The bill governs sex-based eligibility in school athletic programs, directly affecting minor children's participation; parents of minors experience this through their children's sports opportunities, a first-order indirect effect.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "caregiver_of_adult": {
+        "score": 0,
+        "reason": "The bill concerns school athletics for women and girls and has no bearing on caring for dependent adults.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "housing_status": {
+      "homeowner": {
+        "score": 0,
+        "reason": "Bill concerns sex-based eligibility in school athletics; irrelevant to housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "renter": {
+        "score": 0,
+        "reason": "No connection to housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No connection to housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "citizenship_status": {
+      "citizen": {
+        "score": 0,
+        "reason": "The bill regulates sex-based eligibility in school athletics, applying identically regardless of citizenship status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "permanent_resident": {
+        "score": 0,
+        "reason": "Citizenship status is irrelevant to the bill's athletic eligibility rules.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_status": {
+        "score": 0,
+        "reason": "The bill's effect does not vary by immigration status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "marital_status": {
+      "single": {
+        "score": 0,
+        "reason": "The bill concerns sex determination in school athletics and has no connection to marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "married": {
+        "score": 0,
+        "reason": "No connection to marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "divorced": {
+        "score": 0,
+        "reason": "No connection to marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "widowed": {
+        "score": 0,
+        "reason": "No connection to marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "age": {
+      "under_18": {
+        "score": 2,
+        "reason": "The bill directly governs athletic programs designated for girls in schools receiving federal funds, and school-age minors are primary participants in K-12 athletics affected firsthand.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "age_18_25": {
+        "score": 2,
+        "reason": "College and university athletic programs, including scholarships and roster spots, are explicitly covered, directly affecting participants in this typical college-athlete age range.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "age_26_49": {
+        "score": 0,
+        "reason": "Scholastic and collegiate athletics governed here rarely involve this age group.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_50_64": {
+        "score": 0,
+        "reason": "Not meaningfully involved in the school and college athletics the bill addresses.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_65_plus": {
+        "score": 0,
+        "reason": "Not meaningfully involved in the school and college athletics the bill addresses.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "income": {
+      "under_30k": {
+        "score": 0,
+        "reason": "The bill governs sex-based eligibility in Title IX athletics; its effect does not vary by household income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_30k_60k": {
+        "score": 0,
+        "reason": "No income-dependent effect; the athletics eligibility rule applies regardless of income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_60k_120k": {
+        "score": 0,
+        "reason": "No income-dependent effect; the athletics eligibility rule applies regardless of income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_120k_250k": {
+        "score": 0,
+        "reason": "No income-dependent effect; the athletics eligibility rule applies regardless of income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_250k_plus": {
+        "score": 0,
+        "reason": "No income-dependent effect; the athletics eligibility rule applies regardless of income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "occupation": {
+      "education": {
+        "score": 1,
+        "reason": "The bill imposes Title IX athletics compliance requirements on schools and colleges, directly affecting coaches, athletic directors, and school staff who operate athletic programs.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 2,
+          "2": 1
+        }
+      },
+      "healthcare": {
+        "score": 0,
+        "reason": "No meaningful connection to healthcare workers.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "construction_trades": {
+        "score": 0,
+        "reason": "Irrelevant to construction and trades work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "manufacturing": {
+        "score": 0,
+        "reason": "No connection to manufacturing occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "agriculture": {
+        "score": 0,
+        "reason": "Irrelevant to agricultural work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "transportation_logistics": {
+        "score": 0,
+        "reason": "No connection to transportation or logistics.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "public_sector_first_responders": {
+        "score": 0,
+        "reason": "No meaningful effect on government or first responder roles.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "professional_office": {
+        "score": 0,
+        "reason": "No specific effect on white-collar office occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retail_service": {
+        "score": 0,
+        "reason": "Irrelevant to retail and service work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "technology": {
+        "score": 0,
+        "reason": "No connection to technology occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No other occupational group is directly affected.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "employment_status": {
+      "employee": {
+        "score": 0,
+        "reason": "The bill concerns sex-based eligibility in school athletics and does not affect people based on employment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "self_employed_owner": {
+        "score": 0,
+        "reason": "Not relevant to self-employment or business ownership.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "unemployed": {
+        "score": 0,
+        "reason": "No connection to job-seeking or unemployment.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retired": {
+        "score": 0,
+        "reason": "No connection to retirement status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "not_in_labor_force": {
+        "score": 0,
+        "reason": "Although students may fall here, the bill's effect stems from sex and athletic participation, not labor-force status, so this dimension is irrelevant.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "health_coverage": {
+      "employer_plan": {
+        "score": 0,
+        "reason": "Bill concerns Title IX athletics and sex definition, unrelated to health insurance.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicare": {
+        "score": 0,
+        "reason": "No connection to health coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicaid": {
+        "score": 0,
+        "reason": "No connection to health coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "marketplace_individual": {
+        "score": 0,
+        "reason": "No connection to health coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "va_tricare": {
+        "score": 0,
+        "reason": "No connection to health coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "uninsured": {
+        "score": 0,
+        "reason": "No connection to health coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "gender": {
+      "male": {
+        "score": 2,
+        "reason": "The bill explicitly regulates persons whose sex is male at birth, barring them from athletic programs designated for women or girls (though permitting practice under conditions). Males are a direct and named subject of the restriction.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "female": {
+        "score": 2,
+        "reason": "The bill's stated purpose is protecting women and girls in sports, making female athletes the direct subjects whose roster spots, scholarships, and participation opportunities the measure addresses firsthand.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "nonbinary_other": {
+        "score": 2,
+        "reason": "By recognizing sex solely on reproductive biology and genetics at birth, the bill directly determines the eligibility of transgender and nonbinary individuals in sex-designated athletics, an immediate firsthand effect.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      }
+    },
+    "lgbtq_identity": {
+      "lgbtq": {
+        "score": 2,
+        "reason": "The bill defines sex based solely on reproductive biology and genetics at birth and would bar transgender women and girls from participating in female athletic programs. This directly and explicitly targets transgender individuals, making them a primary subject of the bill.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      }
+    },
+    "religion": {
+      "christian": {
+        "score": 0,
+        "reason": "The bill concerns sex definitions in Title IX athletics and has no differential effect based on religion.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "jewish": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "muslim": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "hindu": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "buddhist": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_faith": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "none": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    }
+  },
+  "target_groups": [
+    {
+      "conditions": [
+        {
+          "dimension": "student_status",
+          "value": "student"
+        },
+        {
+          "dimension": "gender",
+          "value": "female"
+        }
+      ],
+      "other_criteria": [
+        "participates in school athletic programs"
+      ],
+      "reason": "Female student athletes are explicit subjects whose roster spots, scholarships, and participation opportunities in single-sex programs are addressed by the bill.",
+      "agreement": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "student_status",
+          "value": "student"
+        },
+        {
+          "dimension": "lgbtq_identity",
+          "value": "lgbtq"
+        }
+      ],
+      "other_criteria": [
+        "transgender individuals born male seeking women's athletics"
+      ],
+      "reason": "Transgender athletes born male are directly affected because their eligibility for women's or girls athletic programs is determined by reproductive biology at birth.",
+      "agreement": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "student_status",
+          "value": "student"
+        },
+        {
+          "dimension": "gender",
+          "value": "male"
+        }
+      ],
+      "other_criteria": [
+        "reproductive biology and genetics male at birth",
+        "seeking to participate in women's/girls' athletic programs at federally funded institutions"
+      ],
+      "reason": "The bill directly restricts persons whose sex is male at birth from participating in athletic programs designated for women or girls.",
+      "agreement": 0.67
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "student_status",
+          "value": "student"
+        }
+      ],
+      "other_criteria": [
+        "born male / male reproductive biology at birth",
+        "seeks to participate in women's or girls athletics"
+      ],
+      "reason": "Individuals with male reproductive biology at birth are directly restricted from participating in athletic programs designated for women or girls.",
+      "agreement": 0.33
+    }
+  ],
+  "validation": {
+    "veteran_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "disability_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_loan_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "caregiver_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "housing_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "citizenship_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "marital_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "age": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "income": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "occupation": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "employment_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "health_coverage": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "gender": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "lgbtq_identity": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "religion": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "target_groups": {
+      "unknown_ids": []
+    }
+  }
+}

@@ -1,0 +1,1597 @@
+  WARNING: bill text 164941 chars exceeds cap 60000; truncating.
+  WARNING: bill text 182259 chars exceeds cap 60000; truncating.
+    WARNING: call failed for religion (sample 1): Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Ccn49VnZr2S2z65x4KGWQ'}
+    WARNING: call failed for religion (sample 2): Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Ccn49WkcPmaC4HJn86mks'}
+    WARNING: call failed for religion (sample 3): Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Ccn49Wo66eP2NDfMx4QLT'}
+    WARNING: call failed for __groups__ (sample 2): Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Ccn49XF8K9JQL5RwynZ5N'}
+    WARNING: call failed for __groups__ (sample 1): Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Ccn49XFdP6aguzFhUZ8FQ'}
+    WARNING: call failed for __groups__ (sample 3): Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Ccn49XfvicHCXw2vHkdNs'}
+
+Fetching HR 2138 (119th Congress)...
+  Title: Veterans’ Compensation Cost-of-Living Adjustment Act of 2025
+  Text version: Introduced in House (3905 chars)
+  Scoring 16 dimensions x 3 sample(s)...
+    [2/51] disability_status
+    [3/51] disability_status
+    [4/51] veteran_status
+    [5/51] veteran_status
+    [6/51] disability_status
+    [7/51] student_status
+    [8/51] student_status
+    [9/51] student_loan_status
+    [10/51] student_loan_status
+    [11/51] student_loan_status
+    [12/51] student_status
+    [13/51] caregiver_status
+    [14/51] housing_status
+    [15/51] caregiver_status
+    [16/51] caregiver_status
+    [17/51] housing_status
+    [18/51] housing_status
+    [19/51] citizenship_status
+    [20/51] citizenship_status
+    [21/51] citizenship_status
+    [22/51] marital_status
+    [23/51] marital_status
+    [24/51] marital_status
+    [25/51] age
+    [26/51] income
+    [27/51] income
+    [28/51] income
+    [29/51] age
+    [30/51] age
+    [31/51] employment_status
+    [32/51] occupation
+    [33/51] occupation
+    [34/51] occupation
+    [35/51] employment_status
+    [36/51] employment_status
+    [37/51] health_coverage
+    [38/51] gender
+    [39/51] health_coverage
+    [40/51] gender
+    [41/51] gender
+    [42/51] health_coverage
+    [43/51] lgbtq_identity
+    [44/51] lgbtq_identity
+    [45/51] lgbtq_identity
+    [46/51] religion
+    [47/51] religion
+    [48/51] religion
+    [49/51] __groups__
+    [50/51] __groups__
+    [51/51] __groups__
+
+Score summary (0=low, 1=moderate, 2=high):
+
+  Veteran status [veteran_status]
+    2  veteran  (100%)
+
+  Disability status [disability_status]
+    2  has_disability  (100%)
+
+  Student status [student_status]
+    0  student  (100%)
+
+  Student loan status [student_loan_status]
+    0  has_student_loans  (100%)
+
+  Parent / caregiver status [caregiver_status]
+    1  parent_of_minor  (100%)
+    0  caregiver_of_adult  (100%)
+
+  Housing status [housing_status]
+    0  homeowner  (100%)
+    0  renter  (100%)
+    0  other  (100%)
+
+  Citizenship status [citizenship_status]
+    0  citizen  (100%)
+    0  permanent_resident  (100%)
+    0  other_status  (100%)
+
+  Marital status [marital_status]
+    2  married  (100%)
+    2  widowed  (100%)
+    0  single  (100%)
+    0  divorced  (100%)
+
+  Age [age]
+    1  under_18  (67%)
+    1  age_18_25  (100%)
+    0  age_26_49  (100%)
+    0  age_50_64  (100%)
+    0  age_65_plus  (100%)
+
+  Household income [income]
+    0  under_30k  (67%)
+    0  income_30k_60k  (67%)
+    0  income_60k_120k  (100%)
+    0  income_120k_250k  (100%)
+    0  income_250k_plus  (100%)
+
+  Occupation [occupation]
+    1  public_sector_first_responders  (100%)
+    0  education  (100%)
+    0  healthcare  (100%)
+    0  construction_trades  (100%)
+    0  manufacturing  (100%)
+    0  agriculture  (100%)
+    0  transportation_logistics  (100%)
+    0  professional_office  (100%)
+    0  retail_service  (100%)
+    0  technology  (100%)
+    0  other  (100%)
+
+  Employment status [employment_status]
+    0  employee  (100%)
+    0  self_employed_owner  (100%)
+    0  unemployed  (100%)
+    0  retired  (100%)
+    0  not_in_labor_force  (100%)
+
+  Health coverage [health_coverage]
+    1  va_tricare  (67%)
+    0  employer_plan  (100%)
+    0  medicare  (100%)
+    0  medicaid  (100%)
+    0  marketplace_individual  (100%)
+    0  uninsured  (100%)
+
+  Gender [gender]
+    0  male  (100%)
+    0  female  (100%)
+    0  nonbinary_other  (100%)
+
+  LGBTQ+ identity [lgbtq_identity]
+    0  lgbtq  (100%)
+
+  Religion [religion]
+    0  christian  (100%)
+    0  jewish  (100%)
+    0  muslim  (100%)
+    0  hindu  (100%)
+    0  buddhist  (100%)
+    0  other_faith  (100%)
+    0  none  (100%)
+
+Target groups (who the bill explicitly targets):
+  veteran_status=veteran + disability_status=has_disability  (service-connected disability; receives VA disability compensation)  [100% of runs]
+  <no taxonomy match>  (surviving spouse of a deceased disabled veteran; receives dependency and indemnity compensation)  [67% of runs]
+  marital_status=widowed  (surviving spouse of certain deceased disabled veteran; receives dependency and indemnity compensation)  [67% of runs]
+  age=under_18  (child/survivor of certain deceased disabled veteran; receives dependency and indemnity compensation)  [33% of runs]
+
+Validation: all sections OK.
+
+Token totals: input=12867 (cache_read=57502) output=18337
+Wrote C:\Users\cjsta\git\Readable-Legislature-Prototype\out\119-hr-2138.json
+
+Fetching S 129 (119th Congress)...
+  Title: No Tax on Tips Act
+  Text version: Engrossed in Senate (7193 chars)
+  Scoring 16 dimensions x 3 sample(s)...
+    [2/51] veteran_status
+    [3/51] veteran_status
+    [4/51] disability_status
+    [5/51] disability_status
+    [6/51] disability_status
+    [7/51] student_status
+    [8/51] student_status
+    [9/51] student_status
+    [10/51] student_loan_status
+    [11/51] student_loan_status
+    [12/51] student_loan_status
+    [13/51] caregiver_status
+    [14/51] caregiver_status
+    [15/51] caregiver_status
+    [16/51] housing_status
+    [17/51] housing_status
+    [18/51] housing_status
+    [19/51] citizenship_status
+    [20/51] citizenship_status
+    [21/51] citizenship_status
+    [22/51] marital_status
+    [23/51] marital_status
+    [24/51] marital_status
+    [25/51] age
+    [26/51] age
+    [27/51] age
+    [28/51] income
+    [29/51] income
+    [30/51] income
+    [31/51] occupation
+    [32/51] employment_status
+    [33/51] occupation
+    [34/51] employment_status
+    [35/51] occupation
+    [36/51] health_coverage
+    [37/51] employment_status
+    [38/51] health_coverage
+    [39/51] health_coverage
+    [40/51] gender
+    [41/51] lgbtq_identity
+    [42/51] gender
+    [43/51] lgbtq_identity
+    [44/51] lgbtq_identity
+    [45/51] gender
+    [46/51] religion
+    [47/51] religion
+    [48/51] __groups__
+    [49/51] religion
+    [50/51] __groups__
+    [51/51] __groups__
+
+Score summary (0=low, 1=moderate, 2=high):
+
+  Veteran status [veteran_status]
+    0  veteran  (100%)
+
+  Disability status [disability_status]
+    0  has_disability  (100%)
+
+  Student status [student_status]
+    0  student  (100%)
+
+  Student loan status [student_loan_status]
+    0  has_student_loans  (100%)
+
+  Parent / caregiver status [caregiver_status]
+    0  parent_of_minor  (100%)
+    0  caregiver_of_adult  (100%)
+
+  Housing status [housing_status]
+    0  homeowner  (100%)
+    0  renter  (100%)
+    0  other  (100%)
+
+  Citizenship status [citizenship_status]
+    0  citizen  (100%)
+    0  permanent_resident  (100%)
+    0  other_status  (100%)
+
+  Marital status [marital_status]
+    0  single  (100%)
+    0  married  (100%)
+    0  divorced  (100%)
+    0  widowed  (100%)
+
+  Age [age]
+    0  under_18  (100%)
+    0  age_18_25  (100%)
+    0  age_26_49  (100%)
+    0  age_50_64  (100%)
+    0  age_65_plus  (100%)
+
+  Household income [income]
+    2  under_30k  (100%)
+    2  income_30k_60k  (100%)
+    2  income_60k_120k  (100%)
+    1  income_120k_250k  (100%)
+    0  income_250k_plus  (100%)
+
+  Occupation [occupation]
+    2  retail_service  (100%)
+    1  transportation_logistics  (67%)
+    1  other  (100%)
+    0  education  (100%)
+    0  healthcare  (100%)
+    0  construction_trades  (100%)
+    0  manufacturing  (100%)
+    0  agriculture  (100%)
+    0  public_sector_first_responders  (100%)
+    0  professional_office  (100%)
+    0  technology  (100%)
+
+  Employment status [employment_status]
+    2  employee  (100%)
+    2  self_employed_owner  (100%)
+    0  unemployed  (100%)
+    0  retired  (100%)
+    0  not_in_labor_force  (100%)
+
+  Health coverage [health_coverage]
+    0  employer_plan  (100%)
+    0  medicare  (100%)
+    0  medicaid  (100%)
+    0  marketplace_individual  (100%)
+    0  va_tricare  (100%)
+    0  uninsured  (100%)
+
+  Gender [gender]
+    0  male  (100%)
+    0  female  (100%)
+    0  nonbinary_other  (100%)
+
+  LGBTQ+ identity [lgbtq_identity]
+    0  lgbtq  (100%)
+
+  Religion [religion]
+    0  christian  (100%)
+    0  jewish  (100%)
+    0  muslim  (100%)
+    0  hindu  (100%)
+    0  buddhist  (100%)
+    0  other_faith  (100%)
+    0  none  (100%)
+
+Target groups (who the bill explicitly targets):
+  occupation=retail_service + employment_status=employee  (works in occupation that traditionally and customarily received tips on or before December 31, 2023; receives cash tips reported to employer; not a highly compensated employee under section 414(q))  [100% of runs]
+  employment_status=self_employed_owner  (operates a beauty service establishment (barbering/hair care, nail care, esthetics, body/spa treatments); employer of tipped beauty service workers)  [100% of runs]
+
+Validation: all sections OK.
+
+Token totals: input=12867 (cache_read=86600) output=15557
+Wrote C:\Users\cjsta\git\Readable-Legislature-Prototype\out\119-s-129.json
+
+Fetching S 5 (119th Congress)...
+  Title: Laken Riley Act
+  Text version: Public Law (9474 chars)
+  Scoring 16 dimensions x 3 sample(s)...
+    [2/51] veteran_status
+    [3/51] veteran_status
+    [4/51] disability_status
+    [5/51] disability_status
+    [6/51] student_status
+    [7/51] student_status
+    [8/51] disability_status
+    [9/51] student_status
+    [10/51] student_loan_status
+    [11/51] student_loan_status
+    [12/51] student_loan_status
+    [13/51] caregiver_status
+    [14/51] caregiver_status
+    [15/51] caregiver_status
+    [16/51] housing_status
+    [17/51] housing_status
+    [18/51] housing_status
+    [19/51] citizenship_status
+    [20/51] citizenship_status
+    [21/51] marital_status
+    [22/51] citizenship_status
+    [23/51] marital_status
+    [24/51] marital_status
+    [25/51] age
+    [26/51] age
+    [27/51] income
+    [28/51] age
+    [29/51] income
+    [30/51] income
+    [31/51] employment_status
+    [32/51] occupation
+    [33/51] employment_status
+    [34/51] employment_status
+    [35/51] occupation
+    [36/51] health_coverage
+    [37/51] health_coverage
+    [38/51] health_coverage
+    [39/51] gender
+    [40/51] gender
+    [41/51] occupation
+    [42/51] gender
+    [43/51] lgbtq_identity
+    [44/51] lgbtq_identity
+    [45/51] religion
+    [46/51] lgbtq_identity
+    [47/51] religion
+    [48/51] religion
+    [49/51] __groups__
+    [50/51] __groups__
+    [51/51] __groups__
+
+Score summary (0=low, 1=moderate, 2=high):
+
+  Veteran status [veteran_status]
+    0  veteran  (100%)
+
+  Disability status [disability_status]
+    0  has_disability  (100%)
+
+  Student status [student_status]
+    0  student  (100%)
+
+  Student loan status [student_loan_status]
+    0  has_student_loans  (100%)
+
+  Parent / caregiver status [caregiver_status]
+    0  parent_of_minor  (100%)
+    0  caregiver_of_adult  (100%)
+
+  Housing status [housing_status]
+    0  homeowner  (100%)
+    0  renter  (100%)
+    0  other  (100%)
+
+  Citizenship status [citizenship_status]
+    2  other_status  (100%)
+    0  citizen  (100%)
+    0  permanent_resident  (100%)
+
+  Marital status [marital_status]
+    0  single  (100%)
+    0  married  (100%)
+    0  divorced  (100%)
+    0  widowed  (100%)
+
+  Age [age]
+    0  under_18  (100%)
+    0  age_18_25  (100%)
+    0  age_26_49  (100%)
+    0  age_50_64  (100%)
+    0  age_65_plus  (100%)
+
+  Household income [income]
+    0  under_30k  (100%)
+    0  income_30k_60k  (100%)
+    0  income_60k_120k  (100%)
+    0  income_120k_250k  (100%)
+    0  income_250k_plus  (100%)
+
+  Occupation [occupation]
+    1  public_sector_first_responders  (100%)
+    0  education  (100%)
+    0  healthcare  (100%)
+    0  construction_trades  (100%)
+    0  manufacturing  (100%)
+    0  agriculture  (100%)
+    0  transportation_logistics  (100%)
+    0  professional_office  (100%)
+    0  retail_service  (100%)
+    0  technology  (100%)
+    0  other  (100%)
+
+  Employment status [employment_status]
+    0  employee  (100%)
+    0  self_employed_owner  (100%)
+    0  unemployed  (100%)
+    0  retired  (100%)
+    0  not_in_labor_force  (100%)
+
+  Health coverage [health_coverage]
+    0  employer_plan  (100%)
+    0  medicare  (100%)
+    0  medicaid  (100%)
+    0  marketplace_individual  (100%)
+    0  va_tricare  (100%)
+    0  uninsured  (100%)
+
+  Gender [gender]
+    0  male  (100%)
+    0  female  (100%)
+    0  nonbinary_other  (100%)
+
+  LGBTQ+ identity [lgbtq_identity]
+    0  lgbtq  (100%)
+
+  Religion [religion]
+    0  christian  (100%)
+    0  jewish  (100%)
+    0  muslim  (100%)
+    0  hindu  (100%)
+    0  buddhist  (100%)
+    0  other_faith  (100%)
+    0  none  (100%)
+
+Target groups (who the bill explicitly targets):
+  citizenship_status=other_status  (inadmissible aliens under INA 212(a)(6)(A),(6)(C), or (7); charged with, arrested for, convicted of, or admitting burglary, theft, larceny, shoplifting, assault of a law enforcement officer, or a crime causing death or serious bodily injury)  [100% of runs]
+
+Validation: all sections OK.
+
+Token totals: input=12867 (cache_read=90485) output=9301
+Wrote C:\Users\cjsta\git\Readable-Legislature-Prototype\out\119-s-5.json
+
+Fetching HR 22 (119th Congress)...
+  Title: SAVE Act
+  Text version: Engrossed in House (31074 chars)
+  Scoring 16 dimensions x 3 sample(s)...
+    [2/51] disability_status
+    [3/51] disability_status
+    [4/51] veteran_status
+    [5/51] veteran_status
+    [6/51] disability_status
+    [7/51] student_status
+    [8/51] student_status
+    [9/51] student_status
+    [10/51] student_loan_status
+    [11/51] student_loan_status
+    [12/51] student_loan_status
+    [13/51] caregiver_status
+    [14/51] caregiver_status
+    [15/51] housing_status
+    [16/51] caregiver_status
+    [17/51] housing_status
+    [18/51] housing_status
+    [19/51] citizenship_status
+    [20/51] citizenship_status
+    [21/51] marital_status
+    [22/51] citizenship_status
+    [23/51] marital_status
+    [24/51] marital_status
+    [25/51] income
+    [26/51] age
+    [27/51] age
+    [28/51] income
+    [29/51] income
+    [30/51] occupation
+    [31/51] occupation
+    [32/51] age
+    [33/51] employment_status
+    [34/51] occupation
+    [35/51] employment_status
+    [36/51] health_coverage
+    [37/51] employment_status
+    [38/51] health_coverage
+    [39/51] health_coverage
+    [40/51] gender
+    [41/51] lgbtq_identity
+    [42/51] gender
+    [43/51] gender
+    [44/51] lgbtq_identity
+    [45/51] lgbtq_identity
+    [46/51] religion
+    [47/51] religion
+    [48/51] religion
+    [49/51] __groups__
+    [50/51] __groups__
+    [51/51] __groups__
+
+Score summary (0=low, 1=moderate, 2=high):
+
+  Veteran status [veteran_status]
+    1  veteran  (100%)
+
+  Disability status [disability_status]
+    1  has_disability  (100%)
+
+  Student status [student_status]
+    0  student  (100%)
+
+  Student loan status [student_loan_status]
+    0  has_student_loans  (100%)
+
+  Parent / caregiver status [caregiver_status]
+    0  parent_of_minor  (100%)
+    0  caregiver_of_adult  (100%)
+
+  Housing status [housing_status]
+    0  homeowner  (100%)
+    0  renter  (100%)
+    0  other  (100%)
+
+  Citizenship status [citizenship_status]
+    2  citizen  (100%)
+    2  permanent_resident  (100%)
+    2  other_status  (100%)
+
+  Marital status [marital_status]
+    1  married  (100%)
+    1  divorced  (100%)
+    1  widowed  (100%)
+    0  single  (100%)
+
+  Age [age]
+    1  age_18_25  (33%)
+    0  under_18  (100%)
+    0  age_26_49  (67%)
+    0  age_50_64  (67%)
+    0  age_65_plus  (67%)
+
+  Household income [income]
+    1  under_30k  (100%)
+    0  income_30k_60k  (67%)
+    0  income_60k_120k  (100%)
+    0  income_120k_250k  (100%)
+    0  income_250k_plus  (100%)
+
+  Occupation [occupation]
+    2  public_sector_first_responders  (100%)
+    0  education  (100%)
+    0  healthcare  (100%)
+    0  construction_trades  (100%)
+    0  manufacturing  (100%)
+    0  agriculture  (100%)
+    0  transportation_logistics  (100%)
+    0  professional_office  (100%)
+    0  retail_service  (100%)
+    0  technology  (100%)
+    0  other  (100%)
+
+  Employment status [employment_status]
+    0  employee  (100%)
+    0  self_employed_owner  (100%)
+    0  unemployed  (100%)
+    0  retired  (100%)
+    0  not_in_labor_force  (100%)
+
+  Health coverage [health_coverage]
+    0  employer_plan  (100%)
+    0  medicare  (100%)
+    0  medicaid  (100%)
+    0  marketplace_individual  (100%)
+    0  va_tricare  (100%)
+    0  uninsured  (100%)
+
+  Gender [gender]
+    1  female  (67%)
+    0  male  (100%)
+    0  nonbinary_other  (67%)
+
+  LGBTQ+ identity [lgbtq_identity]
+    0  lgbtq  (100%)
+
+  Religion [religion]
+    0  christian  (100%)
+    0  jewish  (100%)
+    0  muslim  (100%)
+    0  hindu  (100%)
+    0  buddhist  (100%)
+    0  other_faith  (100%)
+    0  none  (100%)
+
+Target groups (who the bill explicitly targets):
+  citizenship_status=citizen  (applicants seeking to register to vote in federal elections)  [100% of runs]
+  citizenship_status=permanent_resident  [100% of runs]
+  citizenship_status=other_status  (noncitizens including aliens)  [100% of runs]
+  disability_status=has_disability  (submits mail voter registration form)  [100% of runs]
+
+Validation: all sections OK.
+
+Token totals: input=12867 (cache_read=264692) output=22863
+Wrote C:\Users\cjsta\git\Readable-Legislature-Prototype\out\119-hr-22.json
+
+Fetching HR 28 (119th Congress)...
+  Title: Protection of Women and Girls in Sports Act of 2025
+  Text version: Engrossed in House (3949 chars)
+  Scoring 16 dimensions x 3 sample(s)...
+    [2/51] disability_status
+    [3/51] veteran_status
+    [4/51] disability_status
+    [5/51] veteran_status
+    [6/51] disability_status
+    [7/51] student_loan_status
+    [8/51] student_status
+    [9/51] student_status
+    [10/51] student_loan_status
+    [11/51] student_loan_status
+    [12/51] student_status
+    [13/51] caregiver_status
+    [14/51] caregiver_status
+    [15/51] housing_status
+    [16/51] housing_status
+    [17/51] housing_status
+    [18/51] caregiver_status
+    [19/51] citizenship_status
+    [20/51] citizenship_status
+    [21/51] citizenship_status
+    [22/51] marital_status
+    [23/51] marital_status
+    [24/51] marital_status
+    [25/51] income
+    [26/51] age
+    [27/51] age
+    [28/51] income
+    [29/51] age
+    [30/51] income
+    [31/51] occupation
+    [32/51] employment_status
+    [33/51] occupation
+    [34/51] employment_status
+    [35/51] employment_status
+    [36/51] occupation
+    [37/51] health_coverage
+    [38/51] health_coverage
+    [39/51] health_coverage
+    [40/51] lgbtq_identity
+    [41/51] gender
+    [42/51] lgbtq_identity
+    [43/51] gender
+    [44/51] gender
+    [45/51] lgbtq_identity
+    [46/51] religion
+    [47/51] religion
+    [48/51] religion
+    [49/51] __groups__
+    [50/51] __groups__
+    [51/51] __groups__
+
+Score summary (0=low, 1=moderate, 2=high):
+
+  Veteran status [veteran_status]
+    0  veteran  (100%)
+
+  Disability status [disability_status]
+    0  has_disability  (100%)
+
+  Student status [student_status]
+    2  student  (100%)
+
+  Student loan status [student_loan_status]
+    0  has_student_loans  (100%)
+
+  Parent / caregiver status [caregiver_status]
+    1  parent_of_minor  (100%)
+    0  caregiver_of_adult  (100%)
+
+  Housing status [housing_status]
+    0  homeowner  (100%)
+    0  renter  (100%)
+    0  other  (100%)
+
+  Citizenship status [citizenship_status]
+    0  citizen  (100%)
+    0  permanent_resident  (100%)
+    0  other_status  (100%)
+
+  Marital status [marital_status]
+    0  single  (100%)
+    0  married  (100%)
+    0  divorced  (100%)
+    0  widowed  (100%)
+
+  Age [age]
+    2  under_18  (100%)
+    2  age_18_25  (100%)
+    0  age_26_49  (100%)
+    0  age_50_64  (100%)
+    0  age_65_plus  (100%)
+
+  Household income [income]
+    0  under_30k  (100%)
+    0  income_30k_60k  (100%)
+    0  income_60k_120k  (100%)
+    0  income_120k_250k  (100%)
+    0  income_250k_plus  (100%)
+
+  Occupation [occupation]
+    1  education  (67%)
+    0  healthcare  (100%)
+    0  construction_trades  (100%)
+    0  manufacturing  (100%)
+    0  agriculture  (100%)
+    0  transportation_logistics  (100%)
+    0  public_sector_first_responders  (100%)
+    0  professional_office  (100%)
+    0  retail_service  (100%)
+    0  technology  (100%)
+    0  other  (100%)
+
+  Employment status [employment_status]
+    0  employee  (100%)
+    0  self_employed_owner  (100%)
+    0  unemployed  (100%)
+    0  retired  (100%)
+    0  not_in_labor_force  (100%)
+
+  Health coverage [health_coverage]
+    0  employer_plan  (100%)
+    0  medicare  (100%)
+    0  medicaid  (100%)
+    0  marketplace_individual  (100%)
+    0  va_tricare  (100%)
+    0  uninsured  (100%)
+
+  Gender [gender]
+    2  male  (100%)
+    2  female  (100%)
+    2  nonbinary_other  (100%)
+
+  LGBTQ+ identity [lgbtq_identity]
+    2  lgbtq  (100%)
+
+  Religion [religion]
+    0  christian  (100%)
+    0  jewish  (100%)
+    0  muslim  (100%)
+    0  hindu  (100%)
+    0  buddhist  (100%)
+    0  other_faith  (100%)
+    0  none  (100%)
+
+Target groups (who the bill explicitly targets):
+  student_status=student + gender=female  (participates in school athletic programs)  [100% of runs]
+  student_status=student + lgbtq_identity=lgbtq  (transgender individuals born male seeking women's athletics)  [100% of runs]
+  student_status=student + gender=male  (reproductive biology and genetics male at birth; seeking to participate in women's/girls' athletic programs at federally funded institutions)  [67% of runs]
+  student_status=student  (born male / male reproductive biology at birth; seeks to participate in women's or girls athletics)  [33% of runs]
+
+Validation: all sections OK.
+
+Token totals: input=12867 (cache_read=46072) output=12119
+Wrote C:\Users\cjsta\git\Readable-Legislature-Prototype\out\119-hr-28.json
+
+Fetching S 146 (119th Congress)...
+  Title: TAKE IT DOWN Act
+  Text version: Public Law (27994 chars)
+  Scoring 16 dimensions x 3 sample(s)...
+    [2/51] veteran_status
+    [3/51] disability_status
+    [4/51] veteran_status
+    [5/51] disability_status
+    [6/51] disability_status
+    [7/51] student_status
+    [8/51] student_status
+    [9/51] student_status
+    [10/51] student_loan_status
+    [11/51] student_loan_status
+    [12/51] student_loan_status
+    [13/51] housing_status
+    [14/51] housing_status
+    [15/51] housing_status
+    [16/51] caregiver_status
+    [17/51] caregiver_status
+    [18/51] citizenship_status
+    [19/51] citizenship_status
+    [20/51] citizenship_status
+    [21/51] caregiver_status
+    [22/51] marital_status
+    [23/51] marital_status
+    [24/51] marital_status
+    [25/51] income
+    [26/51] age
+    [27/51] income
+    [28/51] age
+    [29/51] income
+    [30/51] age
+    [31/51] occupation
+    [32/51] occupation
+    [33/51] occupation
+    [34/51] employment_status
+    [35/51] employment_status
+    [36/51] health_coverage
+    [37/51] employment_status
+    [38/51] health_coverage
+    [39/51] health_coverage
+    [40/51] gender
+    [41/51] lgbtq_identity
+    [42/51] lgbtq_identity
+    [43/51] lgbtq_identity
+    [44/51] gender
+    [45/51] gender
+    [46/51] religion
+    [47/51] religion
+    [48/51] religion
+    [49/51] __groups__
+    [50/51] __groups__
+    [51/51] __groups__
+
+Score summary (0=low, 1=moderate, 2=high):
+
+  Veteran status [veteran_status]
+    0  veteran  (100%)
+
+  Disability status [disability_status]
+    0  has_disability  (100%)
+
+  Student status [student_status]
+    0  student  (100%)
+
+  Student loan status [student_loan_status]
+    0  has_student_loans  (100%)
+
+  Parent / caregiver status [caregiver_status]
+    1  parent_of_minor  (100%)
+    1  caregiver_of_adult  (67%)
+
+  Housing status [housing_status]
+    0  homeowner  (100%)
+    0  renter  (100%)
+    0  other  (100%)
+
+  Citizenship status [citizenship_status]
+    0  citizen  (100%)
+    0  permanent_resident  (100%)
+    0  other_status  (100%)
+
+  Marital status [marital_status]
+    0  single  (100%)
+    0  married  (100%)
+    0  divorced  (100%)
+    0  widowed  (100%)
+
+  Age [age]
+    2  under_18  (100%)
+    0  age_18_25  (100%)
+    0  age_26_49  (100%)
+    0  age_50_64  (100%)
+    0  age_65_plus  (100%)
+
+  Household income [income]
+    0  under_30k  (100%)
+    0  income_30k_60k  (100%)
+    0  income_60k_120k  (100%)
+    0  income_120k_250k  (100%)
+    0  income_250k_plus  (100%)
+
+  Occupation [occupation]
+    2  technology  (100%)
+    0  education  (100%)
+    0  healthcare  (100%)
+    0  construction_trades  (100%)
+    0  manufacturing  (100%)
+    0  agriculture  (100%)
+    0  transportation_logistics  (100%)
+    0  public_sector_first_responders  (67%)
+    0  professional_office  (100%)
+    0  retail_service  (100%)
+    0  other  (100%)
+
+  Employment status [employment_status]
+    0  employee  (100%)
+    0  self_employed_owner  (100%)
+    0  unemployed  (100%)
+    0  retired  (100%)
+    0  not_in_labor_force  (100%)
+
+  Health coverage [health_coverage]
+    0  employer_plan  (100%)
+    0  medicare  (100%)
+    0  medicaid  (100%)
+    0  marketplace_individual  (100%)
+    0  va_tricare  (100%)
+    0  uninsured  (100%)
+
+  Gender [gender]
+    0  male  (100%)
+    0  female  (100%)
+    0  nonbinary_other  (100%)
+
+  LGBTQ+ identity [lgbtq_identity]
+    0  lgbtq  (100%)
+
+  Religion [religion]
+    0  christian  (100%)
+    0  jewish  (100%)
+    0  muslim  (100%)
+    0  hindu  (100%)
+    0  buddhist  (100%)
+    0  other_faith  (100%)
+    0  none  (100%)
+
+Target groups (who the bill explicitly targets):
+  <no taxonomy match>  (individuals depicted in intimate visual depictions (potential victims); persons who publish such depictions (potential offenders))  [100% of runs]
+  age=under_18  (depicted as an identifiable minor in an intimate visual depiction or digital forgery)  [100% of runs]
+  occupation=technology  (operators of covered online platforms hosting user-generated content)  [33% of runs]
+
+Validation: all sections OK.
+
+Token totals: input=12867 (cache_read=196658) output=14442
+Wrote C:\Users\cjsta\git\Readable-Legislature-Prototype\out\119-s-146.json
+
+Fetching HR 25 (119th Congress)...
+  Title: FairTax Act of 2025
+  Text version: Introduced in House (60000 chars)
+  Scoring 16 dimensions x 3 sample(s)...
+    [2/51] veteran_status
+    [3/51] veteran_status
+    [4/51] disability_status
+    [5/51] disability_status
+    [6/51] disability_status
+    [7/51] student_status
+    [8/51] student_status
+    [9/51] student_loan_status
+    [10/51] student_loan_status
+    [11/51] student_status
+    [12/51] student_loan_status
+    [13/51] caregiver_status
+    [14/51] caregiver_status
+    [15/51] caregiver_status
+    [16/51] housing_status
+    [17/51] housing_status
+    [18/51] housing_status
+    [19/51] citizenship_status
+    [20/51] citizenship_status
+    [21/51] marital_status
+    [22/51] citizenship_status
+    [23/51] age
+    [24/51] marital_status
+    [25/51] age
+    [26/51] income
+    [27/51] marital_status
+    [28/51] income
+    [29/51] income
+    [30/51] age
+    [31/51] occupation
+    [32/51] employment_status
+    [33/51] employment_status
+    [34/51] occupation
+    [35/51] occupation
+    [36/51] employment_status
+    [37/51] health_coverage
+    [38/51] gender
+    [39/51] health_coverage
+    [40/51] gender
+    [41/51] gender
+    [42/51] lgbtq_identity
+    [43/51] lgbtq_identity
+    [44/51] health_coverage
+    [45/51] lgbtq_identity
+    [46/51] religion
+    [47/51] religion
+    [48/51] religion
+    [49/51] __groups__
+    [50/51] __groups__
+    [51/51] __groups__
+
+Score summary (0=low, 1=moderate, 2=high):
+
+  Veteran status [veteran_status]
+    0  veteran  (100%)
+
+  Disability status [disability_status]
+    0  has_disability  (67%)
+
+  Student status [student_status]
+    1  student  (67%)
+
+  Student loan status [student_loan_status]
+    0  has_student_loans  (100%)
+
+  Parent / caregiver status [caregiver_status]
+    1  parent_of_minor  (67%)
+    1  caregiver_of_adult  (67%)
+
+  Housing status [housing_status]
+    2  renter  (100%)
+    1  homeowner  (100%)
+    1  other  (67%)
+
+  Citizenship status [citizenship_status]
+    2  citizen  (100%)
+    2  permanent_resident  (100%)
+    2  other_status  (100%)
+
+  Marital status [marital_status]
+    2  married  (100%)
+    2  divorced  (67%)
+    1  single  (100%)
+    0  widowed  (67%)
+
+  Age [age]
+    1  age_65_plus  (100%)
+    0  under_18  (100%)
+    0  age_18_25  (100%)
+    0  age_26_49  (100%)
+    0  age_50_64  (100%)
+
+  Household income [income]
+    2  under_30k  (100%)
+    2  income_30k_60k  (100%)
+    2  income_60k_120k  (100%)
+    2  income_120k_250k  (100%)
+    2  income_250k_plus  (100%)
+
+  Occupation [occupation]
+    2  retail_service  (67%)
+    1  education  (67%)
+    1  public_sector_first_responders  (67%)
+    1  professional_office  (100%)
+    0  healthcare  (100%)
+    0  construction_trades  (100%)
+    0  manufacturing  (100%)
+    0  agriculture  (67%)
+    0  transportation_logistics  (67%)
+    0  technology  (100%)
+    0  other  (100%)
+
+  Employment status [employment_status]
+    2  employee  (100%)
+    2  self_employed_owner  (100%)
+    1  unemployed  (67%)
+    1  retired  (67%)
+    1  not_in_labor_force  (67%)
+
+  Health coverage [health_coverage]
+    1  employer_plan  (100%)
+    1  medicare  (67%)
+    1  marketplace_individual  (100%)
+    0  medicaid  (100%)
+    0  va_tricare  (100%)
+    0  uninsured  (67%)
+
+  Gender [gender]
+    0  male  (100%)
+    0  female  (100%)
+    0  nonbinary_other  (100%)
+
+  LGBTQ+ identity [lgbtq_identity]
+    0  lgbtq  (100%)
+
+  Religion [religion]
+    0  christian  (100%)
+    0  jewish  (100%)
+    0  muslim  (100%)
+    0  hindu  (100%)
+    0  buddhist  (100%)
+    0  other_faith  (100%)
+    0  none  (100%)
+
+Target groups (who the bill explicitly targets):
+  <everyone>  [100% of runs]
+  employment_status=self_employed_owner  (sellers/businesses that collect and remit the national sales tax)  [100% of runs]
+  employment_status=retired  (Social Security benefit recipients)  [67% of runs]
+  citizenship_status=citizen  (registered qualified family, lawful resident with a Social Security number)  [33% of runs]
+  citizenship_status=permanent_resident  (registered qualified family, lawful resident with a Social Security number)  [33% of runs]
+  citizenship_status=other_status  (not a lawful resident with a Social Security number)  [33% of runs]
+  marital_status=married  (married couple in a qualified family)  [33% of runs]
+  citizenship_status=citizen + citizenship_status=permanent_resident  (lawful residents of the United States with valid Social Security numbers; registered qualified family members not incarcerated)  [33% of runs]
+
+Validation: all sections OK.
+
+Token totals: input=12867 (cache_read=497591) output=53759
+Wrote C:\Users\cjsta\git\Readable-Legislature-Prototype\out\119-hr-25.json
+
+Fetching HR 38 (119th Congress)...
+  Title: Constitutional Concealed Carry Reciprocity Act of 2025
+  Text version: Reported in House (11184 chars)
+  Scoring 16 dimensions x 3 sample(s)...
+    [2/51] veteran_status
+    [3/51] disability_status
+    [4/51] disability_status
+    [5/51] veteran_status
+    [6/51] disability_status
+    [7/51] student_status
+    [8/51] student_status
+    [9/51] student_loan_status
+    [10/51] student_loan_status
+    [11/51] student_loan_status
+    [12/51] student_status
+    [13/51] caregiver_status
+    [14/51] caregiver_status
+    [15/51] housing_status
+    [16/51] housing_status
+    [17/51] caregiver_status
+    [18/51] housing_status
+    [19/51] marital_status
+    [20/51] marital_status
+    [21/51] marital_status
+    [22/51] age
+    [23/51] citizenship_status
+    [24/51] citizenship_status
+    [25/51] income
+    [26/51] citizenship_status
+    [27/51] age
+    [28/51] income
+    [29/51] income
+    [30/51] age
+    [31/51] employment_status
+    [32/51] occupation
+    [33/51] occupation
+    [34/51] employment_status
+    [35/51] occupation
+    [36/51] employment_status
+    [37/51] health_coverage
+    [38/51] gender
+    [39/51] health_coverage
+    [40/51] health_coverage
+    [41/51] gender
+    [42/51] lgbtq_identity
+    [43/51] lgbtq_identity
+    [44/51] gender
+    [45/51] lgbtq_identity
+    [46/51] religion
+    [47/51] religion
+    [48/51] religion
+    [49/51] __groups__
+    [50/51] __groups__
+    [51/51] __groups__
+
+Score summary (0=low, 1=moderate, 2=high):
+
+  Veteran status [veteran_status]
+    0  veteran  (100%)
+
+  Disability status [disability_status]
+    0  has_disability  (100%)
+
+  Student status [student_status]
+    0  student  (100%)
+
+  Student loan status [student_loan_status]
+    0  has_student_loans  (100%)
+
+  Parent / caregiver status [caregiver_status]
+    0  parent_of_minor  (100%)
+    0  caregiver_of_adult  (100%)
+
+  Housing status [housing_status]
+    0  homeowner  (100%)
+    0  renter  (100%)
+    0  other  (100%)
+
+  Citizenship status [citizenship_status]
+    1  citizen  (67%)
+    1  permanent_resident  (67%)
+    1  other_status  (67%)
+
+  Marital status [marital_status]
+    0  single  (100%)
+    0  married  (100%)
+    0  divorced  (100%)
+    0  widowed  (100%)
+
+  Age [age]
+    0  under_18  (100%)
+    0  age_18_25  (67%)
+    0  age_26_49  (100%)
+    0  age_50_64  (100%)
+    0  age_65_plus  (100%)
+
+  Household income [income]
+    0  under_30k  (100%)
+    0  income_30k_60k  (100%)
+    0  income_60k_120k  (100%)
+    0  income_120k_250k  (100%)
+    0  income_250k_plus  (100%)
+
+  Occupation [occupation]
+    1  public_sector_first_responders  (67%)
+    0  education  (100%)
+    0  healthcare  (100%)
+    0  construction_trades  (100%)
+    0  manufacturing  (100%)
+    0  agriculture  (100%)
+    0  transportation_logistics  (100%)
+    0  professional_office  (100%)
+    0  retail_service  (100%)
+    0  technology  (100%)
+    0  other  (100%)
+
+  Employment status [employment_status]
+    0  employee  (100%)
+    0  self_employed_owner  (100%)
+    0  unemployed  (100%)
+    0  retired  (100%)
+    0  not_in_labor_force  (100%)
+
+  Health coverage [health_coverage]
+    0  employer_plan  (100%)
+    0  medicare  (100%)
+    0  medicaid  (100%)
+    0  marketplace_individual  (100%)
+    0  va_tricare  (100%)
+    0  uninsured  (100%)
+
+  Gender [gender]
+    0  male  (100%)
+    0  female  (100%)
+    0  nonbinary_other  (100%)
+
+  LGBTQ+ identity [lgbtq_identity]
+    0  lgbtq  (100%)
+
+  Religion [religion]
+    0  christian  (100%)
+    0  jewish  (100%)
+    0  muslim  (100%)
+    0  hindu  (100%)
+    0  buddhist  (100%)
+    0  other_faith  (100%)
+    0  none  (100%)
+
+Target groups (who the bill explicitly targets):
+  <no taxonomy match>  (holds a valid concealed carry license/permit or is otherwise entitled to carry a concealed firearm in their home state; not prohibited by federal law from possessing firearms; carries a valid photo identification document)  [100% of runs]
+
+Validation: all sections OK.
+
+Token totals: input=12867 (cache_read=132517) output=15549
+Wrote C:\Users\cjsta\git\Readable-Legislature-Prototype\out\119-hr-38.json
+
+Fetching S 331 (119th Congress)...
+  Title: HALT Fentanyl Act
+  Text version: Public Law (30850 chars)
+  Scoring 16 dimensions x 3 sample(s)...
+    [2/51] disability_status
+    [3/51] disability_status
+    [4/51] veteran_status
+    [5/51] veteran_status
+    [6/51] disability_status
+    [7/51] student_status
+    [8/51] student_status
+    [9/51] student_status
+    [10/51] student_loan_status
+    [11/51] student_loan_status
+    [12/51] student_loan_status
+    [13/51] caregiver_status
+    [14/51] caregiver_status
+    [15/51] caregiver_status
+    [16/51] housing_status
+    [17/51] housing_status
+    [18/51] housing_status
+    [19/51] citizenship_status
+    [20/51] citizenship_status
+    [21/51] citizenship_status
+    [22/51] marital_status
+    [23/51] marital_status
+    [24/51] marital_status
+    [25/51] age
+    [26/51] age
+    [27/51] age
+    [28/51] income
+    [29/51] income
+    [30/51] income
+    [31/51] employment_status
+    [32/51] employment_status
+    [33/51] occupation
+    [34/51] occupation
+    [35/51] occupation
+    [36/51] employment_status
+    [37/51] health_coverage
+    [38/51] health_coverage
+    [39/51] gender
+    [40/51] gender
+    [41/51] gender
+    [42/51] lgbtq_identity
+    [43/51] health_coverage
+    [44/51] lgbtq_identity
+    [45/51] lgbtq_identity
+    [46/51] religion
+    [47/51] religion
+    [48/51] religion
+    [49/51] __groups__
+    [50/51] __groups__
+    [51/51] __groups__
+
+Score summary (0=low, 1=moderate, 2=high):
+
+  Veteran status [veteran_status]
+    0  veteran  (100%)
+
+  Disability status [disability_status]
+    0  has_disability  (100%)
+
+  Student status [student_status]
+    0  student  (100%)
+
+  Student loan status [student_loan_status]
+    0  has_student_loans  (100%)
+
+  Parent / caregiver status [caregiver_status]
+    0  parent_of_minor  (100%)
+    0  caregiver_of_adult  (100%)
+
+  Housing status [housing_status]
+    0  homeowner  (100%)
+    0  renter  (100%)
+    0  other  (100%)
+
+  Citizenship status [citizenship_status]
+    0  citizen  (100%)
+    0  permanent_resident  (100%)
+    0  other_status  (100%)
+
+  Marital status [marital_status]
+    0  single  (100%)
+    0  married  (100%)
+    0  divorced  (100%)
+    0  widowed  (100%)
+
+  Age [age]
+    0  under_18  (100%)
+    0  age_18_25  (100%)
+    0  age_26_49  (100%)
+    0  age_50_64  (100%)
+    0  age_65_plus  (100%)
+
+  Household income [income]
+    0  under_30k  (100%)
+    0  income_30k_60k  (100%)
+    0  income_60k_120k  (100%)
+    0  income_120k_250k  (100%)
+    0  income_250k_plus  (100%)
+
+  Occupation [occupation]
+    2  healthcare  (100%)
+    1  public_sector_first_responders  (100%)
+    0  education  (100%)
+    0  construction_trades  (100%)
+    0  manufacturing  (100%)
+    0  agriculture  (100%)
+    0  transportation_logistics  (100%)
+    0  professional_office  (100%)
+    0  retail_service  (100%)
+    0  technology  (100%)
+    0  other  (100%)
+
+  Employment status [employment_status]
+    0  employee  (100%)
+    0  self_employed_owner  (100%)
+    0  unemployed  (100%)
+    0  retired  (100%)
+    0  not_in_labor_force  (100%)
+
+  Health coverage [health_coverage]
+    0  employer_plan  (100%)
+    0  medicare  (100%)
+    0  medicaid  (100%)
+    0  marketplace_individual  (100%)
+    0  va_tricare  (100%)
+    0  uninsured  (100%)
+
+  Gender [gender]
+    0  male  (100%)
+    0  female  (100%)
+    0  nonbinary_other  (100%)
+
+  LGBTQ+ identity [lgbtq_identity]
+    0  lgbtq  (100%)
+
+  Religion [religion]
+    0  christian  (100%)
+    0  jewish  (100%)
+    0  muslim  (100%)
+    0  hindu  (100%)
+    0  buddhist  (100%)
+    0  other_faith  (100%)
+    0  none  (100%)
+
+Target groups (who the bill explicitly targets):
+  <no taxonomy match>  (practitioners/researchers registered to conduct research with schedule I or II controlled substances; research institutions conducting controlled substance research)  [100% of runs]
+
+Validation: all sections OK.
+
+Token totals: input=12867 (cache_read=185879) output=11149
+Wrote C:\Users\cjsta\git\Readable-Legislature-Prototype\out\119-s-331.json
+
+Fetching S 1582 (119th Congress)...
+  Title: GENIUS Act
+  Text version: Public Law (60000 chars)
+  Scoring 16 dimensions x 3 sample(s)...
+    [2/51] veteran_status
+    [3/51] veteran_status
+    [4/51] disability_status
+    [5/51] disability_status
+    [6/51] student_status
+    [7/51] student_status
+    [8/51] student_status
+    [9/51] disability_status
+    [10/51] student_loan_status
+    [11/51] student_loan_status
+    [12/51] student_loan_status
+    [13/51] caregiver_status
+    [14/51] caregiver_status
+    [15/51] caregiver_status
+    [16/51] housing_status
+    [17/51] housing_status
+    [18/51] housing_status
+    [19/51] citizenship_status
+    [20/51] citizenship_status
+    [21/51] citizenship_status
+    [22/51] marital_status
+    [23/51] marital_status
+    [24/51] marital_status
+    [25/51] age
+    [26/51] age
+    [27/51] age
+    [28/51] income
+    [29/51] income
+    [30/51] income
+    [31/51] employment_status
+    [32/51] occupation
+    [33/51] occupation
+    [34/51] employment_status
+    [35/51] occupation
+    [36/51] health_coverage
+    [37/51] health_coverage
+    [38/51] employment_status
+    [39/51] health_coverage
+    [40/51] gender
+    [41/51] gender
+    [42/51] lgbtq_identity
+    [43/51] religion
+    [44/51] lgbtq_identity
+    [45/51] religion
+    [46/51] religion
+    [47/51] __groups__
+    [48/51] __groups__
+    [49/51] __groups__
+    [50/51] gender
+    [51/51] lgbtq_identity
+
+Score summary (0=low, 1=moderate, 2=high):
+
+  Veteran status [veteran_status]
+    0  veteran  (100%)
+
+  Disability status [disability_status]
+    0  has_disability  (100%)
+
+  Student status [student_status]
+    0  student  (100%)
+
+  Student loan status [student_loan_status]
+    0  has_student_loans  (100%)
+
+  Parent / caregiver status [caregiver_status]
+    0  parent_of_minor  (100%)
+    0  caregiver_of_adult  (100%)
+
+  Housing status [housing_status]
+    0  homeowner  (100%)
+    0  renter  (100%)
+    0  other  (100%)
+
+  Citizenship status [citizenship_status]
+    0  citizen  (100%)
+    0  permanent_resident  (100%)
+    0  other_status  (100%)
+
+  Marital status [marital_status]
+    0  single  (100%)
+    0  married  (100%)
+    0  divorced  (100%)
+    0  widowed  (100%)
+
+  Age [age]
+    0  under_18  (100%)
+    0  age_18_25  (100%)
+    0  age_26_49  (100%)
+    0  age_50_64  (100%)
+    0  age_65_plus  (100%)
+
+  Household income [income]
+    0  under_30k  (100%)
+    0  income_30k_60k  (100%)
+    0  income_60k_120k  (100%)
+    0  income_120k_250k  (100%)
+    0  income_250k_plus  (100%)
+
+  Occupation [occupation]
+    2  professional_office  (100%)
+    2  technology  (67%)
+    1  public_sector_first_responders  (67%)
+    0  education  (100%)
+    0  healthcare  (100%)
+    0  construction_trades  (100%)
+    0  manufacturing  (100%)
+    0  agriculture  (100%)
+    0  transportation_logistics  (100%)
+    0  retail_service  (100%)
+    0  other  (100%)
+
+  Employment status [employment_status]
+    0  employee  (100%)
+    0  self_employed_owner  (100%)
+    0  unemployed  (100%)
+    0  retired  (100%)
+    0  not_in_labor_force  (100%)
+
+  Health coverage [health_coverage]
+    0  employer_plan  (100%)
+    0  medicare  (100%)
+    0  medicaid  (100%)
+    0  marketplace_individual  (100%)
+    0  va_tricare  (100%)
+    0  uninsured  (100%)
+
+  Gender [gender]
+    0  male  (100%)
+    0  female  (100%)
+    0  nonbinary_other  (100%)
+
+  LGBTQ+ identity [lgbtq_identity]
+    0  lgbtq  (100%)
+
+  Religion [religion]
+    <no scores>
+
+Target groups (who the bill explicitly targets):
+  <none>
+
+Validation PROBLEMS:
+  religion: {'missing': ['buddhist', 'christian', 'hindu', 'jewish', 'muslim', 'none', 'other_faith'], 'bad_scores': ['<no scores returned>']}
+  target_groups: {'unknown_ids': ['<no target groups returned>']}
+
+Token totals: input=9921 (cache_read=337021) output=9137
+Wrote C:\Users\cjsta\git\Readable-Legislature-Prototype\out\119-s-1582.json
+
+============================================================
+Batch summary:
+  ok      119-hr-2138
+  ok      119-s-129
+  ok      119-s-5
+  ok      119-hr-22
+  ok      119-hr-28
+  ok      119-s-146
+  ok      119-hr-25
+  ok      119-hr-38
+  ok      119-s-331
+  ok      119-s-1582
+Grand totals: input=125724 (cache_read=1895017) output=182213

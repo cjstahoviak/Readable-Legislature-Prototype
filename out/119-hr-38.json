@@ -1,0 +1,623 @@
+{
+  "bill_id": "119-hr-38",
+  "bill": {
+    "congress": 119,
+    "type": "HR",
+    "number": 38,
+    "title": "Constitutional Concealed Carry Reciprocity Act of 2025",
+    "url": "https://www.congress.gov/bill/119th-congress/house-bill/38",
+    "text_version_type": "Reported in House",
+    "text_source_url": "https://www.congress.gov/119/bills/hr38/BILLS-119hr38rh.htm"
+  },
+  "fetched_at": "2026-07-07T04:18:16Z",
+  "model": "claude-opus-4-8",
+  "samples": 3,
+  "scores": {
+    "veteran_status": {
+      "veteran": {
+        "score": 0,
+        "reason": "This concealed carry reciprocity bill applies to permit holders generally and affects veterans identically to all other citizens.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "disability_status": {
+      "has_disability": {
+        "score": 0,
+        "reason": "This concealed carry reciprocity bill applies uniformly regardless of disability status; it has no differential effect on people with disabilities.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_status": {
+      "student": {
+        "score": 0,
+        "reason": "The bill concerns concealed-carry reciprocity for nonresidents and affects the general public, not students by virtue of their enrollment status; any effect is identical regardless of being a student.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_loan_status": {
+      "has_student_loans": {
+        "score": 0,
+        "reason": "This bill concerns concealed carry firearm reciprocity and has no bearing on student loan borrowers.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "caregiver_status": {
+      "parent_of_minor": {
+        "score": 0,
+        "reason": "The concealed carry reciprocity bill applies to permit holders regardless of parental status; having a minor child does not change its effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "caregiver_of_adult": {
+        "score": 0,
+        "reason": "The bill's effect on concealed carry reciprocity is identical regardless of whether one cares for a dependent adult.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "housing_status": {
+      "homeowner": {
+        "score": 0,
+        "reason": "The bill concerns concealed carry reciprocity and does not treat homeowners differently.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "renter": {
+        "score": 0,
+        "reason": "Housing status is irrelevant to concealed carry reciprocity provisions.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "The bill's effect does not vary by living arrangement.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "citizenship_status": {
+      "citizen": {
+        "score": 1,
+        "reason": "The bill's concealed-carry reciprocity applies to persons not prohibited by federal law who hold valid carry permits; citizens are eligible and can benefit from cross-state carry. The eligibility differs by immigration status because federal firearm prohibitions (e.g., 922(g)(5)) tie possession to status, giving citizens a first-order stake.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 2,
+          "2": 1
+        }
+      },
+      "permanent_resident": {
+        "score": 1,
+        "reason": "Lawful permanent residents may generally possess firearms and obtain carry permits, so they are among those who could use the reciprocity provisions, similar to citizens.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 2,
+          "2": 1
+        }
+      },
+      "other_status": {
+        "score": 1,
+        "reason": "The bill applies only to persons not prohibited by federal law from possessing firearms, and federal law bars many non-immigrant visa holders and undocumented persons from firearm possession, so eligibility turns on immigration status; effect differs and is largely limited for this group.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      }
+    },
+    "marital_status": {
+      "single": {
+        "score": 0,
+        "reason": "Concealed carry reciprocity applies regardless of marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "married": {
+        "score": 0,
+        "reason": "The bill's effect does not vary by marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "divorced": {
+        "score": 0,
+        "reason": "No divorce-specific provisions in this firearms reciprocity bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "widowed": {
+        "score": 0,
+        "reason": "No widowhood-specific provisions in this firearms reciprocity bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "age": {
+      "under_18": {
+        "score": 0,
+        "reason": "Minors cannot obtain concealed-carry permits, so the reciprocity provisions do not reach them.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_18_25": {
+        "score": 0,
+        "reason": "The bill affects concealed-carry permit holders uniformly regardless of age; no age-specific provision applies.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      "age_26_49": {
+        "score": 0,
+        "reason": "Effect on permit holders is identical across adult ages.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_50_64": {
+        "score": 0,
+        "reason": "Effect on permit holders is identical across adult ages.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_65_plus": {
+        "score": 0,
+        "reason": "Effect on permit holders is identical across adult ages.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "income": {
+      "under_30k": {
+        "score": 0,
+        "reason": "Concealed carry reciprocity applies regardless of household income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_30k_60k": {
+        "score": 0,
+        "reason": "Effect does not vary by income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_60k_120k": {
+        "score": 0,
+        "reason": "Effect does not vary by income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_120k_250k": {
+        "score": 0,
+        "reason": "Effect does not vary by income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_250k_plus": {
+        "score": 0,
+        "reason": "Effect does not vary by income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "occupation": {
+      "education": {
+        "score": 0,
+        "reason": "The bill concerns concealed carry reciprocity and does not touch teachers or school employment.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "healthcare": {
+        "score": 0,
+        "reason": "No relevance to clinical or allied health work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "construction_trades": {
+        "score": 0,
+        "reason": "No connection to trades or building work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "manufacturing": {
+        "score": 0,
+        "reason": "No connection to factory or industrial work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "agriculture": {
+        "score": 0,
+        "reason": "No connection to farming or related occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "transportation_logistics": {
+        "score": 0,
+        "reason": "No connection to driving or supply-chain work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "public_sector_first_responders": {
+        "score": 1,
+        "reason": "The bill directly governs how state and local police may arrest, detain, and enforce firearms laws against reciprocal permit-holders, and exposes officials to liability for deprivations, affecting law enforcement conduct firsthand.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 2,
+          "2": 1
+        }
+      },
+      "professional_office": {
+        "score": 0,
+        "reason": "No occupation-specific effect on white-collar office work, aside from general litigation provisions that are not sector-specific.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retail_service": {
+        "score": 0,
+        "reason": "No occupation-specific effect; private property carry rules are preserved regardless of sector.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "technology": {
+        "score": 0,
+        "reason": "No relevance to tech occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No specific occupational group beyond those noted is targeted.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "employment_status": {
+      "employee": {
+        "score": 0,
+        "reason": "Concealed carry reciprocity does not affect people based on employment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "self_employed_owner": {
+        "score": 0,
+        "reason": "No differential effect tied to being self-employed or a business owner.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "unemployed": {
+        "score": 0,
+        "reason": "Bill is unrelated to employment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retired": {
+        "score": 0,
+        "reason": "Bill is unrelated to retirement status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "not_in_labor_force": {
+        "score": 0,
+        "reason": "Bill is unrelated to labor force participation.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "health_coverage": {
+      "employer_plan": {
+        "score": 0,
+        "reason": "This bill concerns concealed carry firearm reciprocity and has no connection to health insurance.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicare": {
+        "score": 0,
+        "reason": "No relevance to health coverage; the bill is about firearms.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicaid": {
+        "score": 0,
+        "reason": "No relevance to health coverage; the bill is about firearms.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "marketplace_individual": {
+        "score": 0,
+        "reason": "No relevance to health coverage; the bill is about firearms.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "va_tricare": {
+        "score": 0,
+        "reason": "No relevance to health coverage; the bill is about firearms.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "uninsured": {
+        "score": 0,
+        "reason": "No relevance to health coverage; the bill is about firearms.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "gender": {
+      "male": {
+        "score": 0,
+        "reason": "Concealed carry reciprocity applies identically regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "female": {
+        "score": 0,
+        "reason": "The bill's effect does not vary by gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "nonbinary_other": {
+        "score": 0,
+        "reason": "The bill's effect does not vary by gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "lgbtq_identity": {
+      "lgbtq": {
+        "score": 0,
+        "reason": "Concealed carry reciprocity applies identically regardless of sexual orientation or gender identity.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "religion": {
+      "christian": {
+        "score": 0,
+        "reason": "Concealed carry reciprocity applies regardless of religion.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "jewish": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "muslim": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "hindu": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "buddhist": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_faith": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "none": {
+        "score": 0,
+        "reason": "No religion-specific effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    }
+  },
+  "target_groups": [
+    {
+      "conditions": [],
+      "other_criteria": [
+        "holds a valid concealed carry license/permit or is otherwise entitled to carry a concealed firearm in their home state",
+        "not prohibited by federal law from possessing firearms",
+        "carries a valid photo identification document"
+      ],
+      "reason": "The bill directly enables licensed concealed-carry holders to carry across state lines under reciprocity, making them the explicit subjects of the law.",
+      "agreement": 1.0
+    }
+  ],
+  "validation": {
+    "veteran_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "disability_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_loan_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "caregiver_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "housing_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "citizenship_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "marital_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "age": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "income": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "occupation": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "employment_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "health_coverage": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "gender": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "lgbtq_identity": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "religion": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "target_groups": {
+      "unknown_ids": []
+    }
+  }
+}

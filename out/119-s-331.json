@@ -1,0 +1,617 @@
+{
+  "bill_id": "119-s-331",
+  "bill": {
+    "congress": 119,
+    "type": "S",
+    "number": 331,
+    "title": "HALT Fentanyl Act",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-bill/331",
+    "text_version_type": "Public Law",
+    "text_source_url": "https://www.congress.gov/119/plaws/publ26/PLAW-119publ26.htm"
+  },
+  "fetched_at": "2026-07-07T04:19:16Z",
+  "model": "claude-opus-4-8",
+  "samples": 3,
+  "scores": {
+    "veteran_status": {
+      "veteran": {
+        "score": 0,
+        "reason": "This fentanyl scheduling and research registration bill applies generally; veterans are not distinctly affected, and the mention of VA-conducted research pertains to institutions, not veterans as a group.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "disability_status": {
+      "has_disability": {
+        "score": 0,
+        "reason": "This bill schedules fentanyl-related substances and adjusts research registration procedures; its effects do not vary based on disability status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_status": {
+      "student": {
+        "score": 0,
+        "reason": "This bill deals with fentanyl scheduling, drug trafficking penalties, and research registration requirements; it has no particular effect on students as students.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_loan_status": {
+      "has_student_loans": {
+        "score": 0,
+        "reason": "This bill concerns fentanyl scheduling, research registration, and drug trafficking penalties, with no bearing on student loan borrowers.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "caregiver_status": {
+      "parent_of_minor": {
+        "score": 0,
+        "reason": "This bill schedules fentanyl-related substances, sets penalties, and streamlines research registration; it does not treat parents of minors differently from anyone else.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "caregiver_of_adult": {
+        "score": 0,
+        "reason": "The bill has no provisions that differ based on whether someone cares for a dependent adult.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "housing_status": {
+      "homeowner": {
+        "score": 0,
+        "reason": "This bill schedules fentanyl-related substances and adjusts research registration; housing status is irrelevant to its effects.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "renter": {
+        "score": 0,
+        "reason": "The bill's effects on drug scheduling and research do not vary by housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No differential effect based on living arrangement.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "citizenship_status": {
+      "citizen": {
+        "score": 0,
+        "reason": "The bill schedules fentanyl-related substances and adjusts research registration and penalties, applying identically regardless of citizenship status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "permanent_resident": {
+        "score": 0,
+        "reason": "No provisions differ based on immigration status; effects are identical across statuses.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_status": {
+        "score": 0,
+        "reason": "The bill contains no immigration-related provisions and applies uniformly regardless of status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "marital_status": {
+      "single": {
+        "score": 0,
+        "reason": "This bill on fentanyl scheduling and research registration has no differential effect based on marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "married": {
+        "score": 0,
+        "reason": "No provisions relate to marriage or spousal status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "divorced": {
+        "score": 0,
+        "reason": "No divorce-related benefits or rules are implicated.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "widowed": {
+        "score": 0,
+        "reason": "No survivor benefits or widowhood provisions are involved.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "age": {
+      "under_18": {
+        "score": 0,
+        "reason": "The bill schedules fentanyl-related substances and adjusts research registration; its effects do not vary by age.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_18_25": {
+        "score": 0,
+        "reason": "Drug scheduling and penalty provisions apply identically regardless of age.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_26_49": {
+        "score": 0,
+        "reason": "No age-dependent provisions; effects are the same across ages.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_50_64": {
+        "score": 0,
+        "reason": "No age-dependent provisions; effects are the same across ages.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_65_plus": {
+        "score": 0,
+        "reason": "No age-dependent provisions; effects are the same across ages.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "income": {
+      "under_30k": {
+        "score": 0,
+        "reason": "The bill schedules fentanyl-related substances and adjusts research registration; its effects do not vary by household income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_30k_60k": {
+        "score": 0,
+        "reason": "No income-dependent effect; the drug scheduling and penalty provisions apply irrespective of income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_60k_120k": {
+        "score": 0,
+        "reason": "No income-dependent effect from this controlled-substance scheduling law.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_120k_250k": {
+        "score": 0,
+        "reason": "No income-dependent effect from this controlled-substance scheduling law.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_250k_plus": {
+        "score": 0,
+        "reason": "No income-dependent effect from this controlled-substance scheduling law.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "occupation": {
+      "education": {
+        "score": 0,
+        "reason": "The bill does not touch teachers or school staff.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "healthcare": {
+        "score": 2,
+        "reason": "The bill overhauls Schedule I research registration procedures affecting clinical and pharmaceutical researchers, and involves practitioners conducting fentanyl-related research at HHS, DoD, and VA. Medical researchers are explicit subjects of the registration, inspection, and manufacturing-coincident-to-research provisions.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "construction_trades": {
+        "score": 0,
+        "reason": "No relevance to building or manual trades.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "manufacturing": {
+        "score": 0,
+        "reason": "The only manufacturing referenced is small-scale coincident to research, not industrial production work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "agriculture": {
+        "score": 0,
+        "reason": "No connection to farming or related work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "transportation_logistics": {
+        "score": 0,
+        "reason": "The bill does not target drivers or supply-chain workers in their occupational capacity.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "public_sector_first_responders": {
+        "score": 1,
+        "reason": "Law enforcement and DEA/DOJ personnel administer the new scheduling and enforce expanded trafficking penalties, and government researchers at DoD/VA are named. The effect on enforcement and government scientific work is a first-order consequence.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "professional_office": {
+        "score": 0,
+        "reason": "No specific effect on white-collar office roles.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retail_service": {
+        "score": 0,
+        "reason": "No relevance to retail or service work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "technology": {
+        "score": 0,
+        "reason": "No connection to IT or software occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No other occupational group is directly targeted.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "employment_status": {
+      "employee": {
+        "score": 0,
+        "reason": "The bill schedules fentanyl-related substances and adjusts research registration; effects do not vary by employee status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "self_employed_owner": {
+        "score": 0,
+        "reason": "No trait-dependent effect on self-employed or business owners as such.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "unemployed": {
+        "score": 0,
+        "reason": "Irrelevant to employment status of the unemployed.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retired": {
+        "score": 0,
+        "reason": "No effect tied to retirement status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "not_in_labor_force": {
+        "score": 0,
+        "reason": "No effect tied to being out of the labor force.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "health_coverage": {
+      "employer_plan": {
+        "score": 0,
+        "reason": "This drug scheduling and research-registration bill does not affect health insurance coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicare": {
+        "score": 0,
+        "reason": "No effect on Medicare coverage; the bill concerns fentanyl scheduling and DEA research registration.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicaid": {
+        "score": 0,
+        "reason": "No effect on Medicaid/CHIP coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "marketplace_individual": {
+        "score": 0,
+        "reason": "No effect on marketplace or individual plan coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "va_tricare": {
+        "score": 0,
+        "reason": "The bill references VA/DoD research funding but does not alter health coverage for these groups.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "uninsured": {
+        "score": 0,
+        "reason": "No effect on insurance status of the uninsured.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "gender": {
+      "male": {
+        "score": 0,
+        "reason": "This bill schedules fentanyl-related substances and adjusts research registration and penalties; its effects do not vary by gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "female": {
+        "score": 0,
+        "reason": "Effects apply identically regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "nonbinary_other": {
+        "score": 0,
+        "reason": "Effects apply identically regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "lgbtq_identity": {
+      "lgbtq": {
+        "score": 0,
+        "reason": "This bill concerns fentanyl scheduling and research registration under the Controlled Substances Act, with no relevance to LGBTQ+ identity.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "religion": {
+      "christian": {
+        "score": 0,
+        "reason": "This bill addresses fentanyl scheduling and drug research registration, with no effect that varies by religion.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "jewish": {
+        "score": 0,
+        "reason": "No religion-specific effect; the bill concerns controlled substances law.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "muslim": {
+        "score": 0,
+        "reason": "No religion-specific effect; the bill concerns controlled substances law.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "hindu": {
+        "score": 0,
+        "reason": "No religion-specific effect; the bill concerns controlled substances law.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "buddhist": {
+        "score": 0,
+        "reason": "No religion-specific effect; the bill concerns controlled substances law.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_faith": {
+        "score": 0,
+        "reason": "No religion-specific effect; the bill concerns controlled substances law.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "none": {
+        "score": 0,
+        "reason": "No religion-specific effect; the bill concerns controlled substances law.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    }
+  },
+  "target_groups": [
+    {
+      "conditions": [],
+      "other_criteria": [
+        "practitioners/researchers registered to conduct research with schedule I or II controlled substances",
+        "research institutions conducting controlled substance research"
+      ],
+      "reason": "The bill creates alternative registration, notification, and inspection procedures for practitioners and institutions conducting research with schedule I substances including fentanyl-related substances.",
+      "agreement": 1.0
+    }
+  ],
+  "validation": {
+    "veteran_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "disability_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_loan_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "caregiver_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "housing_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "citizenship_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "marital_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "age": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "income": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "occupation": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "employment_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "health_coverage": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "gender": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "lgbtq_identity": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "religion": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "target_groups": {
+      "unknown_ids": []
+    }
+  }
+}

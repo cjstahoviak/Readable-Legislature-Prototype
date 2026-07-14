@@ -2,9 +2,18 @@
 
 Throwaway prototype (see PROTOTYPE_HANDOFF.md). Fetches a bill and its
 text from the Congress.gov API, makes one Claude call per taxonomy
-dimension (all of that dimension's values scored together), validates
-the result against ``taxonomy.yaml``, and writes one JSON file to
-``out/`` for manual review.
+dimension (all of that dimension's values scored together) plus one
+call extracting the bill's explicitly targeted groups as conjunctions
+of taxonomy values, validates everything against ``taxonomy.yaml``,
+and writes one JSON file per bill to ``out/`` for manual review.
+
+Resampling (handoff "Phase 2"): with ``--samples N`` every call runs
+N times and the results are aggregated - majority vote per score with
+an agreement ratio as pseudo-confidence, and target groups deduped on
+their condition sets. The handoff suggested "nonzero temperature",
+but Opus 4.8 removed the temperature parameter; resampling relies on
+the model's natural run-to-run variance instead (empirically ~+/-1 on
+borderline scores). ``--bills`` scores several bills in one run.
 
 Stages are split into small, independently testable functions:
 fetch -> build prompt -> call -> validate -> write.
@@ -18,8 +27,10 @@ import html
 import json
 import os
 import re
+import statistics
 import sys
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
@@ -266,6 +277,80 @@ def build_dimension_schema(values: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def build_target_group_prompt(taxonomy: dict[str, Any]) -> str:
+    """Instruction for the target-group extraction call."""
+    lines = ["Taxonomy dimensions and their value ids:"]
+    for dim in taxonomy["dimensions"]:
+        ids = ", ".join(v["id"] for v in dim["values"])
+        lines.append(f"  - {dim['id']}: {ids}")
+    lines += [
+        "",
+        "List every group the bill above EXPLICITLY targets. A group",
+        "is a conjunction: the conditions one person must ALL meet to",
+        "be a direct subject of the bill. Example: a bill raising a",
+        "benefit for disabled veterans yields one group with",
+        "veteran_status=veteran AND disability_status=has_disability.",
+        "",
+        "Rules:",
+        "  - One group per distinct targeted population; bills often",
+        "    target several.",
+        "  - `conditions` may only use dimension and value ids from",
+        "    the list above.",
+        "  - Put constraints the taxonomy cannot express (e.g.",
+        '    "receives VA disability compensation") in',
+        "    `other_criteria` as short free-text strings.",
+        "  - If a targeted group cannot be expressed with any",
+        "    taxonomy value, leave `conditions` empty and describe",
+        "    it fully in `other_criteria`.",
+        "  - If the bill applies to essentially everyone, return one",
+        "    group with empty `conditions` and empty",
+        "    `other_criteria`.",
+        "  - Keep `reason` to 1-2 neutral sentences; never say",
+        "    whether the effect is good or bad for the group.",
+    ]
+    return "\n".join(lines)
+
+
+# JSON schema for the target-group call. `dimension`/`value` stay
+# plain strings (per-dimension enums can't be expressed conditionally
+# in one schema); ids are checked against the taxonomy in
+# ``validate_target_groups`` instead.
+TARGET_GROUP_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "target_groups": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "conditions": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "dimension": {"type": "string"},
+                                "value": {"type": "string"},
+                            },
+                            "required": ["dimension", "value"],
+                            "additionalProperties": False,
+                        },
+                    },
+                    "other_criteria": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                    },
+                    "reason": {"type": "string"},
+                },
+                "required": ["conditions", "other_criteria", "reason"],
+                "additionalProperties": False,
+            },
+        }
+    },
+    "required": ["target_groups"],
+    "additionalProperties": False,
+}
+
+
 # --------------------------------------------------------------------------
 # Claude scoring call
 # --------------------------------------------------------------------------
@@ -283,18 +368,68 @@ def score_dimension(
     Returns ``(scores, usage)``; ``scores`` is ``None`` on a refusal or
     unparseable response so the caller can continue the other dimensions.
     """
+    return _call_claude_json(
+        client,
+        model,
+        system_blocks,
+        build_user_prompt(dimension, values),
+        build_dimension_schema(values),
+        use_thinking,
+        label=dimension["id"],
+        max_tokens=max_tokens,
+    )
+
+
+def extract_target_groups(
+    client: Anthropic,
+    model: str,
+    system_blocks: list[dict[str, Any]],
+    taxonomy: dict[str, Any],
+    use_thinking: bool,
+    max_tokens: int = DEFAULT_MAX_TOKENS,
+) -> tuple[list[dict[str, Any]] | None, dict[str, int]]:
+    """Make one Claude call listing the bill's targeted groups.
+
+    Returns ``(groups, usage)``; ``groups`` is ``None`` on a refusal
+    or unparseable response.
+    """
+    parsed, usage = _call_claude_json(
+        client,
+        model,
+        system_blocks,
+        build_target_group_prompt(taxonomy),
+        TARGET_GROUP_SCHEMA,
+        use_thinking,
+        label="target_groups",
+        max_tokens=max_tokens,
+    )
+    if parsed is None:
+        return None, usage
+    return parsed.get("target_groups"), usage
+
+
+def _call_claude_json(
+    client: Anthropic,
+    model: str,
+    system_blocks: list[dict[str, Any]],
+    user_prompt: str,
+    schema: dict[str, Any],
+    use_thinking: bool,
+    label: str,
+    max_tokens: int = DEFAULT_MAX_TOKENS,
+) -> tuple[dict[str, Any] | None, dict[str, int]]:
+    """One schema-constrained Claude call against the cached bill text.
+
+    Returns ``(parsed, usage)``; ``parsed`` is ``None`` on a refusal or
+    unparseable response so the caller can continue.
+    """
     kwargs: dict[str, Any] = {
         "model": model,
         "max_tokens": max_tokens,
         "system": system_blocks,
-        "messages": [
-            {"role": "user", "content": build_user_prompt(dimension, values)}
-        ],
+        "messages": [{"role": "user", "content": user_prompt}],
         "output_config": {
-            "format": {
-                "type": "json_schema",
-                "schema": build_dimension_schema(values),
-            }
+            "format": {"type": "json_schema", "schema": schema}
         },
     }
     if use_thinking:
@@ -304,11 +439,11 @@ def score_dimension(
     usage = _usage_dict(resp.usage)
 
     if resp.stop_reason == "refusal":
-        print(f"    note: model refused {dimension['id']}", file=sys.stderr)
+        print(f"    note: model refused {label}", file=sys.stderr)
         return None, usage
     if resp.stop_reason == "max_tokens":
         print(
-            f"    WARNING: hit max_tokens on {dimension['id']}; output "
+            f"    WARNING: hit max_tokens on {label}; output "
             "may be truncated.",
             file=sys.stderr,
         )
@@ -318,7 +453,7 @@ def score_dimension(
         return json.loads(_strip_fences(text)), usage
     except json.JSONDecodeError as exc:
         print(
-            f"    WARNING: unparseable JSON for {dimension['id']}: {exc}",
+            f"    WARNING: unparseable JSON for {label}: {exc}",
             file=sys.stderr,
         )
         return None, usage
@@ -360,6 +495,198 @@ def _strip_fences(text: str) -> str:
 
 
 # --------------------------------------------------------------------------
+# Resampling aggregation (handoff "Phase 2")
+# --------------------------------------------------------------------------
+def aggregate_scores(
+    samples: list[dict[str, Any]], values: list[dict[str, Any]]
+) -> dict[str, Any]:
+    """Combine N sampled score maps for one dimension into one map.
+
+    Per value: the median vote (equal to the majority winner whenever
+    one exists; breaks rare 0-vs-2 splits toward the middle), the
+    share of samples agreeing with it (``agreement``), and the vote
+    distribution (``votes``). The reason comes from the first sample
+    that voted with the winner.
+    """
+    combined: dict[str, Any] = {}
+    for value in values:
+        vid = value["id"]
+        entries = [
+            s[vid]
+            for s in samples
+            if isinstance(s.get(vid), dict)
+            and s[vid].get("score") in (0, 1, 2)
+        ]
+        if not entries:
+            continue  # validate_scores flags the value as missing
+        votes = [e["score"] for e in entries]
+        score = statistics.median_low(votes)
+        reason = next(
+            e.get("reason", "") for e in entries if e["score"] == score
+        )
+        combined[vid] = {
+            "score": score,
+            "reason": reason,
+            "agreement": round(votes.count(score) / len(votes), 2),
+            "votes": {str(v): votes.count(v) for v in sorted(set(votes))},
+        }
+    return combined
+
+
+def aggregate_target_groups(
+    samples: list[list[dict[str, Any]]], n_samples: int
+) -> list[dict[str, Any]]:
+    """Combine N sampled group lists, deduped on their condition sets.
+
+    Groups are keyed by their set of (dimension, value) conditions;
+    display fields (criteria, reason) come from the first occurrence.
+    ``agreement`` is the share of samples that produced the group, so
+    low-agreement groups stay visible rather than silently kept.
+    """
+    first_seen: dict[frozenset, dict[str, Any]] = {}
+    counts: dict[frozenset, int] = {}
+    for groups in samples:
+        keys_this_sample = set()
+        for group in groups:
+            key = frozenset(
+                (c.get("dimension"), c.get("value"))
+                for c in group.get("conditions", [])
+            )
+            if key not in first_seen:
+                first_seen[key] = group
+            keys_this_sample.add(key)
+        for key in keys_this_sample:
+            counts[key] = counts.get(key, 0) + 1
+    combined = []
+    for key, group in first_seen.items():
+        entry = dict(group)
+        entry["agreement"] = round(counts[key] / n_samples, 2)
+        combined.append(entry)
+    combined.sort(key=lambda g: -g["agreement"])
+    return combined
+
+
+# --------------------------------------------------------------------------
+# Orchestration of all calls for one bill
+# --------------------------------------------------------------------------
+def score_all(
+    client: Anthropic,
+    model: str,
+    system_blocks: list[dict[str, Any]],
+    taxonomy: dict[str, Any],
+    include_complement: bool,
+    use_thinking: bool,
+    samples: int,
+    concurrency: int,
+    extract_groups: bool,
+) -> tuple[
+    dict[str, Any], list[dict[str, Any]] | None, dict[str, Any], dict[str, int]
+]:
+    """Run every dimension call (x samples) plus the target-group call.
+
+    Calls run on a small thread pool; a failed call (even after SDK
+    retries) costs one sample, not the bill. Returns
+    ``(results, target_groups, validation, totals)``.
+    """
+    dims = taxonomy["dimensions"]
+    dim_by_id = {d["id"]: d for d in dims}
+    values_by_id = {
+        d["id"]: select_values(d, include_complement) for d in dims
+    }
+
+    tasks: list[tuple[str, int]] = [
+        (d["id"], i) for d in dims for i in range(samples)
+    ]
+    if extract_groups:
+        tasks += [("__groups__", i) for i in range(samples)]
+
+    def run(task: tuple[str, int]) -> tuple[Any, dict[str, int]]:
+        kind, i = task
+        try:
+            if kind == "__groups__":
+                return extract_target_groups(
+                    client, model, system_blocks, taxonomy, use_thinking
+                )
+            return score_dimension(
+                client,
+                model,
+                system_blocks,
+                dim_by_id[kind],
+                values_by_id[kind],
+                use_thinking,
+            )
+        except Exception as exc:  # keep the batch alive
+            print(
+                f"    WARNING: call failed for {kind} "
+                f"(sample {i + 1}): {exc}",
+                file=sys.stderr,
+            )
+            return None, {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 0,
+            }
+
+    # Run the first call alone so it writes the prompt cache (long
+    # bills only); concurrent identical prefixes would all miss it.
+    outputs: dict[tuple[str, int], tuple[Any, dict[str, int]]] = {}
+    outputs[tasks[0]] = run(tasks[0])
+    done = 1
+    with ThreadPoolExecutor(max_workers=concurrency) as pool:
+        futures = {pool.submit(run, t): t for t in tasks[1:]}
+        for fut in as_completed(futures):
+            task = futures[fut]
+            outputs[task] = fut.result()
+            done += 1
+            print(f"    [{done}/{len(tasks)}] {task[0]}")
+
+    totals = {"input": 0, "output": 0, "cache_read": 0}
+
+    def collect(kind: str) -> list[Any]:
+        good = []
+        for i in range(samples):
+            parsed, usage = outputs[(kind, i)]
+            totals["input"] += usage["input_tokens"]
+            totals["output"] += usage["output_tokens"]
+            totals["cache_read"] += usage["cache_read_input_tokens"]
+            if parsed is not None:
+                good.append(parsed)
+        return good
+
+    results: dict[str, Any] = {}
+    validation: dict[str, Any] = {}
+    for dim in dims:
+        maps = collect(dim["id"])
+        if not maps:
+            scores = None
+        elif samples == 1:
+            scores = maps[0]
+        else:
+            scores = aggregate_scores(maps, values_by_id[dim["id"]])
+        results[dim["id"]] = scores or {}
+        validation[dim["id"]] = validate_scores(
+            scores, values_by_id[dim["id"]]
+        )
+
+    target_groups: list[dict[str, Any]] | None = None
+    if extract_groups:
+        group_lists = collect("__groups__")
+        if group_lists:
+            if samples == 1:
+                target_groups = group_lists[0]
+            else:
+                target_groups = aggregate_target_groups(
+                    group_lists, samples
+                )
+        validation["target_groups"] = validate_target_groups(
+            target_groups, taxonomy
+        )
+
+    return results, target_groups, validation, totals
+
+
+# --------------------------------------------------------------------------
 # Validation
 # --------------------------------------------------------------------------
 def validate_scores(
@@ -384,6 +711,28 @@ def validate_scores(
         "extra": sorted(got - expected),
         "bad_scores": sorted(bad),
     }
+
+
+def validate_target_groups(
+    groups: list[dict[str, Any]] | None, taxonomy: dict[str, Any]
+) -> dict[str, list[str]]:
+    """Check group conditions against the taxonomy's ids."""
+    if groups is None:
+        return {"unknown_ids": ["<no target groups returned>"]}
+    values_by_dim = {
+        d["id"]: {v["id"] for v in d["values"]}
+        for d in taxonomy["dimensions"]
+    }
+    unknown: list[str] = []
+    for i, group in enumerate(groups):
+        for cond in group.get("conditions", []):
+            dim = cond.get("dimension")
+            val = cond.get("value")
+            if dim not in values_by_dim:
+                unknown.append(f"group {i}: unknown dimension '{dim}'")
+            elif val not in values_by_dim[dim]:
+                unknown.append(f"group {i}: unknown value '{dim}.{val}'")
+    return {"unknown_ids": unknown}
 
 
 # --------------------------------------------------------------------------
@@ -412,7 +761,10 @@ def print_summary(
             scores.items(), key=lambda kv: -_score_of(kv[1])
         )
         for value_id, entry in ordered:
-            print(f"    {_score_of(entry)}  {value_id}")
+            line = f"    {_score_of(entry)}  {value_id}"
+            if isinstance(entry, dict) and "agreement" in entry:
+                line += f"  ({int(round(entry['agreement'] * 100))}%)"
+            print(line)
 
 
 def _score_of(entry: Any) -> int:
@@ -422,26 +774,48 @@ def _score_of(entry: Any) -> int:
     return -1
 
 
+def print_target_groups(groups: list[dict[str, Any]] | None) -> None:
+    """Print a one-line-per-group summary of the bill's targets."""
+    print("\nTarget groups (who the bill explicitly targets):")
+    if not groups:
+        print("  <none>")
+        return
+    for group in groups:
+        conds = " + ".join(
+            f"{c.get('dimension')}={c.get('value')}"
+            for c in group.get("conditions", [])
+        )
+        extra = "; ".join(group.get("other_criteria") or [])
+        if not conds:
+            conds = "<no taxonomy match>" if extra else "<everyone>"
+        line = f"  {conds}"
+        if extra:
+            line += f"  ({extra})"
+        if "agreement" in group:
+            line += f"  [{int(round(group['agreement'] * 100))}% of runs]"
+        print(line)
+
+
 def print_validation(validation: dict[str, dict[str, list[str]]]) -> None:
-    """Surface any dimensions whose output failed validation."""
+    """Surface any sections whose output failed validation."""
     problems = {
-        dim: v
-        for dim, v in validation.items()
-        if v["missing"] or v["extra"] or v.get("bad_scores")
+        section: {name: check for name, check in checks.items() if check}
+        for section, checks in validation.items()
+        if any(checks.values())
     }
     if not problems:
-        print("\nValidation: all dimensions OK.")
+        print("\nValidation: all sections OK.")
         return
     print("\nValidation PROBLEMS:")
-    for dim, v in problems.items():
-        print(f"  {dim}: {v}")
+    for section, checks in problems.items():
+        print(f"  {section}: {checks}")
 
 
 # --------------------------------------------------------------------------
 # Orchestration
 # --------------------------------------------------------------------------
 def main(argv: list[str] | None = None) -> int:
-    """Fetch one bill, score every dimension, and write the JSON."""
+    """Score one or more bills and write one JSON file per bill."""
     args = _parse_args(argv)
     load_dotenv()
 
@@ -465,17 +839,61 @@ def main(argv: list[str] | None = None) -> int:
 
     taxonomy = load_taxonomy()
     rubric_text = build_rubric_text(taxonomy["scoring"])
+    client = Anthropic(api_key=anthropic_key, max_retries=6)
 
+    bills = _parse_bill_list(args)
+    statuses: list[str] = []
+    grand = {"input": 0, "output": 0, "cache_read": 0}
+    failed = 0
+    for bill_type, number in bills:
+        bill_id = f"{args.congress}-{bill_type}-{number}"
+        try:
+            totals = run_one_bill(
+                client,
+                taxonomy,
+                rubric_text,
+                congress_key,
+                bill_type,
+                number,
+                args,
+            )
+            for key in grand:
+                grand[key] += totals[key]
+            statuses.append(f"  ok      {bill_id}")
+        except Exception as exc:  # one bad bill must not sink the batch
+            failed += 1
+            print(f"ERROR: {bill_id}: {exc}", file=sys.stderr)
+            statuses.append(f"  FAILED  {bill_id}: {exc}")
+
+    if len(bills) > 1:
+        print("\n" + "=" * 60)
+        print("Batch summary:")
+        for line in statuses:
+            print(line)
+        print(
+            f"Grand totals: input={grand['input']} "
+            f"(cache_read={grand['cache_read']}) output={grand['output']}"
+        )
+    return 1 if failed == len(bills) else 0
+
+
+def run_one_bill(
+    client: Anthropic,
+    taxonomy: dict[str, Any],
+    rubric_text: str,
+    congress_key: str,
+    bill_type: str,
+    number: int,
+    args: argparse.Namespace,
+) -> dict[str, int]:
+    """Fetch, score, and write one bill; returns its token totals."""
     ordinal = f"{args.congress}{_ordinal_suffix(args.congress)}"
-    print(
-        f"Fetching {args.bill_type.upper()} {args.number} "
-        f"({ordinal} Congress)..."
-    )
-    bill = fetch_bill(args.congress, args.bill_type, args.number, congress_key)
+    print(f"\nFetching {bill_type.upper()} {number} ({ordinal} Congress)...")
+    bill = fetch_bill(args.congress, bill_type, number, congress_key)
     bill_text, source = fetch_bill_text(
         args.congress,
-        args.bill_type,
-        args.number,
+        bill_type,
+        number,
         congress_key,
         max_chars=args.max_chars,
     )
@@ -484,50 +902,40 @@ def main(argv: list[str] | None = None) -> int:
         f"  Text version: {source['type']} ({len(bill_text)} chars)"
     )
 
-    client = Anthropic(api_key=anthropic_key)
     system_blocks = build_system_blocks(rubric_text, bill_text)
+    print(
+        f"  Scoring {len(taxonomy['dimensions'])} dimensions "
+        f"x {args.samples} sample(s)..."
+    )
+    results, target_groups, validation, totals = score_all(
+        client,
+        args.model,
+        system_blocks,
+        taxonomy,
+        include_complement=args.include_complement,
+        use_thinking=not args.no_thinking,
+        samples=args.samples,
+        concurrency=args.concurrency,
+        extract_groups=not args.no_target_groups,
+    )
 
-    results: dict[str, Any] = {}
-    validation: dict[str, Any] = {}
-    totals = {"input": 0, "output": 0, "cache_read": 0}
-
-    for dim in taxonomy["dimensions"]:
-        values = select_values(dim, args.include_complement)
-        print(f"Scoring {dim['id']} ({len(values)} values)...")
-        scores, usage = score_dimension(
-            client,
-            args.model,
-            system_blocks,
-            dim,
-            values,
-            use_thinking=not args.no_thinking,
-        )
-        results[dim["id"]] = scores or {}
-        validation[dim["id"]] = validate_scores(scores, values)
-        totals["input"] += usage["input_tokens"]
-        totals["output"] += usage["output_tokens"]
-        totals["cache_read"] += usage["cache_read_input_tokens"]
-        print(
-            f"    usage: in={usage['input_tokens']} "
-            f"cache_read={usage['cache_read_input_tokens']} "
-            f"out={usage['output_tokens']}"
-        )
-
-    bill_id = f"{args.congress}-{args.bill_type}-{args.number}"
+    bill_id = f"{args.congress}-{bill_type}-{number}"
     payload = {
         "bill_id": bill_id,
         "bill": {
             "congress": args.congress,
-            "type": bill.get("type", args.bill_type.upper()),
-            "number": args.number,
+            "type": bill.get("type", bill_type.upper()),
+            "number": number,
             "title": bill.get("title"),
-            "url": _bill_web_url(args.congress, args.bill_type, args.number),
+            "url": _bill_web_url(args.congress, bill_type, number),
             "text_version_type": source["type"],
             "text_source_url": source["url"],
         },
         "fetched_at": _utc_now_iso(),
         "model": args.model,
+        "samples": args.samples,
         "scores": results,
+        "target_groups": target_groups or [],
         "validation": validation,
     }
 
@@ -535,13 +943,30 @@ def main(argv: list[str] | None = None) -> int:
     write_results(out_path, payload)
 
     print_summary(results, taxonomy)
+    if not args.no_target_groups:
+        print_target_groups(target_groups)
     print_validation(validation)
     print(
         f"\nToken totals: input={totals['input']} "
         f"(cache_read={totals['cache_read']}) output={totals['output']}"
     )
     print(f"Wrote {out_path}")
-    return 0
+    return totals
+
+
+def _parse_bill_list(args: argparse.Namespace) -> list[tuple[str, int]]:
+    """Bills to score: ``--bills hr-2138,s-129`` or the single-bill args."""
+    if not args.bills:
+        return [(args.bill_type, args.number)]
+    bills: list[tuple[str, int]] = []
+    for item in args.bills.split(","):
+        bill_type, _, number = item.strip().lower().rpartition("-")
+        if bill_type not in BILL_TYPE_SLUG or not number.isdigit():
+            raise SystemExit(
+                f"--bills entries must look like 'hr-2138'; got '{item}'"
+            )
+        bills.append((bill_type, int(number)))
+    return bills
 
 
 def _parse_args(argv: list[str] | None) -> argparse.Namespace:
@@ -554,7 +979,32 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     parser.add_argument("--congress", type=int, default=119)
     parser.add_argument("--bill-type", default="hr")
     parser.add_argument("--number", type=int, default=2138)
+    parser.add_argument(
+        "--bills",
+        default=None,
+        help=(
+            "Comma-separated bills like 'hr-2138,s-129'; overrides "
+            "--bill-type/--number."
+        ),
+    )
     parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument(
+        "--samples",
+        type=int,
+        default=1,
+        help=(
+            "Runs per call; N>1 aggregates by majority vote and stores "
+            "an agreement ratio. (Opus 4.8 removed the temperature "
+            "parameter, so variance is the model's natural run-to-run "
+            "spread.)"
+        ),
+    )
+    parser.add_argument(
+        "--concurrency",
+        type=int,
+        default=4,
+        help="Parallel API calls per bill.",
+    )
     parser.add_argument(
         "--include-complement",
         action="store_true",
@@ -564,6 +1014,11 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
         "--no-thinking",
         action="store_true",
         help="Disable adaptive extended thinking.",
+    )
+    parser.add_argument(
+        "--no-target-groups",
+        action="store_true",
+        help="Skip the extra target-group extraction call.",
     )
     parser.add_argument(
         "--max-chars",

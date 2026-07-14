@@ -1,0 +1,642 @@
+{
+  "bill_id": "119-s-129",
+  "bill": {
+    "congress": 119,
+    "type": "S",
+    "number": 129,
+    "title": "No Tax on Tips Act",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-bill/129",
+    "text_version_type": "Engrossed in Senate",
+    "text_source_url": "https://www.congress.gov/119/bills/s129/BILLS-119s129es.htm"
+  },
+  "fetched_at": "2026-07-07T04:08:21Z",
+  "model": "claude-opus-4-8",
+  "samples": 3,
+  "scores": {
+    "veteran_status": {
+      "veteran": {
+        "score": 0,
+        "reason": "This tip income tax deduction applies to tipped workers regardless of veteran status; the effect is identical for veterans and non-veterans.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "disability_status": {
+      "has_disability": {
+        "score": 0,
+        "reason": "A tax deduction for tipped income affects workers regardless of disability status; the effect does not vary by disability.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_status": {
+      "student": {
+        "score": 0,
+        "reason": "The tip deduction applies to tipped workers regardless of student status; the bill's effect does not differ based on whether someone is enrolled in school.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_loan_status": {
+      "has_student_loans": {
+        "score": 0,
+        "reason": "This bill addresses tax deductions for tips and employer tip credits, with no connection to student loans.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "caregiver_status": {
+      "parent_of_minor": {
+        "score": 0,
+        "reason": "A tax deduction for tipped income applies regardless of whether the taxpayer has children.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "caregiver_of_adult": {
+        "score": 0,
+        "reason": "The bill's tip deduction and beauty-service credit are unrelated to caregiving status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "housing_status": {
+      "homeowner": {
+        "score": 0,
+        "reason": "A tax deduction for tips does not vary by housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "renter": {
+        "score": 0,
+        "reason": "A tax deduction for tips does not vary by housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "A tax deduction for tips does not vary by housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "citizenship_status": {
+      "citizen": {
+        "score": 0,
+        "reason": "The tip deduction applies to individual taxpayers in tipped occupations regardless of citizenship status; the effect does not differ by this trait.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "permanent_resident": {
+        "score": 0,
+        "reason": "The benefit applies based on employment and tip income, not citizenship status, so effect is identical.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_status": {
+        "score": 0,
+        "reason": "Tax deduction depends on tipped employment, not immigration status, so no trait-dependent difference in effect.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "marital_status": {
+      "single": {
+        "score": 0,
+        "reason": "The tip deduction applies regardless of marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "married": {
+        "score": 0,
+        "reason": "The tax treatment of qualified tips does not vary by marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "divorced": {
+        "score": 0,
+        "reason": "No divorce-specific provisions; effect is identical across marital statuses.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "widowed": {
+        "score": 0,
+        "reason": "No survivor or widowhood provisions; unaffected by this dimension.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "age": {
+      "under_18": {
+        "score": 0,
+        "reason": "The tip deduction applies to workers regardless of age and does not target minors.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_18_25": {
+        "score": 0,
+        "reason": "Though tipped occupations may skew younger, the tax deduction operates identically across ages; overrepresentation is not trait-dependence.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_26_49": {
+        "score": 0,
+        "reason": "The deduction applies uniformly regardless of age.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_50_64": {
+        "score": 0,
+        "reason": "The deduction applies uniformly regardless of age.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_65_plus": {
+        "score": 0,
+        "reason": "The deduction applies uniformly regardless of age.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "income": {
+      "under_30k": {
+        "score": 2,
+        "reason": "Tipped workers in food service and beauty occupations are heavily concentrated in this bracket and are the direct subject of the new tip deduction, though very low earners with little income tax liability realize limited benefit.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "income_30k_60k": {
+        "score": 2,
+        "reason": "Many tipped workers fall in this range and would directly claim the deduction of up to $25,000 on qualified tips.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "income_60k_120k": {
+        "score": 2,
+        "reason": "Tipped employees earning in this range are directly eligible for the deduction and feel its effect firsthand.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "income_120k_250k": {
+        "score": 1,
+        "reason": "Fewer tipped workers reach this bracket, and the highly-compensated-employee exclusion (~$155k) begins to bar eligibility, so the effect is more attenuated and trait-dependent.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      },
+      "income_250k_plus": {
+        "score": 0,
+        "reason": "The high-compensation exclusion under section 414(q) effectively removes such earners from the tip deduction.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "occupation": {
+      "education": {
+        "score": 0,
+        "reason": "Teachers and school staff are not tipped occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "healthcare": {
+        "score": 0,
+        "reason": "Clinical and allied health workers do not customarily receive tips.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "construction_trades": {
+        "score": 0,
+        "reason": "Trades work is not a customarily tipped occupation.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "manufacturing": {
+        "score": 0,
+        "reason": "Factory and plant production work does not involve tips.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "agriculture": {
+        "score": 0,
+        "reason": "Farming and related work is not tipped.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "transportation_logistics": {
+        "score": 1,
+        "reason": "Some drivers (delivery, taxi, rideshare) traditionally receive tips and could qualify for the deduction, giving a direct but partial effect on the sector.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 2,
+          "2": 1
+        }
+      },
+      "public_sector_first_responders": {
+        "score": 0,
+        "reason": "Government and first-responder roles are not tipped occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "professional_office": {
+        "score": 0,
+        "reason": "White-collar office roles do not customarily receive tips.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retail_service": {
+        "score": 2,
+        "reason": "Food service, hospitality, and personal/beauty service workers are the core tipped occupations directly targeted by the tip deduction and the extended employer tip credit for beauty establishments.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "technology": {
+        "score": 0,
+        "reason": "IT and software roles are not tipped occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 1,
+        "reason": "Some tipped occupations outside the listed buckets (e.g., certain gig or service workers) could be included on Treasury's list of customarily tipped occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "1": 3
+        }
+      }
+    },
+    "employment_status": {
+      "employee": {
+        "score": 2,
+        "reason": "The bill creates a deduction for qualified tips reported to an employer under section 6053(a), directly benefiting tipped W-2 employees in customarily tipped occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "self_employed_owner": {
+        "score": 2,
+        "reason": "Section 3 directly extends the employer Social Security tax credit on employee tips to beauty service establishment owners, an explicit and immediate benefit to those business owners.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "unemployed": {
+        "score": 0,
+        "reason": "The bill concerns tip income and tip-related tax provisions and does not touch those not working.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retired": {
+        "score": 0,
+        "reason": "No relevance to retirees, as the provisions concern current tip earnings and employer tip credits.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "not_in_labor_force": {
+        "score": 0,
+        "reason": "Those not in the labor force earn no tips and are unaffected.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "health_coverage": {
+      "employer_plan": {
+        "score": 0,
+        "reason": "This is a tip income tax deduction bill unrelated to health insurance source.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicare": {
+        "score": 0,
+        "reason": "No connection to Medicare coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicaid": {
+        "score": 0,
+        "reason": "No connection to Medicaid or CHIP.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "marketplace_individual": {
+        "score": 0,
+        "reason": "No connection to ACA marketplace coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "va_tricare": {
+        "score": 0,
+        "reason": "No connection to veterans or military health coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "uninsured": {
+        "score": 0,
+        "reason": "No connection to insurance status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "gender": {
+      "male": {
+        "score": 0,
+        "reason": "The tip deduction and beauty-service tip credit apply identically regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "female": {
+        "score": 0,
+        "reason": "Though tipped and beauty-service occupations may skew female, overrepresentation is not trait-dependence; the bill's effect does not vary by gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "nonbinary_other": {
+        "score": 0,
+        "reason": "The bill's effect does not differ by gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "lgbtq_identity": {
+      "lgbtq": {
+        "score": 0,
+        "reason": "This bill concerns tax deductions for tipped income and applies identically regardless of sexual orientation or gender identity.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "religion": {
+      "christian": {
+        "score": 0,
+        "reason": "A tax deduction on tips has no differential effect based on religion.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "jewish": {
+        "score": 0,
+        "reason": "No religion-specific relevance to this tip tax deduction bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "muslim": {
+        "score": 0,
+        "reason": "No religion-specific relevance to this tip tax deduction bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "hindu": {
+        "score": 0,
+        "reason": "No religion-specific relevance to this tip tax deduction bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "buddhist": {
+        "score": 0,
+        "reason": "No religion-specific relevance to this tip tax deduction bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_faith": {
+        "score": 0,
+        "reason": "No religion-specific relevance to this tip tax deduction bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "none": {
+        "score": 0,
+        "reason": "No religion-specific relevance to this tip tax deduction bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    }
+  },
+  "target_groups": [
+    {
+      "conditions": [
+        {
+          "dimension": "occupation",
+          "value": "retail_service"
+        },
+        {
+          "dimension": "employment_status",
+          "value": "employee"
+        }
+      ],
+      "other_criteria": [
+        "works in occupation that traditionally and customarily received tips on or before December 31, 2023",
+        "receives cash tips reported to employer",
+        "not a highly compensated employee under section 414(q)"
+      ],
+      "reason": "The bill creates a deduction for qualified tips received by employees in traditionally tipped occupations, making these tipped workers direct subjects.",
+      "agreement": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "dimension": "employment_status",
+          "value": "self_employed_owner"
+        }
+      ],
+      "other_criteria": [
+        "operates a beauty service establishment (barbering/hair care, nail care, esthetics, body/spa treatments)",
+        "employer of tipped beauty service workers"
+      ],
+      "reason": "The bill extends the employer Social Security tax credit for employee tips to beauty service establishments, making such employers direct subjects.",
+      "agreement": 1.0
+    }
+  ],
+  "validation": {
+    "veteran_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "disability_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_loan_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "caregiver_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "housing_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "citizenship_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "marital_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "age": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "income": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "occupation": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "employment_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "health_coverage": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "gender": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "lgbtq_identity": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "religion": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "target_groups": {
+      "unknown_ids": []
+    }
+  }
+}

@@ -1,0 +1,564 @@
+{
+  "bill_id": "119-s-1582",
+  "bill": {
+    "congress": 119,
+    "type": "S",
+    "number": 1582,
+    "title": "GENIUS Act",
+    "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582",
+    "text_version_type": "Public Law",
+    "text_source_url": "https://www.congress.gov/119/plaws/publ27/PLAW-119publ27.htm"
+  },
+  "fetched_at": "2026-07-07T04:20:07Z",
+  "model": "claude-opus-4-8",
+  "samples": 3,
+  "scores": {
+    "veteran_status": {
+      "veteran": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoins and their issuers; it has no specific relevance to veterans, who are affected identically to the general public.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "disability_status": {
+      "has_disability": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoin issuers and has no provisions that affect people with disabilities differently.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_status": {
+      "student": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoin issuers and has no particular relevance to students as such.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "student_loan_status": {
+      "has_student_loans": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoin issuers and digital assets; it has no bearing on federal student loan borrowers.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "caregiver_status": {
+      "parent_of_minor": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoin issuance and has no differential effect based on whether someone is a parent of a minor.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "caregiver_of_adult": {
+        "score": 0,
+        "reason": "The bill concerns stablecoin regulation and does not affect caregivers of dependent adults differently than anyone else.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "housing_status": {
+      "homeowner": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoin issuance and has no differential effect based on housing status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "renter": {
+        "score": 0,
+        "reason": "Stablecoin regulation is unrelated to renting and affects renters no differently than others.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "The bill's effects do not vary with living arrangement.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "citizenship_status": {
+      "citizen": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoin issuers and reserve/compliance requirements; its effects do not differ by citizenship status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "permanent_resident": {
+        "score": 0,
+        "reason": "The bill applies uniformly regardless of immigration status and does not distinguish permanent residents.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "other_status": {
+        "score": 0,
+        "reason": "Stablecoin regulation applies identically without regard to immigration status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "marital_status": {
+      "single": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoin issuers and has no differential effect based on marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "married": {
+        "score": 0,
+        "reason": "Stablecoin regulation applies identically regardless of marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "divorced": {
+        "score": 0,
+        "reason": "The bill contains no provisions tied to marital status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "widowed": {
+        "score": 0,
+        "reason": "No survivor or spousal provisions; marital status is irrelevant to this financial regulatory bill.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "age": {
+      "under_18": {
+        "score": 0,
+        "reason": "The bill regulates payment stablecoin issuers and applies to consumers regardless of age; minors are not a subject.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_18_25": {
+        "score": 0,
+        "reason": "Stablecoin regulation applies uniformly to users regardless of age, with no age-specific provisions.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_26_49": {
+        "score": 0,
+        "reason": "No age-dependent effect; the regulatory framework treats all adult users identically.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_50_64": {
+        "score": 0,
+        "reason": "No age-specific provisions; effects do not vary with this age bracket.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "age_65_plus": {
+        "score": 0,
+        "reason": "The bill contains no age-dependent terms; effects are identical across all ages.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "income": {
+      "under_30k": {
+        "score": 0,
+        "reason": "This bill regulates stablecoin issuers and its consumer protections apply uniformly regardless of household income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_30k_60k": {
+        "score": 0,
+        "reason": "The regulatory framework does not vary in effect by income level.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_60k_120k": {
+        "score": 0,
+        "reason": "No income-dependent effect; stablecoin rules apply the same across income tiers.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_120k_250k": {
+        "score": 0,
+        "reason": "No income-dependent effect from this stablecoin regulation.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "income_250k_plus": {
+        "score": 0,
+        "reason": "The bill's effects do not differ based on household income.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "occupation": {
+      "education": {
+        "score": 0,
+        "reason": "The bill concerns stablecoin regulation and has no bearing on education work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "healthcare": {
+        "score": 0,
+        "reason": "No connection to clinical or allied health occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "construction_trades": {
+        "score": 0,
+        "reason": "Irrelevant to building trades.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "manufacturing": {
+        "score": 0,
+        "reason": "No relevance to factory or industrial production work.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "agriculture": {
+        "score": 0,
+        "reason": "No connection to farming, ranching, or fishing.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "transportation_logistics": {
+        "score": 0,
+        "reason": "No relevance to drivers or logistics workers.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "public_sector_first_responders": {
+        "score": 1,
+        "reason": "The bill assigns extensive new duties to federal financial regulators (Treasury, OCC, Fed, FDIC, NCUA), directly affecting government employees at those agencies, though this is a narrow subset of the public sector.",
+        "agreement": 0.67,
+        "votes": {
+          "0": 1,
+          "1": 2
+        }
+      },
+      "professional_office": {
+        "score": 2,
+        "reason": "The bill is a comprehensive financial-regulation regime directly governing stablecoin issuers, banks, accountants, compliance officers, and finance and legal professionals who are its explicit subjects.",
+        "agreement": 1.0,
+        "votes": {
+          "2": 3
+        }
+      },
+      "retail_service": {
+        "score": 0,
+        "reason": "No direct effect on retail, hospitality, or personal-service occupations.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "technology": {
+        "score": 2,
+        "reason": "Digital asset service providers, distributed ledger and blockchain developers, and crypto firms are directly regulated, with defined carve-outs for protocol and self-custodial software developers. Their business activities and legal exposure are firsthand subjects of the Act.",
+        "agreement": 0.67,
+        "votes": {
+          "1": 1,
+          "2": 2
+        }
+      },
+      "other": {
+        "score": 0,
+        "reason": "No distinct occupation outside the listed buckets is directly targeted.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "employment_status": {
+      "employee": {
+        "score": 0,
+        "reason": "Stablecoin regulation applies to issuers and consumers regardless of employment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "self_employed_owner": {
+        "score": 0,
+        "reason": "The bill's stablecoin issuer requirements do not vary by a person's employment status; issuer regulation is a sector matter, not an employment-status trait.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "unemployed": {
+        "score": 0,
+        "reason": "No provisions relate to employment status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "retired": {
+        "score": 0,
+        "reason": "No retirement or pension provisions here.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "not_in_labor_force": {
+        "score": 0,
+        "reason": "Irrelevant to those outside the labor force.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "health_coverage": {
+      "employer_plan": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoins and has no connection to health insurance coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicare": {
+        "score": 0,
+        "reason": "No relation to health coverage or Medicare.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "medicaid": {
+        "score": 0,
+        "reason": "No relation to health coverage or Medicaid/CHIP.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "marketplace_individual": {
+        "score": 0,
+        "reason": "No relation to health insurance markets.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "va_tricare": {
+        "score": 0,
+        "reason": "No relation to veterans' or military health coverage.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "uninsured": {
+        "score": 0,
+        "reason": "No relation to health insurance status.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "gender": {
+      "male": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoin issuers and applies identically regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "female": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoin issuers and applies identically regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      },
+      "nonbinary_other": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoin issuers and applies identically regardless of gender.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "lgbtq_identity": {
+      "lgbtq": {
+        "score": 0,
+        "reason": "This bill regulates payment stablecoins and digital assets; it has no relevance to LGBTQ+ identity.",
+        "agreement": 1.0,
+        "votes": {
+          "0": 3
+        }
+      }
+    },
+    "religion": {}
+  },
+  "target_groups": [],
+  "validation": {
+    "veteran_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "disability_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "student_loan_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "caregiver_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "housing_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "citizenship_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "marital_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "age": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "income": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "occupation": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "employment_status": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "health_coverage": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "gender": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "lgbtq_identity": {
+      "missing": [],
+      "extra": [],
+      "bad_scores": []
+    },
+    "religion": {
+      "missing": [
+        "buddhist",
+        "christian",
+        "hindu",
+        "jewish",
+        "muslim",
+        "none",
+        "other_faith"
+      ],
+      "extra": [],
+      "bad_scores": [
+        "<no scores returned>"
+      ]
+    },
+    "target_groups": {
+      "unknown_ids": [
+        "<no target groups returned>"
+      ]
+    }
+  }
+}
