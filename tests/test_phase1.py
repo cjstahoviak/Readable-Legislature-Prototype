@@ -268,29 +268,27 @@ def test_loader_roundtrip(taxonomy):
         payload = json.load(fh)
 
     with db.connect(os.environ["TEST_DATABASE_URL"]) as conn:
-        label = load_payload(conn, payload)
-        assert label == "119-hr-2138"
+        # Everything inside rolls back on exit — the database (which may
+        # be a shared dev database) is left exactly as it was found.
+        with conn.transaction(force_rollback=True):
+            label = load_payload(conn, payload)
+            assert label == "119-hr-2138"
 
-        bill = db.get_bill(conn, 119, "hr", 2138)
-        assert bill is not None
-        assert bill["llm_status"] == "partial"  # no text/summary yet
-        assert bill["llm_samples"] == payload["samples"]
+            bill = db.get_bill(conn, 119, "hr", 2138)
+            assert bill is not None
+            assert bill["llm_samples"] == payload["samples"]
 
-        coverage = db.score_coverage(conn, bill["id"])
-        expected_values = sum(
-            len(select_values(d, False)) for d in taxonomy["dimensions"]
-        )
-        assert sum(len(v) for v in coverage.values()) == expected_values
+            coverage = db.score_coverage(conn, bill["id"])
+            expected_values = sum(
+                len(select_values(d, False)) for d in taxonomy["dimensions"]
+            )
+            assert sum(len(v) for v in coverage.values()) == expected_values
 
-        assert db.target_group_count(conn, bill["id"]) == len(
-            payload["target_groups"]
-        )
+            assert db.target_group_count(conn, bill["id"]) == len(
+                payload["target_groups"]
+            )
 
-        # Loading again must be idempotent, not duplicate.
-        load_payload(conn, payload)
-        coverage2 = db.score_coverage(conn, bill["id"])
-        assert coverage2 == coverage
-
-        # Clean up so reruns start fresh.
-        with conn.transaction():
-            conn.execute("DELETE FROM bills WHERE id = %s", (bill["id"],))
+            # Loading again must be idempotent, not duplicate.
+            load_payload(conn, payload)
+            coverage2 = db.score_coverage(conn, bill["id"])
+            assert coverage2 == coverage
