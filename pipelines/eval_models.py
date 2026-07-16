@@ -170,7 +170,9 @@ def evaluate_bill(
     args: argparse.Namespace,
 ) -> dict[str, Any]:
     text = fetch_text_from_url(golden["bill"]["text_source_url"])
-    system_blocks = build_system_blocks(rubric_text, text)
+    system_blocks = build_system_blocks(
+        rubric_text, text, cache=args.samples > 1
+    )
     results, target_groups, _, validation, totals = score_all(
         client,
         args.model,

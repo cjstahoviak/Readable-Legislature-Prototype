@@ -37,21 +37,24 @@ def build_rubric_text(scoring: dict[str, Any]) -> str:
 
 
 def build_system_blocks(
-    rubric_text: str, bill_text: str
+    rubric_text: str, bill_text: str, cache: bool = True
 ) -> list[dict[str, Any]]:
-    """Stable cached prefix: the rubric, then the bill text (cached).
+    """Stable system prefix: the rubric, then the bill text.
 
-    The bill text is identical across all dimension calls, so a cache
-    breakpoint on it lets calls 2..N reuse it instead of re-sending.
+    The output schema participates in the prompt-cache key (verified
+    empirically), so calls with *different* schemas never share an
+    entry — cache hits only come from repeats of the same call, i.e.
+    resampling. Pass ``cache=False`` for samples=1 runs: a cache write
+    costs 1.25x base input, so marking a prefix nothing will ever read
+    is a pure surcharge.
     """
-    return [
-        {"type": "text", "text": rubric_text},
-        {
-            "type": "text",
-            "text": f"BILL TEXT:\n\n{bill_text}",
-            "cache_control": {"type": "ephemeral"},
-        },
-    ]
+    bill_block: dict[str, Any] = {
+        "type": "text",
+        "text": f"BILL TEXT:\n\n{bill_text}",
+    }
+    if cache:
+        bill_block["cache_control"] = {"type": "ephemeral"}
+    return [{"type": "text", "text": rubric_text}, bill_block]
 
 
 def build_user_prompt(

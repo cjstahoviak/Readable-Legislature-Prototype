@@ -145,7 +145,7 @@ def main(argv: list[str] | None = None) -> int:
 
     bills = _parse_bill_list(args)
     statuses: list[str] = []
-    grand = {"input": 0, "output": 0, "cache_read": 0}
+    grand = {"input": 0, "output": 0, "cache_read": 0, "cache_write": 0}
     failed = 0
     for bill_type, number in bills:
         bill_id = f"{args.congress}-{bill_type}-{number}"
@@ -174,7 +174,8 @@ def main(argv: list[str] | None = None) -> int:
             print(line)
         print(
             f"Grand totals: input={grand['input']} "
-            f"(cache_read={grand['cache_read']}) output={grand['output']}"
+            f"(cache_read={grand['cache_read']}, "
+            f"cache_write={grand['cache_write']}) output={grand['output']}"
         )
     return 1 if failed == len(bills) else 0
 
@@ -204,7 +205,9 @@ def run_one_bill(
         f"  Text version: {source['type']} ({len(bill_text)} chars)"
     )
 
-    system_blocks = build_system_blocks(rubric_text, bill_text)
+    system_blocks = build_system_blocks(
+        rubric_text, bill_text, cache=args.samples > 1
+    )
     print(
         f"  Scoring {len(taxonomy['dimensions'])} dimensions "
         f"x {args.samples} sample(s)..."
@@ -255,7 +258,8 @@ def run_one_bill(
     print_validation(validation)
     print(
         f"\nToken totals: input={totals['input']} "
-        f"(cache_read={totals['cache_read']}) output={totals['output']}"
+        f"(cache_read={totals['cache_read']}, "
+        f"cache_write={totals['cache_write']}) output={totals['output']}"
     )
     print(f"Wrote {out_path}")
     return totals

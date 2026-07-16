@@ -121,19 +121,21 @@ def score_one_bill(
                 llm_status="complete",
                 llm_prompt_version=PROMPT_VERSION,
             )
-        return {"input": 0, "output": 0, "cache_read": 0}
+        return {"input": 0, "output": 0, "cache_read": 0, "cache_write": 0}
 
     text = db.get_bill_text(conn, bill_id, bill["text_hash"])
     if text is None:
         print(f"  {label}: text row missing; skipping", file=sys.stderr)
-        return {"input": 0, "output": 0, "cache_read": 0}
+        return {"input": 0, "output": 0, "cache_read": 0, "cache_write": 0}
 
     n_dims = "all" if dims_to_run is None else len(dims_to_run)
     print(
         f"  {label}: scoring (dims={n_dims}, groups={need_groups}, "
         f"summary={need_summary}, samples={args.samples})"
     )
-    system_blocks = build_system_blocks(rubric_text, text)
+    system_blocks = build_system_blocks(
+        rubric_text, text, cache=args.samples > 1
+    )
     results, target_groups, summary, validation, totals = score_all(
         client,
         args.model,
@@ -249,7 +251,7 @@ def main(argv: list[str] | None = None) -> int:
             return 0
 
         client = Anthropic(api_key=anthropic_key, max_retries=6)
-        grand = {"input": 0, "output": 0, "cache_read": 0}
+        grand = {"input": 0, "output": 0, "cache_read": 0, "cache_write": 0}
         failed = 0
         for bill in candidates:
             try:
@@ -267,7 +269,8 @@ def main(argv: list[str] | None = None) -> int:
                 )
         print(
             f"\nToken totals: input={grand['input']} "
-            f"(cache_read={grand['cache_read']}) output={grand['output']}"
+            f"(cache_read={grand['cache_read']}, "
+            f"cache_write={grand['cache_write']}) output={grand['output']}"
         )
         return 1 if failed == len(candidates) else 0
 

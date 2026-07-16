@@ -50,6 +50,47 @@ def resolve_api_key() -> str | None:
     )
 
 
+_ADAPTIVE_SUPPORT: dict[str, bool] = {}
+
+
+def supports_adaptive_thinking(client: Anthropic, model: str) -> bool:
+    """Whether the model takes ``thinking: {"type": "adaptive"}``.
+
+    Current-generation models (Opus 4.6+, Sonnet 5, ...) use adaptive
+    thinking; older ones (Haiku 4.5, Sonnet 4.5) reject it and need
+    ``{"type": "enabled", "budget_tokens": N}`` instead. Checked once
+    per model via the Models API and cached for the process.
+    """
+    if model not in _ADAPTIVE_SUPPORT:
+        try:
+            caps = client.models.retrieve(model).capabilities
+            _ADAPTIVE_SUPPORT[model] = bool(
+                caps.thinking.types.adaptive.supported
+            )
+        except Exception:  # offline/unknown: assume current generation
+            _ADAPTIVE_SUPPORT[model] = True
+    return _ADAPTIVE_SUPPORT[model]
+
+
+def _thinking_config(
+    client: Anthropic, model: str, use_thinking: bool
+) -> dict[str, Any] | None:
+    """The right ``thinking`` parameter for this model, or None to omit.
+
+    Explicitly disables thinking when ``use_thinking`` is false on
+    adaptive-generation models — omitting the parameter there can mean
+    adaptive-by-default (e.g. Sonnet 5), which would silently ignore
+    --no-thinking.
+    """
+    if use_thinking:
+        if supports_adaptive_thinking(client, model):
+            return {"type": "adaptive"}
+        return {"type": "enabled", "budget_tokens": 8000}
+    if supports_adaptive_thinking(client, model):
+        return {"type": "disabled"}
+    return None  # legacy models: absent means off
+
+
 def score_dimension(
     client: Anthropic,
     model: str,
@@ -160,8 +201,9 @@ def _call_claude_json(
             "format": {"type": "json_schema", "schema": schema}
         },
     }
-    if use_thinking:
-        kwargs["thinking"] = {"type": "adaptive"}
+    thinking = _thinking_config(client, model, use_thinking)
+    if thinking is not None:
+        kwargs["thinking"] = thinking
 
     resp = client.messages.create(**kwargs)
     usage = _usage_dict(resp.usage)
@@ -342,7 +384,7 @@ def score_all(
     if generate_summary:
         tasks += [("__summary__", 0)]  # prose: one call, never resampled
     if not tasks:
-        return {}, None, None, {}, {"input": 0, "output": 0, "cache_read": 0}
+        return {}, None, None, {}, {"input": 0, "output": 0, "cache_read": 0, "cache_write": 0}
 
     def run(task: tuple[str, int]) -> tuple[Any, dict[str, int]]:
         kind, i = task
@@ -389,7 +431,7 @@ def score_all(
             done += 1
             print(f"    [{done}/{len(tasks)}] {task[0]}")
 
-    totals = {"input": 0, "output": 0, "cache_read": 0}
+    totals = {"input": 0, "output": 0, "cache_read": 0, "cache_write": 0}
 
     def collect(kind: str) -> list[Any]:
         good = []
@@ -398,6 +440,7 @@ def score_all(
             totals["input"] += usage["input_tokens"]
             totals["output"] += usage["output_tokens"]
             totals["cache_read"] += usage["cache_read_input_tokens"]
+            totals["cache_write"] += usage["cache_creation_input_tokens"]
             if parsed is not None:
                 good.append(parsed)
         return good
@@ -437,6 +480,7 @@ def score_all(
         totals["input"] += usage["input_tokens"]
         totals["output"] += usage["output_tokens"]
         totals["cache_read"] += usage["cache_read_input_tokens"]
+        totals["cache_write"] += usage["cache_creation_input_tokens"]
         validation["summary"] = {
             "missing": [] if summary else ["<no summary returned>"]
         }
