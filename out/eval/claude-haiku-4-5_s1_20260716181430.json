@@ -1,0 +1,734 @@
+{
+  "model": "claude-haiku-4-5",
+  "samples": 1,
+  "thinking": true,
+  "prompt_version": "1",
+  "run_at": "2026-07-16T18:14:30.211048+00:00",
+  "golden_bills": [
+    "119-hr-2138",
+    "119-hr-22",
+    "119-hr-25",
+    "119-hr-28",
+    "119-hr-38",
+    "119-s-129",
+    "119-s-146",
+    "119-s-1582",
+    "119-s-331",
+    "119-s-5"
+  ],
+  "aggregate": {
+    "compared": 554,
+    "missing": 29,
+    "exact": 496,
+    "off_by_1": 46,
+    "off_by_2": 12,
+    "exact_rate": 0.895,
+    "off_by_2_rate": 0.022,
+    "mean_nonzero_precision": 0.826,
+    "mean_nonzero_recall": 0.46,
+    "mean_group_jaccard": 0.541
+  },
+  "per_bill": [
+    {
+      "bill_id": "119-hr-2138",
+      "title": "Veterans’ Compensation Cost-of-Living Adjustment Act of 2025",
+      "scores": {
+        "compared": 59,
+        "missing": 0,
+        "exact": 52,
+        "off_by_1": 7,
+        "off_by_2": 0,
+        "exact_rate": 0.881,
+        "nonzero_precision": 0.625,
+        "nonzero_recall": 0.556,
+        "disagreements": [
+          {
+            "dimension": "marital_status",
+            "value": "divorced",
+            "golden": 0,
+            "candidate": 1
+          },
+          {
+            "dimension": "age",
+            "value": "under_18",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "age",
+            "value": "age_18_25",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "occupation",
+            "value": "public_sector_first_responders",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "health_coverage",
+            "value": "medicaid",
+            "golden": 0,
+            "candidate": 1
+          },
+          {
+            "dimension": "health_coverage",
+            "value": "marketplace_individual",
+            "golden": 0,
+            "candidate": 1
+          },
+          {
+            "dimension": "health_coverage",
+            "value": "va_tricare",
+            "golden": 1,
+            "candidate": 0
+          }
+        ]
+      },
+      "groups": {
+        "golden_groups": 4,
+        "candidate_groups": 5,
+        "jaccard": 0.8
+      },
+      "candidate_validation_problems": {},
+      "tokens": {
+        "input": 35732,
+        "output": 27015,
+        "cache_read": 0,
+        "cache_write": 0
+      }
+    },
+    {
+      "bill_id": "119-hr-22",
+      "title": "SAVE Act",
+      "scores": {
+        "compared": 45,
+        "missing": 14,
+        "exact": 38,
+        "off_by_1": 7,
+        "off_by_2": 0,
+        "exact_rate": 0.844,
+        "nonzero_precision": 1.0,
+        "nonzero_recall": 0.125,
+        "disagreements": [
+          {
+            "dimension": "veteran_status",
+            "value": "veteran",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "marital_status",
+            "value": "married",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "marital_status",
+            "value": "divorced",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "marital_status",
+            "value": "widowed",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "age",
+            "value": "age_18_25",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "income",
+            "value": "under_30k",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "gender",
+            "value": "female",
+            "golden": 1,
+            "candidate": 0
+          }
+        ]
+      },
+      "groups": {
+        "golden_groups": 4,
+        "candidate_groups": 1,
+        "jaccard": 0.0
+      },
+      "candidate_validation_problems": {
+        "citizenship_status": {
+          "missing": [
+            "citizen",
+            "other_status",
+            "permanent_resident"
+          ],
+          "extra": [],
+          "bad_scores": [
+            "<no scores returned>"
+          ]
+        },
+        "occupation": {
+          "missing": [
+            "agriculture",
+            "construction_trades",
+            "education",
+            "healthcare",
+            "manufacturing",
+            "other",
+            "professional_office",
+            "public_sector_first_responders",
+            "retail_service",
+            "technology",
+            "transportation_logistics"
+          ],
+          "extra": [],
+          "bad_scores": [
+            "<no scores returned>"
+          ]
+        }
+      },
+      "tokens": {
+        "input": 134978,
+        "output": 45442,
+        "cache_read": 0,
+        "cache_write": 0
+      }
+    },
+    {
+      "bill_id": "119-hr-25",
+      "title": "FairTax Act of 2025",
+      "scores": {
+        "compared": 59,
+        "missing": 0,
+        "exact": 37,
+        "off_by_1": 18,
+        "off_by_2": 4,
+        "exact_rate": 0.627,
+        "nonzero_precision": 0.812,
+        "nonzero_recall": 0.867,
+        "disagreements": [
+          {
+            "dimension": "caregiver_status",
+            "value": "parent_of_minor",
+            "golden": 1,
+            "candidate": 2
+          },
+          {
+            "dimension": "housing_status",
+            "value": "other",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "marital_status",
+            "value": "single",
+            "golden": 1,
+            "candidate": 2
+          },
+          {
+            "dimension": "marital_status",
+            "value": "divorced",
+            "golden": 2,
+            "candidate": 1
+          },
+          {
+            "dimension": "age",
+            "value": "under_18",
+            "golden": 0,
+            "candidate": 1
+          },
+          {
+            "dimension": "age",
+            "value": "age_18_25",
+            "golden": 0,
+            "candidate": 2
+          },
+          {
+            "dimension": "age",
+            "value": "age_26_49",
+            "golden": 0,
+            "candidate": 2
+          },
+          {
+            "dimension": "age",
+            "value": "age_50_64",
+            "golden": 0,
+            "candidate": 2
+          },
+          {
+            "dimension": "age",
+            "value": "age_65_plus",
+            "golden": 1,
+            "candidate": 2
+          },
+          {
+            "dimension": "income",
+            "value": "income_30k_60k",
+            "golden": 2,
+            "candidate": 1
+          },
+          {
+            "dimension": "income",
+            "value": "income_60k_120k",
+            "golden": 2,
+            "candidate": 1
+          },
+          {
+            "dimension": "income",
+            "value": "income_120k_250k",
+            "golden": 2,
+            "candidate": 1
+          },
+          {
+            "dimension": "occupation",
+            "value": "education",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "occupation",
+            "value": "public_sector_first_responders",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "occupation",
+            "value": "professional_office",
+            "golden": 1,
+            "candidate": 2
+          },
+          {
+            "dimension": "occupation",
+            "value": "retail_service",
+            "golden": 2,
+            "candidate": 1
+          },
+          {
+            "dimension": "employment_status",
+            "value": "employee",
+            "golden": 2,
+            "candidate": 1
+          },
+          {
+            "dimension": "employment_status",
+            "value": "unemployed",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "employment_status",
+            "value": "retired",
+            "golden": 1,
+            "candidate": 2
+          },
+          {
+            "dimension": "health_coverage",
+            "value": "medicare",
+            "golden": 1,
+            "candidate": 2
+          },
+          {
+            "dimension": "health_coverage",
+            "value": "medicaid",
+            "golden": 0,
+            "candidate": 1
+          },
+          {
+            "dimension": "health_coverage",
+            "value": "uninsured",
+            "golden": 0,
+            "candidate": 2
+          }
+        ]
+      },
+      "groups": {
+        "golden_groups": 8,
+        "candidate_groups": 5,
+        "jaccard": 0.444
+      },
+      "candidate_validation_problems": {},
+      "tokens": {
+        "input": 667588,
+        "output": 36914,
+        "cache_read": 0,
+        "cache_write": 0
+      }
+    },
+    {
+      "bill_id": "119-hr-28",
+      "title": "Protection of Women and Girls in Sports Act of 2025",
+      "scores": {
+        "compared": 59,
+        "missing": 0,
+        "exact": 57,
+        "off_by_1": 2,
+        "off_by_2": 0,
+        "exact_rate": 0.966,
+        "nonzero_precision": 1.0,
+        "nonzero_recall": 0.889,
+        "disagreements": [
+          {
+            "dimension": "caregiver_status",
+            "value": "parent_of_minor",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "occupation",
+            "value": "education",
+            "golden": 1,
+            "candidate": 2
+          }
+        ]
+      },
+      "groups": {
+        "golden_groups": 4,
+        "candidate_groups": 2,
+        "jaccard": 0.5
+      },
+      "candidate_validation_problems": {},
+      "tokens": {
+        "input": 33998,
+        "output": 21424,
+        "cache_read": 0,
+        "cache_write": 0
+      }
+    },
+    {
+      "bill_id": "119-hr-38",
+      "title": "Constitutional Concealed Carry Reciprocity Act of 2025",
+      "scores": {
+        "compared": 54,
+        "missing": 5,
+        "exact": 50,
+        "off_by_1": 4,
+        "off_by_2": 0,
+        "exact_rate": 0.926,
+        "nonzero_precision": null,
+        "nonzero_recall": 0.0,
+        "disagreements": [
+          {
+            "dimension": "citizenship_status",
+            "value": "citizen",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "citizenship_status",
+            "value": "permanent_resident",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "citizenship_status",
+            "value": "other_status",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "occupation",
+            "value": "public_sector_first_responders",
+            "golden": 1,
+            "candidate": 0
+          }
+        ]
+      },
+      "groups": {
+        "golden_groups": 1,
+        "candidate_groups": 1,
+        "jaccard": 1.0
+      },
+      "candidate_validation_problems": {
+        "age": {
+          "missing": [
+            "age_18_25",
+            "age_26_49",
+            "age_50_64",
+            "age_65_plus",
+            "under_18"
+          ],
+          "extra": [],
+          "bad_scores": [
+            "<no scores returned>"
+          ]
+        }
+      },
+      "tokens": {
+        "input": 71585,
+        "output": 32255,
+        "cache_read": 0,
+        "cache_write": 0
+      }
+    },
+    {
+      "bill_id": "119-s-129",
+      "title": "No Tax on Tips Act",
+      "scores": {
+        "compared": 59,
+        "missing": 0,
+        "exact": 53,
+        "off_by_1": 2,
+        "off_by_2": 4,
+        "exact_rate": 0.898,
+        "nonzero_precision": 1.0,
+        "nonzero_recall": 0.333,
+        "disagreements": [
+          {
+            "dimension": "income",
+            "value": "under_30k",
+            "golden": 2,
+            "candidate": 0
+          },
+          {
+            "dimension": "income",
+            "value": "income_30k_60k",
+            "golden": 2,
+            "candidate": 0
+          },
+          {
+            "dimension": "income",
+            "value": "income_60k_120k",
+            "golden": 2,
+            "candidate": 0
+          },
+          {
+            "dimension": "income",
+            "value": "income_120k_250k",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "occupation",
+            "value": "other",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "employment_status",
+            "value": "self_employed_owner",
+            "golden": 2,
+            "candidate": 0
+          }
+        ]
+      },
+      "groups": {
+        "golden_groups": 2,
+        "candidate_groups": 1,
+        "jaccard": 0.0
+      },
+      "candidate_validation_problems": {},
+      "tokens": {
+        "input": 49723,
+        "output": 23136,
+        "cache_read": 0,
+        "cache_write": 0
+      }
+    },
+    {
+      "bill_id": "119-s-146",
+      "title": "TAKE IT DOWN Act",
+      "scores": {
+        "compared": 54,
+        "missing": 5,
+        "exact": 51,
+        "off_by_1": 2,
+        "off_by_2": 1,
+        "exact_rate": 0.944,
+        "nonzero_precision": 1.0,
+        "nonzero_recall": 0.333,
+        "disagreements": [
+          {
+            "dimension": "caregiver_status",
+            "value": "parent_of_minor",
+            "golden": 1,
+            "candidate": 2
+          },
+          {
+            "dimension": "caregiver_status",
+            "value": "caregiver_of_adult",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "occupation",
+            "value": "technology",
+            "golden": 2,
+            "candidate": 0
+          }
+        ]
+      },
+      "groups": {
+        "golden_groups": 3,
+        "candidate_groups": 2,
+        "jaccard": 0.667
+      },
+      "candidate_validation_problems": {
+        "age": {
+          "missing": [
+            "age_18_25",
+            "age_26_49",
+            "age_50_64",
+            "age_65_plus",
+            "under_18"
+          ],
+          "extra": [],
+          "bad_scores": [
+            "<no scores returned>"
+          ]
+        }
+      },
+      "tokens": {
+        "input": 118998,
+        "output": 35294,
+        "cache_read": 0,
+        "cache_write": 0
+      }
+    },
+    {
+      "bill_id": "119-s-1582",
+      "title": "GENIUS Act",
+      "scores": {
+        "compared": 52,
+        "missing": 0,
+        "exact": 49,
+        "off_by_1": 1,
+        "off_by_2": 2,
+        "exact_rate": 0.942,
+        "nonzero_precision": null,
+        "nonzero_recall": 0.0,
+        "disagreements": [
+          {
+            "dimension": "occupation",
+            "value": "public_sector_first_responders",
+            "golden": 1,
+            "candidate": 0
+          },
+          {
+            "dimension": "occupation",
+            "value": "professional_office",
+            "golden": 2,
+            "candidate": 0
+          },
+          {
+            "dimension": "occupation",
+            "value": "technology",
+            "golden": 2,
+            "candidate": 0
+          }
+        ]
+      },
+      "groups": {
+        "golden_groups": 0,
+        "candidate_groups": 0,
+        "jaccard": 1.0
+      },
+      "candidate_validation_problems": {},
+      "tokens": {
+        "input": 674711,
+        "output": 16084,
+        "cache_read": 0,
+        "cache_write": 0
+      }
+    },
+    {
+      "bill_id": "119-s-331",
+      "title": "HALT Fentanyl Act",
+      "scores": {
+        "compared": 59,
+        "missing": 0,
+        "exact": 57,
+        "off_by_1": 2,
+        "off_by_2": 0,
+        "exact_rate": 0.966,
+        "nonzero_precision": 0.667,
+        "nonzero_recall": 1.0,
+        "disagreements": [
+          {
+            "dimension": "occupation",
+            "value": "public_sector_first_responders",
+            "golden": 1,
+            "candidate": 2
+          },
+          {
+            "dimension": "health_coverage",
+            "value": "va_tricare",
+            "golden": 0,
+            "candidate": 1
+          }
+        ]
+      },
+      "groups": {
+        "golden_groups": 1,
+        "candidate_groups": 1,
+        "jaccard": 1.0
+      },
+      "candidate_validation_problems": {},
+      "tokens": {
+        "input": 142730,
+        "output": 21079,
+        "cache_read": 0,
+        "cache_write": 0
+      }
+    },
+    {
+      "bill_id": "119-s-5",
+      "title": "Laken Riley Act",
+      "scores": {
+        "compared": 54,
+        "missing": 5,
+        "exact": 52,
+        "off_by_1": 1,
+        "off_by_2": 1,
+        "exact_rate": 0.963,
+        "nonzero_precision": 0.5,
+        "nonzero_recall": 0.5,
+        "disagreements": [
+          {
+            "dimension": "citizenship_status",
+            "value": "permanent_resident",
+            "golden": 0,
+            "candidate": 2
+          },
+          {
+            "dimension": "occupation",
+            "value": "public_sector_first_responders",
+            "golden": 1,
+            "candidate": 0
+          }
+        ]
+      },
+      "groups": {
+        "golden_groups": 1,
+        "candidate_groups": 1,
+        "jaccard": 0.0
+      },
+      "candidate_validation_problems": {
+        "income": {
+          "missing": [
+            "income_120k_250k",
+            "income_250k_plus",
+            "income_30k_60k",
+            "income_60k_120k",
+            "under_30k"
+          ],
+          "extra": [],
+          "bad_scores": [
+            "<no scores returned>"
+          ]
+        }
+      },
+      "tokens": {
+        "input": 58852,
+        "output": 32554,
+        "cache_read": 0,
+        "cache_write": 0
+      }
+    }
+  ]
+}
