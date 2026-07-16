@@ -84,6 +84,28 @@ def test_classify_action_unrecognized_is_none():
     assert classify_action(_action("Sponsor introductory remarks on measure.")) is None
 
 
+def test_adopts_prior_scores():
+    from pipelines.ingest import adopts_prior_scores
+
+    seeded = {
+        "text_hash": None,
+        "scored_text_hash": None,
+        "llm_status": "partial",
+        "text_source_url": "https://congress.gov/text/v1.htm",
+    }
+    assert adopts_prior_scores(seeded, "https://congress.gov/text/v1.htm")
+    # A newer text version was published: don't adopt, re-score.
+    assert not adopts_prior_scores(seeded, "https://congress.gov/text/v2.htm")
+    # Never-seeded bills and already-ingested bills don't adopt.
+    assert not adopts_prior_scores(None, "https://congress.gov/text/v1.htm")
+    assert not adopts_prior_scores(
+        {**seeded, "text_hash": "abc"}, "https://congress.gov/text/v1.htm"
+    )
+    assert not adopts_prior_scores(
+        {**seeded, "llm_status": "pending"}, "https://congress.gov/text/v1.htm"
+    )
+
+
 # --------------------------------------------------------------------------
 # Scoring-job planning
 # --------------------------------------------------------------------------

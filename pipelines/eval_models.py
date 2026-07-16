@@ -34,7 +34,7 @@ from dotenv import load_dotenv
 
 from .congress import REQUEST_TIMEOUT, _html_to_text, _xml_to_text
 from .prompts import PROMPT_VERSION, build_rubric_text, build_system_blocks
-from .scoring import score_all
+from .scoring import resolve_api_key, score_all
 from .taxonomy import load_taxonomy
 
 OUT_DIR = Path(__file__).resolve().parent.parent / "out"
@@ -219,9 +219,12 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     load_dotenv()
 
-    anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
+    anthropic_key = resolve_api_key()
     if not anthropic_key:
-        print("ANTHROPIC_API_KEY is not set.", file=sys.stderr)
+        print(
+            "Set PIPELINE_ANTHROPIC_API_KEY (or ANTHROPIC_API_KEY).",
+            file=sys.stderr,
+        )
         return 1
 
     wanted = set(args.bills.split(",")) if args.bills else None

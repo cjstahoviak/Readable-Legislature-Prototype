@@ -25,7 +25,7 @@ from dotenv import load_dotenv
 
 from . import db
 from .prompts import PROMPT_VERSION, build_rubric_text, build_system_blocks
-from .scoring import DEFAULT_MODEL, score_all
+from .scoring import DEFAULT_MODEL, resolve_api_key, score_all
 from .taxonomy import load_taxonomy, select_values
 
 _CANDIDATES_SQL = """
@@ -220,9 +220,12 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     load_dotenv()
 
-    anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
+    anthropic_key = resolve_api_key()
     if not anthropic_key and not args.dry_run:
-        print("ANTHROPIC_API_KEY is not set.", file=sys.stderr)
+        print(
+            "Set PIPELINE_ANTHROPIC_API_KEY (or ANTHROPIC_API_KEY).",
+            file=sys.stderr,
+        )
         return 1
 
     taxonomy = load_taxonomy()

@@ -12,6 +12,7 @@ resampling relies on the model's natural run-to-run variance.)
 from __future__ import annotations
 
 import json
+import os
 import re
 import statistics
 import sys
@@ -33,6 +34,20 @@ from .validation import validate_scores, validate_target_groups
 
 DEFAULT_MODEL = "claude-opus-4-8"
 DEFAULT_MAX_TOKENS = 16000
+
+
+def resolve_api_key() -> str | None:
+    """The Anthropic API key for pipeline calls.
+
+    ``PIPELINE_ANTHROPIC_API_KEY`` takes precedence because Claude
+    Code's cloud environments reserve the name ``ANTHROPIC_API_KEY``
+    (sessions authenticate through the user's account, so that
+    variable is withheld from the container). Plain
+    ``ANTHROPIC_API_KEY`` still works everywhere else.
+    """
+    return os.environ.get("PIPELINE_ANTHROPIC_API_KEY") or os.environ.get(
+        "ANTHROPIC_API_KEY"
+    )
 
 
 def score_dimension(

@@ -114,6 +114,28 @@ def _parse_api_datetime(value: str | None) -> dt.datetime | None:
     return parsed
 
 
+def adopts_prior_scores(
+    existing: dict[str, Any] | None, source_url: str
+) -> bool:
+    """Whether newly fetched text is the version prior scores came from.
+
+    Bills seeded by pipelines.load_outputs carry scores plus the text
+    *URL* they were scored on, but no text and no scored_text_hash.
+    When ingestion later fetches that exact text version, the stored
+    scores are valid for it — record the provenance instead of
+    invalidating 59 perfectly good scores. Applies only to rows that
+    have never been ingested (text_hash is NULL); after first ingest
+    the normal hash-comparison rules take over.
+    """
+    return bool(
+        existing
+        and existing["text_hash"] is None
+        and existing["scored_text_hash"] is None
+        and existing["llm_status"] in ("partial", "complete")
+        and existing["text_source_url"] == source_url
+    )
+
+
 # --------------------------------------------------------------------------
 # One-bill refresh
 # --------------------------------------------------------------------------
@@ -171,8 +193,15 @@ def refresh_bill(
                 text_version_type=source["type"],
                 text_source_url=source["url"],
             )
-            # New or changed text invalidates existing scores.
-            if text_changed and (existing is None or existing["llm_status"] == "complete"):
+            if adopts_prior_scores(existing, source["url"]):
+                # Loader-seeded bill: the stored scores came from this
+                # exact text version, so record that instead of
+                # invalidating them.
+                fields["scored_text_hash"] = text_hash
+            elif text_changed and (
+                existing is None or existing["llm_status"] == "complete"
+            ):
+                # New or changed text invalidates existing scores.
                 fields["llm_status"] = "pending"
 
         bill_id = db.upsert_bill(conn, congress, bill_type, number, **fields)
