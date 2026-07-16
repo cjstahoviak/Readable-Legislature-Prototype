@@ -9,6 +9,11 @@ from __future__ import annotations
 
 from typing import Any
 
+# Bump whenever any prompt or schema in this module changes meaning.
+# Stored on every scored bill; the scoring job re-scores bills whose
+# stored version differs (active bills first, under --max-bills).
+PROMPT_VERSION = "1"
+
 
 def build_rubric_text(scoring: dict[str, Any]) -> str:
     """Render the 0/1/2 scoring contract for the system prompt."""
@@ -124,6 +129,48 @@ def build_target_group_prompt(taxonomy: dict[str, Any]) -> str:
         "    whether the effect is good or bad for the group.",
     ]
     return "\n".join(lines)
+
+
+def build_summary_prompt() -> str:
+    """Instruction for the plain-language summary call.
+
+    Two lengths in one call: ``tldr`` feeds the bill cards, ``overview``
+    the detail page. Neutrality here is user-facing product copy, so it
+    is spelled out harder than in the scoring prompts.
+    """
+    return "\n".join(
+        [
+            "Write a plain-language summary of the bill above for a",
+            "general audience at roughly an 8th-grade reading level.",
+            "",
+            'Return a JSON object: {"tldr": "...", "overview": "..."}',
+            "",
+            "tldr: ONE sentence, at most 160 characters, stating what",
+            "the bill does. Start with a verb (e.g. \"Increases...\",",
+            '"Requires..."); do not repeat the bill number or title.',
+            "",
+            "overview: 2-4 short paragraphs separated by blank lines:",
+            "what the bill changes, how the change works, and who is",
+            "directly affected. Spell out program names and acronyms",
+            "on first use.",
+            "",
+            "NEUTRALITY: describe effects without judging them. No",
+            "advocacy, no loaded adjectives (\"landmark\",",
+            "\"controversial\", \"commonsense\"), no speculation about",
+            "motives, no assessment of whether effects are good or bad.",
+        ]
+    )
+
+
+SUMMARY_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "tldr": {"type": "string"},
+        "overview": {"type": "string"},
+    },
+    "required": ["tldr", "overview"],
+    "additionalProperties": False,
+}
 
 
 # JSON schema for the target-group call. `dimension`/`value` stay

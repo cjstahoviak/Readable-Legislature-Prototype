@@ -38,7 +38,31 @@ dbmate up                 # applies db/migrations; install from
 - `ANTHROPIC_API_KEY` — from <https://console.anthropic.com>
 - `DATABASE_URL` — defaults to the docker-compose database
 
-## Score bills
+## Pipeline jobs
+
+```bash
+# Ingest bills from Congress.gov into the database:
+python -m pipelines.ingest --congress 119 --bills hr-2138,s-5   # specific
+python -m pipelines.ingest --congress 119 --since 2026-07-01T00:00:00Z  # incremental
+
+# Score DB bills that are pending / partial / stale (budget-capped):
+python -m pipelines.score_pending --max-bills 25 [--samples 3] [--dry-run]
+
+# Backfill the database from the prototype's file outputs:
+python -m pipelines.load_outputs
+
+# Compare a cheaper model against the golden outputs in out/:
+python -m pipelines.eval_models --model claude-haiku-4-5 --samples 1
+```
+
+Ingestion pulls metadata, sponsors, actions, committees, and bill text
+(hashed; a text change drops the bill back to `llm_status = 'pending'`).
+The scoring job runs only the missing LLM work per bill — unscored
+dimensions, absent target groups, absent summaries — so a partially
+failed bill is retried piecemeal, and a prompt-version bump re-scores
+active bills first under `--max-bills`.
+
+## Score bills to files (no database)
 
 ```bash
 # Defaults to H.R. 2138 (119th Congress), model claude-opus-4-8
@@ -49,10 +73,10 @@ python -m pipelines.score_bill --bills hr-2138,s-129 --samples 3
 ```
 
 Makes one Claude call per taxonomy dimension (all of a dimension's
-values scored together so they calibrate against each other) plus one
-call extracting the bill's explicitly targeted groups, validates the
-structured output against the taxonomy, and writes one JSON file per
-bill to `out/`.
+values scored together so they calibrate against each other), one call
+extracting the bill's explicitly targeted groups, and one producing the
+plain-language summaries, validates the structured output against the
+taxonomy, and writes one JSON file per bill to `out/`.
 
 | Flag | Effect |
 |---|---|
@@ -61,6 +85,7 @@ bill to `out/`.
 | `--concurrency <n>` | Parallel API calls per bill (default 4). |
 | `--no-thinking` | Disable adaptive extended thinking. |
 | `--no-target-groups` | Skip the target-group extraction call. |
+| `--no-summary` | Skip the plain-language summary call. |
 | `--include-complement` | Also score `score_complement: false` values. |
 | `--max-chars <n>` | Safety cap; truncate very long bill text. |
 
@@ -86,8 +111,13 @@ never from hand-copied constants.
 
 ```bash
 python -m pytest
+
+# Include the database round-trip tests:
+TEST_DATABASE_URL=postgres://... python -m pytest
 ```
 
-Offline only — prompt construction, resampling aggregation, and
-validation are exercised against the real `taxonomy.yaml`, with the
-committed outputs in `out/` as golden fixtures.
+Runs offline — prompt construction, resampling aggregation, stage
+derivation, eval comparison, and validation are exercised against the
+real `taxonomy.yaml`, with the committed outputs in `out/` as golden
+fixtures. Setting `TEST_DATABASE_URL` (a database with the migrations
+applied) adds loader/persistence round-trip tests.

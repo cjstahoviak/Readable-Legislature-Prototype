@@ -9,8 +9,9 @@ from __future__ import annotations
 import html
 import re
 import sys
+import time
 import xml.etree.ElementTree as ET
-from typing import Any
+from typing import Any, Iterator
 
 import requests
 
@@ -31,18 +32,59 @@ BILL_TYPE_SLUG = {
 }
 
 
+def api_get(
+    path: str, api_key: str, max_attempts: int = 5, **params: Any
+) -> dict[str, Any]:
+    """GET a Congress.gov API path with retry on 429/5xx.
+
+    ``path`` is relative to the v3 base, e.g. ``bill/119/hr/2138``.
+    """
+    url = f"{CONGRESS_API_BASE}/{path.lstrip('/')}"
+    delay = 2.0
+    for attempt in range(1, max_attempts + 1):
+        resp = requests.get(
+            url,
+            params={"api_key": api_key, "format": "json", **params},
+            timeout=REQUEST_TIMEOUT,
+        )
+        if resp.status_code == 200:
+            return resp.json()
+        retryable = resp.status_code == 429 or resp.status_code >= 500
+        if not retryable or attempt == max_attempts:
+            _raise_for_congress_status(resp)
+        wait = float(resp.headers.get("Retry-After") or delay)
+        print(
+            f"  congress.gov {resp.status_code} on {path}; "
+            f"retrying in {wait:.0f}s ({attempt}/{max_attempts})",
+            file=sys.stderr,
+        )
+        time.sleep(wait)
+        delay = min(delay * 2, 60)
+    raise RuntimeError("unreachable")
+
+
+def paginate(
+    path: str, api_key: str, item_key: str, page_size: int = 250, **params: Any
+) -> Iterator[dict[str, Any]]:
+    """Yield every item from a paginated Congress.gov list endpoint."""
+    offset = 0
+    while True:
+        data = api_get(
+            path, api_key, limit=page_size, offset=offset, **params
+        )
+        items = data.get(item_key) or []
+        yield from items
+        offset += len(items)
+        count = (data.get("pagination") or {}).get("count", 0)
+        if not items or offset >= count:
+            return
+
+
 def fetch_bill(
     congress: int, bill_type: str, number: int, api_key: str
 ) -> dict[str, Any]:
     """Fetch a single bill's metadata from the Congress.gov API."""
-    url = f"{CONGRESS_API_BASE}/bill/{congress}/{bill_type}/{number}"
-    resp = requests.get(
-        url,
-        params={"api_key": api_key, "format": "json"},
-        timeout=REQUEST_TIMEOUT,
-    )
-    _raise_for_congress_status(resp)
-    return resp.json()["bill"]
+    return api_get(f"bill/{congress}/{bill_type}/{number}", api_key)["bill"]
 
 
 def fetch_bill_text(
@@ -57,15 +99,8 @@ def fetch_bill_text(
     Returns ``(text, source)`` where ``source`` describes the version
     used (its ``type`` and the URL the text came from).
     """
-    url = f"{CONGRESS_API_BASE}/bill/{congress}/{bill_type}/{number}/text"
-    resp = requests.get(
-        url,
-        params={"api_key": api_key, "format": "json"},
-        timeout=REQUEST_TIMEOUT,
-    )
-    _raise_for_congress_status(resp)
-
-    versions = resp.json().get("textVersions", [])
+    data = api_get(f"bill/{congress}/{bill_type}/{number}/text", api_key)
+    versions = data.get("textVersions", [])
     if not versions:
         raise RuntimeError("No text versions available for this bill.")
 

@@ -30,7 +30,7 @@ from .congress import (
     fetch_bill_text,
     ordinal_suffix,
 )
-from .prompts import build_rubric_text, build_system_blocks
+from .prompts import PROMPT_VERSION, build_rubric_text, build_system_blocks
 from .scoring import DEFAULT_MODEL, score_all
 from .taxonomy import load_taxonomy
 
@@ -209,7 +209,7 @@ def run_one_bill(
         f"  Scoring {len(taxonomy['dimensions'])} dimensions "
         f"x {args.samples} sample(s)..."
     )
-    results, target_groups, validation, totals = score_all(
+    results, target_groups, summary, validation, totals = score_all(
         client,
         args.model,
         system_blocks,
@@ -219,6 +219,7 @@ def run_one_bill(
         samples=args.samples,
         concurrency=args.concurrency,
         extract_groups=not args.no_target_groups,
+        generate_summary=not args.no_summary,
     )
 
     bill_id = f"{args.congress}-{bill_type}-{number}"
@@ -235,7 +236,9 @@ def run_one_bill(
         },
         "fetched_at": _utc_now_iso(),
         "model": args.model,
+        "prompt_version": PROMPT_VERSION,
         "samples": args.samples,
+        "summary": summary,
         "scores": results,
         "target_groups": target_groups or [],
         "validation": validation,
@@ -244,6 +247,8 @@ def run_one_bill(
     out_path = OUT_DIR / f"{bill_id}.json"
     write_results(out_path, payload)
 
+    if summary:
+        print(f"\nTLDR: {summary['tldr']}")
     print_summary(results, taxonomy)
     if not args.no_target_groups:
         print_target_groups(target_groups)
@@ -321,6 +326,11 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
         "--no-target-groups",
         action="store_true",
         help="Skip the extra target-group extraction call.",
+    )
+    parser.add_argument(
+        "--no-summary",
+        action="store_true",
+        help="Skip the plain-language summary call.",
     )
     parser.add_argument(
         "--max-chars",

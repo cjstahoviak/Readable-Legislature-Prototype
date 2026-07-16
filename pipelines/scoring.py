@@ -21,8 +21,10 @@ from typing import Any
 from anthropic import Anthropic
 
 from .prompts import (
+    SUMMARY_SCHEMA,
     TARGET_GROUP_SCHEMA,
     build_dimension_schema,
+    build_summary_prompt,
     build_target_group_prompt,
     build_user_prompt,
 )
@@ -85,6 +87,38 @@ def extract_target_groups(
     if parsed is None:
         return None, usage
     return parsed.get("target_groups"), usage
+
+
+def summarize_bill(
+    client: Anthropic,
+    model: str,
+    system_blocks: list[dict[str, Any]],
+    use_thinking: bool,
+    max_tokens: int = DEFAULT_MAX_TOKENS,
+) -> tuple[dict[str, str] | None, dict[str, int]]:
+    """Make one Claude call producing the plain-language summaries.
+
+    Returns ``({"tldr", "overview"}, usage)``; the dict is ``None`` on
+    a refusal or unparseable response. Runs once per bill regardless of
+    resampling — majority-voting prose is meaningless.
+    """
+    parsed, usage = _call_claude_json(
+        client,
+        model,
+        system_blocks,
+        build_summary_prompt(),
+        SUMMARY_SCHEMA,
+        use_thinking,
+        label="summary",
+        max_tokens=max_tokens,
+    )
+    if not isinstance(parsed, dict):
+        return None, usage
+    tldr = (parsed.get("tldr") or "").strip()
+    overview = (parsed.get("overview") or "").strip()
+    if not tldr or not overview:
+        return None, usage
+    return {"tldr": tldr, "overview": overview}, usage
 
 
 def _call_claude_json(
@@ -258,16 +292,28 @@ def score_all(
     samples: int,
     concurrency: int,
     extract_groups: bool,
+    dimensions: list[str] | None = None,
+    generate_summary: bool = False,
 ) -> tuple[
-    dict[str, Any], list[dict[str, Any]] | None, dict[str, Any], dict[str, int]
+    dict[str, Any],
+    list[dict[str, Any]] | None,
+    dict[str, str] | None,
+    dict[str, Any],
+    dict[str, int],
 ]:
-    """Run every dimension call (x samples) plus the target-group call.
+    """Run the dimension calls (x samples) plus group/summary calls.
 
-    Calls run on a small thread pool; a failed call (even after SDK
-    retries) costs one sample, not the bill. Returns
-    ``(results, target_groups, validation, totals)``.
+    ``dimensions`` restricts scoring to a subset of dimension ids (the
+    scoring job uses this to retry only what's missing); ``None`` means
+    all. Calls run on a small thread pool; a failed call (even after
+    SDK retries) costs one sample, not the bill. Returns
+    ``(results, target_groups, summary, validation, totals)``.
     """
-    dims = taxonomy["dimensions"]
+    dims = [
+        d
+        for d in taxonomy["dimensions"]
+        if dimensions is None or d["id"] in dimensions
+    ]
     dim_by_id = {d["id"]: d for d in dims}
     values_by_id = {
         d["id"]: select_values(d, include_complement) for d in dims
@@ -278,6 +324,10 @@ def score_all(
     ]
     if extract_groups:
         tasks += [("__groups__", i) for i in range(samples)]
+    if generate_summary:
+        tasks += [("__summary__", 0)]  # prose: one call, never resampled
+    if not tasks:
+        return {}, None, None, {}, {"input": 0, "output": 0, "cache_read": 0}
 
     def run(task: tuple[str, int]) -> tuple[Any, dict[str, int]]:
         kind, i = task
@@ -285,6 +335,10 @@ def score_all(
             if kind == "__groups__":
                 return extract_target_groups(
                     client, model, system_blocks, taxonomy, use_thinking
+                )
+            if kind == "__summary__":
+                return summarize_bill(
+                    client, model, system_blocks, use_thinking
                 )
             return score_dimension(
                 client,
@@ -362,4 +416,14 @@ def score_all(
             target_groups, taxonomy
         )
 
-    return results, target_groups, validation, totals
+    summary: dict[str, str] | None = None
+    if generate_summary:
+        summary, usage = outputs[("__summary__", 0)]
+        totals["input"] += usage["input_tokens"]
+        totals["output"] += usage["output_tokens"]
+        totals["cache_read"] += usage["cache_read_input_tokens"]
+        validation["summary"] = {
+            "missing": [] if summary else ["<no summary returned>"]
+        }
+
+    return results, target_groups, summary, validation, totals
