@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+.pytest_cache/
+
+# dbmate writes a schema dump after migrating when pg_dump is
+# available; the migrations are the source of truth, so don't track it.
+db/schema.sql

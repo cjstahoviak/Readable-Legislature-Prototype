@@ -1,0 +1,484 @@
+{
+  "scale": [
+    {
+      "value": 0,
+      "label": "low",
+      "definition": "Essentially irrelevant to this group. The bill does not meaningfully touch their lives."
+    },
+    {
+      "value": 1,
+      "label": "moderate",
+      "definition": "First-order indirect effect only. The group is affected, but through a single step of consequence rather than being the direct subject of the bill."
+    },
+    {
+      "value": 2,
+      "label": "high",
+      "definition": "Direct and immediate effect. The group is an explicit subject of the bill and feels its effect firsthand."
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "veteran_status",
+      "label": "Veteran status",
+      "type": "binary",
+      "values": [
+        {
+          "id": "veteran",
+          "label": "Veteran",
+          "description": "Has served in the U.S. armed forces, including reserves and National Guard with qualifying service.",
+          "scored": true
+        },
+        {
+          "id": "non_veteran",
+          "label": "Non-veteran",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "id": "disability_status",
+      "label": "Disability status",
+      "type": "binary",
+      "values": [
+        {
+          "id": "has_disability",
+          "label": "Has a disability",
+          "description": "Self-identified physical, mental, sensory, or cognitive disability, whether or not formally adjudicated.",
+          "scored": true
+        },
+        {
+          "id": "no_disability",
+          "label": "No disability",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "id": "student_status",
+      "label": "Student status",
+      "type": "binary",
+      "values": [
+        {
+          "id": "student",
+          "label": "Student",
+          "description": "Currently enrolled in post-secondary education: undergraduate, graduate, or trade/vocational. K-12 legislation reaches users through parent_of_minor and the under_18 age bracket.",
+          "scored": true
+        },
+        {
+          "id": "non_student",
+          "label": "Non-student",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "id": "student_loan_status",
+      "label": "Student loan status",
+      "type": "binary",
+      "values": [
+        {
+          "id": "has_student_loans",
+          "label": "Has federal student loans",
+          "description": "Holds or is repaying federal student loan debt, whether or not currently enrolled. Loan forgiveness, repayment, and interest legislation targets borrowers, most of whom are no longer students.",
+          "scored": true
+        },
+        {
+          "id": "no_student_loans",
+          "label": "No student loans",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "id": "caregiver_status",
+      "label": "Parent / caregiver status",
+      "type": "categorical",
+      "values": [
+        {
+          "id": "parent_of_minor",
+          "label": "Parent of a minor child",
+          "description": "Has at least one child under 18.",
+          "scored": true
+        },
+        {
+          "id": "caregiver_of_adult",
+          "label": "Caregiver of a dependent adult",
+          "description": "Provides regular unpaid care to a dependent adult, such as an aging or disabled relative.",
+          "scored": true
+        },
+        {
+          "id": "neither",
+          "label": "Neither",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "id": "housing_status",
+      "label": "Housing status",
+      "type": "categorical",
+      "values": [
+        {
+          "id": "homeowner",
+          "label": "Homeowner",
+          "scored": true
+        },
+        {
+          "id": "renter",
+          "label": "Renter",
+          "scored": true
+        },
+        {
+          "id": "other",
+          "label": "Other",
+          "description": "Living arrangements outside owning or renting, e.g. living with family, unhoused, institutional housing.",
+          "scored": true
+        }
+      ]
+    },
+    {
+      "id": "citizenship_status",
+      "label": "Citizenship status",
+      "type": "categorical",
+      "values": [
+        {
+          "id": "citizen",
+          "label": "U.S. citizen",
+          "scored": true
+        },
+        {
+          "id": "permanent_resident",
+          "label": "Lawful permanent resident",
+          "description": "Green-card holder; not a citizen.",
+          "scored": true
+        },
+        {
+          "id": "other_status",
+          "label": "Other immigration status",
+          "description": "Visa holders, asylees, undocumented persons, and any status other than citizen or permanent resident.",
+          "scored": true
+        }
+      ]
+    },
+    {
+      "id": "marital_status",
+      "label": "Marital status",
+      "type": "categorical",
+      "values": [
+        {
+          "id": "single",
+          "label": "Single (never married)",
+          "scored": true
+        },
+        {
+          "id": "married",
+          "label": "Married",
+          "scored": true
+        },
+        {
+          "id": "divorced",
+          "label": "Divorced",
+          "scored": true
+        },
+        {
+          "id": "widowed",
+          "label": "Widowed",
+          "scored": true
+        }
+      ]
+    },
+    {
+      "id": "age",
+      "label": "Age",
+      "type": "bracket",
+      "values": [
+        {
+          "id": "under_18",
+          "label": "Under 18",
+          "description": "Minors. Users are adults, so this value is mainly a scoring target: bills aimed at children score here instead of smearing into a young-adult bracket.",
+          "scored": true
+        },
+        {
+          "id": "age_18_25",
+          "label": "18-25",
+          "scored": true
+        },
+        {
+          "id": "age_26_49",
+          "label": "26-49",
+          "scored": true
+        },
+        {
+          "id": "age_50_64",
+          "label": "50-64",
+          "scored": true
+        },
+        {
+          "id": "age_65_plus",
+          "label": "65 and older",
+          "scored": true
+        }
+      ]
+    },
+    {
+      "id": "income",
+      "label": "Household income",
+      "type": "bracket",
+      "values": [
+        {
+          "id": "under_30k",
+          "label": "Under $30k",
+          "scored": true
+        },
+        {
+          "id": "income_30k_60k",
+          "label": "$30k-$60k",
+          "scored": true
+        },
+        {
+          "id": "income_60k_120k",
+          "label": "$60k-$120k",
+          "scored": true
+        },
+        {
+          "id": "income_120k_250k",
+          "label": "$120k-$250k",
+          "scored": true
+        },
+        {
+          "id": "income_250k_plus",
+          "label": "$250k and above",
+          "scored": true
+        }
+      ]
+    },
+    {
+      "id": "occupation",
+      "label": "Occupation",
+      "type": "categorical",
+      "values": [
+        {
+          "id": "education",
+          "label": "Education",
+          "description": "Teachers, faculty, school staff.",
+          "scored": true
+        },
+        {
+          "id": "healthcare",
+          "label": "Healthcare",
+          "description": "Clinical and allied health workers: doctors, nurses, aides, technicians, pharmacists.",
+          "scored": true
+        },
+        {
+          "id": "construction_trades",
+          "label": "Construction & trades",
+          "description": "Skilled and manual trades; on-site building work.",
+          "scored": true
+        },
+        {
+          "id": "manufacturing",
+          "label": "Manufacturing & industrial",
+          "description": "Factory and plant production work: machinists, assemblers, energy and mining.",
+          "scored": true
+        },
+        {
+          "id": "agriculture",
+          "label": "Agriculture",
+          "description": "Farming, ranching, fishing, forestry.",
+          "scored": true
+        },
+        {
+          "id": "transportation_logistics",
+          "label": "Transportation & logistics",
+          "description": "Drivers, pilots, warehouse and supply-chain workers.",
+          "scored": true
+        },
+        {
+          "id": "public_sector_first_responders",
+          "label": "Public sector & first responders",
+          "description": "Government employees, police, fire, EMS, military.",
+          "scored": true
+        },
+        {
+          "id": "professional_office",
+          "label": "Professional & office",
+          "description": "White-collar roles: finance, law, admin, management.",
+          "scored": true
+        },
+        {
+          "id": "retail_service",
+          "label": "Retail & service",
+          "description": "Retail, hospitality, food service, personal services.",
+          "scored": true
+        },
+        {
+          "id": "technology",
+          "label": "Technology",
+          "description": "Software, IT, hardware, and related roles.",
+          "scored": true
+        },
+        {
+          "id": "other",
+          "label": "Other",
+          "description": "Occupations not captured above. Track selection rate; frequent use is a signal to add a bucket.",
+          "scored": true
+        }
+      ]
+    },
+    {
+      "id": "employment_status",
+      "label": "Employment status",
+      "type": "categorical",
+      "values": [
+        {
+          "id": "employee",
+          "label": "Employee",
+          "description": "Works for an employer (W-2).",
+          "scored": true
+        },
+        {
+          "id": "self_employed_owner",
+          "label": "Self-employed / business owner",
+          "description": "Self-employed, independent contractor, gig worker, or small-business owner.",
+          "scored": true
+        },
+        {
+          "id": "unemployed",
+          "label": "Unemployed",
+          "description": "Not working and seeking work.",
+          "scored": true
+        },
+        {
+          "id": "retired",
+          "label": "Retired",
+          "scored": true
+        },
+        {
+          "id": "not_in_labor_force",
+          "label": "Not in the labor force",
+          "description": "Not working and not seeking work: homemaker, full-time student, unable to work.",
+          "scored": true
+        }
+      ]
+    },
+    {
+      "id": "health_coverage",
+      "label": "Health coverage",
+      "type": "categorical",
+      "values": [
+        {
+          "id": "employer_plan",
+          "label": "Employer or union plan",
+          "scored": true
+        },
+        {
+          "id": "medicare",
+          "label": "Medicare",
+          "scored": true
+        },
+        {
+          "id": "medicaid",
+          "label": "Medicaid / CHIP",
+          "scored": true
+        },
+        {
+          "id": "marketplace_individual",
+          "label": "ACA marketplace / individual plan",
+          "scored": true
+        },
+        {
+          "id": "va_tricare",
+          "label": "VA / TRICARE / military",
+          "scored": true
+        },
+        {
+          "id": "uninsured",
+          "label": "Uninsured",
+          "scored": true
+        }
+      ]
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "type": "categorical",
+      "values": [
+        {
+          "id": "male",
+          "label": "Male",
+          "scored": true
+        },
+        {
+          "id": "female",
+          "label": "Female",
+          "scored": true
+        },
+        {
+          "id": "nonbinary_other",
+          "label": "Nonbinary or other",
+          "scored": true
+        }
+      ]
+    },
+    {
+      "id": "lgbtq_identity",
+      "label": "LGBTQ+ identity",
+      "type": "binary",
+      "values": [
+        {
+          "id": "lgbtq",
+          "label": "LGBTQ+",
+          "description": "Lesbian, gay, bisexual, transgender, queer, and other sexual or gender minority identities. Covers gender identity as well as orientation; may be split into finer values later if bills differentiate.",
+          "scored": true
+        },
+        {
+          "id": "non_lgbtq",
+          "label": "Not LGBTQ+",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "id": "religion",
+      "label": "Religion",
+      "type": "categorical",
+      "values": [
+        {
+          "id": "christian",
+          "label": "Christian",
+          "scored": true
+        },
+        {
+          "id": "jewish",
+          "label": "Jewish",
+          "scored": true
+        },
+        {
+          "id": "muslim",
+          "label": "Muslim",
+          "scored": true
+        },
+        {
+          "id": "hindu",
+          "label": "Hindu",
+          "scored": true
+        },
+        {
+          "id": "buddhist",
+          "label": "Buddhist",
+          "scored": true
+        },
+        {
+          "id": "other_faith",
+          "label": "Other faith",
+          "scored": true
+        },
+        {
+          "id": "none",
+          "label": "No religious affiliation",
+          "scored": true
+        }
+      ]
+    }
+  ]
+}
