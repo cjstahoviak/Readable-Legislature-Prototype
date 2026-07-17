@@ -9,13 +9,14 @@ scores say which bills touch a group; readers judge good or bad themselves.
 ## Repository layout
 
 ```
+├── web/            # Next.js site: feed, bill pages, methodology
 ├── pipelines/      # Python jobs: Congress.gov fetch + LLM scoring
 ├── db/migrations/  # ordered SQL migrations (dbmate format)
 ├── tests/          # offline tests (prompts, aggregation, validation)
 ├── out/            # scored-bill JSON files; doubles as golden fixtures
+│   └── eval/       # model-vs-golden eval reports
 ├── taxonomy.yaml   # single source of truth: dimensions + scoring rubric
-├── docker-compose.yml  # local PostgreSQL
-└── web/            # Next.js app (coming in a later phase)
+└── docker-compose.yml  # local PostgreSQL
 ```
 
 `taxonomy.yaml` defines 16 demographic dimensions and the 0/1/2 scoring
@@ -35,7 +36,8 @@ dbmate up                 # applies db/migrations; install from
 ```
 
 - `CONGRESS_API_KEY` — free from <https://api.data.gov>
-- `ANTHROPIC_API_KEY` — from <https://console.anthropic.com>
+- `PIPELINE_ANTHROPIC_API_KEY` — from <https://console.anthropic.com>
+  (plain `ANTHROPIC_API_KEY` also works outside Claude Code environments)
 - `DATABASE_URL` — defaults to the docker-compose database
 
 ## Pipeline jobs
@@ -101,11 +103,29 @@ taxonomy, and writes one JSON file per bill to `out/`.
 ## Export the taxonomy for the web app
 
 ```bash
-python -m pipelines.export_taxonomy --out web/lib/taxonomy.generated.json
+python -m pipelines.export_taxonomy --out web/src/lib/taxonomy.generated.json
 ```
 
 The frontend must render dimensions/values from this generated file,
 never from hand-copied constants.
+
+## Web app
+
+```bash
+cd web
+npm install
+npm run dev        # http://localhost:3000, needs DATABASE_URL in web/.env.local
+npm run build      # production build (Vercel root directory: web/)
+npm run taxonomy   # regenerate src/lib/taxonomy.generated.json after
+                   # editing taxonomy.yaml — never hand-edit the JSON
+```
+
+Server-rendered Next.js (App Router) reading the same PostgreSQL the
+pipelines write. The feed ranks bills lexicographically for the
+visitor's "About you" selections — target-group match, strongest
+score, breadth, recency — and the ranking is documented verbatim on
+/methodology. Filter state lives in the URL and localStorage only;
+there are no accounts and no server-side storage of selections.
 
 ## Tests
 
