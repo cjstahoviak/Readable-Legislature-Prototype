@@ -121,7 +121,8 @@ npm run taxonomy   # regenerate src/lib/taxonomy.generated.json after
 ```
 
 Server-rendered Next.js (App Router) reading the same PostgreSQL the
-pipelines write. The feed ranks bills lexicographically for the
+pipelines write. To put the preview online (Neon + Vercel, seeded
+from `db/seed/example-bills.sql`), follow [DEPLOY.md](DEPLOY.md). The feed ranks bills lexicographically for the
 visitor's "About you" selections — target-group match, strongest
 score, breadth, recency — and the ranking is documented verbatim on
 /methodology. Filter state lives in the URL and localStorage only;

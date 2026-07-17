@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   },
   description:
     "Congressional bills in plain language, with relevance scores for the demographics they affect. Relevance, not verdicts.",
+  // Belt-and-braces with robots.ts: keep previews out of the index.
+  robots:
+    process.env.NEXT_PUBLIC_NOINDEX === "1"
+      ? { index: false, follow: false }
+      : undefined,
 };
 
 export default function RootLayout({
