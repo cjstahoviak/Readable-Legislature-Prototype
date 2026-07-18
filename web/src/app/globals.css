@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+/* Make Tailwind's dark: variant follow the theme toggle instead of only
+   the OS preference, mirroring the token selectors below: an explicit
+   data-theme wins, otherwise the system preference decides. Without
+   this, dark: utilities (badge/chip tints) stay dark when a dark-OS
+   user switches to light mode. */
+@custom-variant dark {
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:not([data-theme="light"], [data-theme="light"] *)) {
+      @slot;
+    }
+  }
+}
+
 /* Design tokens extracted from the v0 design reference: warm cream
    background, navy ink, shadcn-style semantic names. Dark theme keys
    off the system preference unless the user picks a theme with the
