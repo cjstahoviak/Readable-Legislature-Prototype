@@ -2,7 +2,11 @@
 
 /* Design tokens extracted from the v0 design reference: warm cream
    background, navy ink, shadcn-style semantic names. Dark theme keys
-   off the system preference. */
+   off the system preference unless the user picks a theme with the
+   header toggle, which sets data-theme on <html> (persisted in
+   localStorage and restored pre-paint by the inline script in
+   layout.tsx). The dark token block is duplicated across the two
+   selectors because custom-property sets can't be aliased in CSS. */
 :root {
   --background: 40 30% 98%;
   --foreground: 222.2 84% 4.9%;
@@ -19,10 +23,29 @@
   --border: 214.3 31.8% 91.4%;
   --ring: 222.2 84% 4.9%;
   --radius: 0.5rem;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 71% 8%;
+  --card-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 71% 8%;
@@ -37,6 +60,7 @@
     --accent-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+    color-scheme: dark;
   }
 }
 
@@ -66,4 +90,30 @@ body {
   color: hsl(var(--foreground));
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Theme-toggle icons: the sun shows while dark mode is active, the moon
+   while light is. Done in CSS (mirroring the token selectors above) so
+   the server-rendered markup is theme-agnostic and hydration never
+   mismatches. */
+.theme-icon-sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-icon-sun {
+  display: block;
+}
+
+:root[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-icon-sun {
+    display: block;
+  }
+
+  :root:not([data-theme="light"]) .theme-icon-moon {
+    display: none;
+  }
 }
