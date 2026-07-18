@@ -33,12 +33,18 @@ cp .env.example .env      # then fill in the keys
 docker compose up -d
 dbmate up                 # applies db/migrations; install from
                           # https://github.com/amacneil/dbmate
+
+# Or use a Neon cloud database instead of docker: link this workspace
+# to your own Neon project. Writes the machine-local (git-ignored)
+# .neon file and pulls the branch's DATABASE_URL into .env.
+npx neon link
 ```
 
 - `CONGRESS_API_KEY` — free from <https://api.data.gov>
 - `PIPELINE_ANTHROPIC_API_KEY` — from <https://console.anthropic.com>
   (plain `ANTHROPIC_API_KEY` also works outside Claude Code environments)
-- `DATABASE_URL` — defaults to the docker-compose database
+- `DATABASE_URL` — defaults to the docker-compose database; `neon link`
+  replaces it with your Neon branch's connection string
 
 ## Pipeline jobs
 
@@ -119,6 +125,10 @@ npm run build      # production build (Vercel root directory: web/)
 npm run taxonomy   # regenerate src/lib/taxonomy.generated.json after
                    # editing taxonomy.yaml — never hand-edit the JSON
 ```
+
+Note that Next.js reads `web/.env.local`, not the repo-root `.env` the
+pipelines use — so after `neon link` (or any change to the root `.env`),
+copy the `DATABASE_URL` line into `web/.env.local` yourself.
 
 Server-rendered Next.js (App Router) reading the same PostgreSQL the
 pipelines write. To put the preview online (Neon + Vercel, seeded
