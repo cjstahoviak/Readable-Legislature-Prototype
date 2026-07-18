@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ThemeToggle } from "../components/theme-toggle";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,7 +23,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    // suppressHydrationWarning: the inline script below may set
+    // data-theme on <html> before React hydrates.
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Restore a saved theme choice before first paint so the page
+            never flashes the wrong theme. No saved choice leaves
+            data-theme unset and the CSS falls back to the system
+            preference. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="flex min-h-screen flex-col">
         <header className="border-b border-border bg-card">
           <div className="mx-auto flex w-full max-w-5xl items-center gap-6 px-4 py-3">
@@ -39,6 +53,7 @@ export default function RootLayout({
               >
                 Methodology
               </Link>
+              <ThemeToggle />
             </nav>
           </div>
         </header>
